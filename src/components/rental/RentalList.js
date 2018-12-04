@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import RentalCard from './RentalCard';
 
+const mapStateToProps = state => {
+  return {
+    rentals: state.rentals
+  };
+};
+
 class ReantalList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      rentals: [1, 2, 3, 4]
-    };
-  }
-
   renderRentals() {
-    return this.state.rentals.map((rental, index) => {
-      return <RentalCard key={index} />;
+    return this.props.rentals.map(rental => {
+      return <RentalCard key={rental.id} rental={rental} />;
     });
   }
   render() {
@@ -25,4 +24,4 @@ class ReantalList extends Component {
   }
 }
 
-export default ReantalList;
+export default connect(mapStateToProps)(ReantalList);

@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const RentalCard = () => {
+const RentalCard = props => {
+  const rental = props.rental;
   return (
-    <div className="col-md-3 col-xs-6">
-      <div className="card bwm-card">
-        <img
-          className="card-img-top"
-          src="http://via.placeholder.com/350x250"
-          alt="ShureMics"
-        />
-        <div className="card-block">
-          <h6 className="card-subtitle">D&B T10's &#183; New York</h6>
-          <h4 className="card-title">12 items PA Package</h4>
-          <p className="card-text">$240 per Day &#183; Free Cancelation</p>
-          <a href="" className="card-link">
-            More Info
-          </a>
+    <div className="col-md-4 col-xs-6 mb-4">
+      <Link to={`/rentals/${rental.id}`}>
+        <div className="card bwm-card">
+          <img className="card-img-top" src={rental.image} alt={rental.model} />
+          <div className="card-block">
+            <h6 className="card-subtitle">
+              {rental.brand} {rental.model} &#183; {rental.city}
+            </h6>
+            <h4 className="card-title">{rental.description}</h4>
+            <p className="card-text">
+              ${rental.dailyRate} per Day &#183; Free Cancelation
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
