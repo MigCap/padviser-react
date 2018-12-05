@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RentalCard from './RentalCard';
+import RentalList from './RentalList';
 
-import * as actions from '../../app/actions';
+import * as actions from '../../../app/actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,13 +10,7 @@ const mapStateToProps = state => {
   };
 };
 
-class ReantalList extends Component {
-  renderRentals() {
-    return this.props.rentals.map(rental => {
-      return <RentalCard key={rental.id} rental={rental} />;
-    });
-  }
-
+class RentalListing extends Component {
   componentWillMount() {
     this.props.dispatch(actions.fetchRentals());
   }
@@ -25,10 +19,10 @@ class ReantalList extends Component {
     return (
       <section id="rentalListing">
         <h1 className="page-title">Your Gear All Around the World</h1>
-        <div className="row">{this.renderRentals()}</div>
+        <RentalList rentals={this.props.rentals} />
       </section>
     );
   }
 }
 
-export default connect(mapStateToProps)(ReantalList);
+export default connect(mapStateToProps)(RentalListing);
