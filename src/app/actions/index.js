@@ -18,6 +18,19 @@ const fetchRentalByIdSuccess = rental => {
   };
 };
 
+const fetchRentalByIdInit = () => {
+  return {
+    type: FETCH_RENTAL_BY_ID_INIT
+  };
+};
+
+const fetchRentalByIdSuccess = rental => {
+  return {
+    type: FETCH_RENTAL_BY_ID_SUCCESS,
+    rental
+  };
+};
+
 export const fetchRentals = () => {
   return {
     type: FETCH_RENTALS,
