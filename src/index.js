@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import App from './app/layout/App';
 
 import './index.css';
+import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = require('./app/reducers').init();

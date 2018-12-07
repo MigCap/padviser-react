@@ -5,7 +5,10 @@
     "dependencies": {
         "axios": "^0.18.0",
         "bootstrap": "^4.0.0",
+        "font-awesome": "^4.7.0",
+        "http-proxy-middleware": "^0.19.1",
         "jquery": "^3.3.1",
+        "mongoose": "^5.3.15",
         "node-sass-chokidar": "^1.2.2",
         "npm-run-all": "^4.1.2",
         "popper.js": "^1.14.3",
@@ -16,7 +19,8 @@
         "react-scripts": "2.1.1",
         "redux": "3.7.2",
         "redux-saga": "^0.16.2",
-        "redux-thunk": "2.2.0"
+        "redux-thunk": "2.2.0",
+        "titleize": "^1.0.1"
     },
     "scripts": {
         "build-css": "node-sass-chokidar ./src/app/layout -o ./src/app/layout",

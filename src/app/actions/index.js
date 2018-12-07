@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 import {
-  FETCH_RENTALS,
   FETCH_RENTAL_BY_ID_SUCCESS,
-  FETCH_RENTAL_BY_ID_INIT
+  FETCH_RENTAL_BY_ID_INIT,
+  FETCH_RENTAL_SUCCESS
 } from './types';
 
 const fetchRentalByIdInit = () => {
@@ -18,23 +18,19 @@ const fetchRentalByIdSuccess = rental => {
   };
 };
 
-const fetchRentalByIdInit = () => {
+const fetchRentalsSuccess = rentals => {
   return {
-    type: FETCH_RENTAL_BY_ID_INIT
-  };
-};
-
-const fetchRentalByIdSuccess = rental => {
-  return {
-    type: FETCH_RENTAL_BY_ID_SUCCESS,
-    rental
+    type: FETCH_RENTAL_SUCCESS,
+    rentals
   };
 };
 
 export const fetchRentals = () => {
-  return {
-    type: FETCH_RENTALS,
-    rentals
+  return dispatch => {
+    axios
+      .get('/api/v1/rentals')
+      .then(res => res.data)
+      .then(rentals => dispatch(fetchRentalsSuccess(rentals)));
   };
 };
 
@@ -42,8 +38,9 @@ export const fetchRentalById = rentalId => {
   return function(dispatch) {
     dispatch(fetchRentalByIdInit());
 
-    axios.get(`http://localhost:3001/api/v1/rentals/${rentalId}`).then(() => {
-      dispatch(fetchRentalByIdSuccess(rental));
-    });
+    axios
+      .get(`/api/v1/rentals/${rentalId}`)
+      .then(res => res.data)
+      .then(rental => dispatch(fetchRentalByIdSuccess(rental)));
   };
 };
