@@ -5,7 +5,7 @@ function Header() {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg">
       <div className="container">
-        <Link to="/" className="navbar-brand">
+        <Link to="/rentals" className="navbar-brand">
           Production Adviser
         </Link>
         <form className="form-inline my-2 my-lg-0">
