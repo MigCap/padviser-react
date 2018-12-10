@@ -12,8 +12,9 @@ class FakeDb {
           'Legendary live vocal microphone known for its rugged reliability on tour.',
         units: 4,
         condition: 'Ok, Average',
+        country: 'USA',
         city: 'New York',
-        street: 'Times Sqaure',
+        street: 'Times Square',
         image:
           'https://522bb370f5443d4fe5b9-f62de27af599bb6703e11b472beadbcc.ssl.cf2.rackcdn.com/product_image/zoomable_image/8248/SM58_HR.jpg',
         dailyRate: 34
@@ -27,6 +28,7 @@ class FakeDb {
           '30,000 lumens, 4K, 3-chip DLP RGB laser large venue projector',
         units: 2,
         condition: 'Mint',
+        country: 'USA',
         city: 'San Francisco',
         street: 'Main street',
         image:
@@ -42,6 +44,7 @@ class FakeDb {
         condition: 'Bad',
         description:
           '800 W 7 colours LED engine. Rotating and static gobo wheel, animation wheel, framing shutters module, 5-facet rotating prism.',
+        country: 'Slovakia',
         city: 'Bratislava',
         street: 'Hlavna',
         image:

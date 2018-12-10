@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RentalDetailInfo from './RentalDetailInfo';
+import RentalMap from './RentalMap';
 
 import * as actions from '../../../app/actions';
 
@@ -9,6 +10,12 @@ const mapStateToProps = state => {
     rental: state.rental.data
   };
 };
+
+const imageStyled = {
+  objectFit: 'contain',
+  height: '360px'
+};
+
 class RentalDetail extends Component {
   componentWillMount() {
     const rentalId = this.props.match.params.id;
@@ -24,11 +31,10 @@ class RentalDetail extends Component {
           <div className="upper-section">
             <div className="row">
               <div className="col-md-6">
-                <img src={rental.image} alt="" />
+                <img src={rental.image} alt={rental.type} style={imageStyled} />
               </div>
               <div className="col-md-6">
-                {/*<!-- Will be replaced with map !!!! -->*/}
-                <img src={rental.image} alt="" />
+                <RentalMap location={`${rental.city}, ${rental.street}`} />
               </div>
             </div>
           </div>

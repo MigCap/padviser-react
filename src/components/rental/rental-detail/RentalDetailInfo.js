@@ -10,7 +10,9 @@ export default function RentalDetailInfo(props) {
       <h1 className="rental-title">
         {rental.type} {rental.brand} {rental.model}
       </h1>
-      <h2 className="rental-city">{toUpperCase(rental.city)}</h2>
+      <h2 className="rental-city">
+        {toUpperCase(rental.city)}, {toUpperCase(rental.country)}
+      </h2>
       <div className="rental-room-info">
         <span>
           <i className="fa fa-building" />

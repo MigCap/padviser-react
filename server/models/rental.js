@@ -13,6 +13,7 @@ const rentalSchema = new Schema({
   units: Number,
   description: { type: String, required: true },
   condition: { type: String, required: true },
+  country: { type: String, required: true, lowercase: true },
   city: { type: String, required: true, lowercase: true },
   street: {
     type: String,
