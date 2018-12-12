@@ -1,5 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#compiled output
+/dist
+/dist-server
+/tmp
+/out-tsc
+
 # dependencies
 /node_modules
 /.pnp
@@ -7,9 +13,27 @@
 
 # testing
 /coverage
+/connect.lock
+/libpeerconnection.log
+testtem.log/typings
 
 # production
 /build
+
+#IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+#IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 .DS_Store
@@ -17,6 +41,8 @@
 .env.development.local
 .env.test.local
 .env.production.local
+/.sass-cache
+
 
 npm-debug.log*
 yarn-debug.log*
@@ -27,3 +53,6 @@ yarn-error.log*
 
 # ignore css styles
 /src/**/*.css
+
+/server/config/dev.js
+/server/.vscode
