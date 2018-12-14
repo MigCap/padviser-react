@@ -81,9 +81,14 @@ exports.register = function(req, res) {
     }
 
     if (existingUser) {
-      return res
-        .status(422)
-        .send({ title: 'Invalid email', detail: 'Email is already in use!' });
+      return res.status(422).send({
+        errors: [
+          {
+            title: 'Invalid email',
+            detail: 'User with this email already exist!'
+          }
+        ]
+      });
     }
 
     const user = new User({

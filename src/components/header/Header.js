@@ -1,49 +1,76 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function Header() {
-  return (
-    <nav className="navbar navbar-dark navbar-expand-lg">
-      <div className="container">
-        <Link to="/rentals" className="navbar-brand">
-          Production Adviser
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+class Header extends Component {
+  handleLogout = () => {
+    this.props.logoutUser();
+    this.props.history.push('/login');
+  };
+  renderAuthButtons() {
+    const { isAuth } = this.props.auth;
+
+    if (isAuth) {
+      return (
+        <p className="nav-item nav-link clickable" onClick={this.handleLogout}>
+          Logout
+        </p>
+      );
+    }
+
+    return (
+      <Fragment>
+        <Link to="/login" className="nav-item nav-link">
+          Login <span className="sr-only">(current)</span>
         </Link>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2 bwm-search"
-            type="search"
-            placeholder='Try "New York"'
-            aria-label="Search"
-          />
+        <Link to="/register" className="nav-item nav-link">
+          Register
+        </Link>
+      </Fragment>
+    );
+  }
+  render() {
+    return (
+      <nav className="navbar navbar-dark navbar-expand-lg">
+        <div className="container">
+          <Link to="/rentals" className="navbar-brand">
+            Production Adviser
+          </Link>
+          <form className="form-inline my-2 my-lg-0">
+            <input
+              className="form-control mr-sm-2 bwm-search"
+              type="search"
+              placeholder='Try "New York"'
+              aria-label="Search"
+            />
+            <button
+              className="btn btn-outline-success my-2 my-sm-0 btn-bwm-search"
+              type="submit">
+              Search
+            </button>
+          </form>
           <button
-            className="btn btn-outline-success my-2 my-sm-0 btn-bwm-search"
-            type="submit">
-            Search
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
           </button>
-        </form>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon" />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav ml-auto">
-            <a className="nav-item nav-link active" href="/rentals">
-              Login <span className="sr-only">(current)</span>
-            </a>
-            <a className="nav-item nav-link" href="/rentals">
-              Register
-            </a>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav ml-auto">{this.renderAuthButtons()}</div>
           </div>
         </div>
-      </div>
-    </nav>
-  );
+      </nav>
+    );
+  }
 }
 
-export default Header;
+export default withRouter(connect(mapStateToProps)(Header));
