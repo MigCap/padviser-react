@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const rentalImgStyle = {
-  objectFit: 'cover',
-  objectPosition: 'center 0px',
-  height: '180px'
-};
-
 const RentalCard = props => {
   const rental = props.rental;
   return (
@@ -14,10 +8,9 @@ const RentalCard = props => {
       <Link className="rental-detail-link" to={`/rentals/${rental._id}`}>
         <div className="card bwm-card">
           <img
-            className="card-img-top"
+            className="card-img-top rental-card-img"
             src={rental.image}
             alt={rental.model}
-            style={rentalImgStyle}
           />
           <div className="card-block">
             <h6 className={`card-subtitle ${rental.category}`}>
