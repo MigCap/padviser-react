@@ -24,7 +24,8 @@ const userSchema = new Schema({
     max: [32, 'Too long. Max 32 characters'],
     match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]
   },
-  rentals: [{ type: Schema.Types.ObjectId, ref: 'Rental' }]
+  rentals: [{ type: Schema.Types.ObjectId, ref: 'Rental' }],
+  bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }]
 });
 
 userSchema.methods.hasSamePassword = function(requestedPassword) {

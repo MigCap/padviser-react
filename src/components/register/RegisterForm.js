@@ -59,9 +59,9 @@ const validate = values => {
     errors.email = 'Please enter a valid email!';
   }
 
-  // if (values.password && values.password.length < 8) {
-  //   errors.password = 'Password min length is 8 characters';
-  // }
+  if (values.password && values.password.length < 8) {
+    errors.password = 'Password min length is 8 characters';
+  }
 
   if (values.password !== values.passwordConfirmation) {
     errors.password = 'Password must be the same';
