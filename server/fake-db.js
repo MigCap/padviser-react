@@ -26,7 +26,7 @@ class FakeDb {
         brand: 'Barco',
         model: 'XDL-4K30',
         description:
-          '30,000 lumens, 4K, 3-chip DLP RGB laser large venue projector',
+          '30,000 lumens, 4K, 3-chip DLP RGB laser large venue projector.',
         units: 2,
         condition: 'Mint',
         country: 'USA',
@@ -51,6 +51,22 @@ class FakeDb {
         image:
           'https://cdn.robe.cz/fileadmin/_processed_/csm_dl7s-profile-01_33d201a970.png',
         dailyRate: 334
+      },
+      {
+        category: 'audio',
+        type: 'Digital Mixing Console for Live Sound',
+        brand: 'DiGiCo',
+        model: 'SD12',
+        units: 3,
+        condition: 'Ok, Average',
+        description:
+          "SD12 comes complete with dual DMI (DiGiCo Multichannel Interface) option card slots, perfect for expandability, as it can interface with industry formats be it Analogue expansion, MADI, Dante, Waves SoundGrid, or Calrec's Hydra 2 Network. All bases are covered.",
+        country: 'Spain',
+        city: 'Madrid',
+        street: 'Castellana',
+        image:
+          'https://www.digico.biz/public/images/toppic_2000/sd12-toppic.jpg',
+        dailyRate: 134
       }
     ];
 
@@ -59,6 +75,11 @@ class FakeDb {
         username: 'Test User',
         email: 'test@gmail.com',
         password: 'testtest'
+      },
+      {
+        username: 'Test User2',
+        email: 'test2@gmail.com',
+        password: 'testtest2'
       }
     ];
   }
@@ -70,6 +91,7 @@ class FakeDb {
 
   pushDatatoDb() {
     const user = new User(this.users[0]);
+    const user2 = new User(this.users[1]);
 
     this.rentals.forEach(rental => {
       const newRental = new Rental(rental);
@@ -79,6 +101,7 @@ class FakeDb {
     });
 
     user.save();
+    user2.save();
   }
 
   async seedDb() {

@@ -14,7 +14,7 @@ export default function RentalDetailInfo(props) {
         {toUpperCase(rental.city)}, {toUpperCase(rental.country)}
       </h2>
       <div className="rental-room-info">
-        <span>
+        <span className="bold">
           <i className="fa fa-building" />
           {rental.units} units
         </span>
@@ -26,9 +26,15 @@ export default function RentalDetailInfo(props) {
           </span>*/}
       </div>
       <hr />
-      <p className="rental-description">Description: {rental.description}.</p>
-      <p className="rental-description">Condition: {rental.condition}.</p>
-      <p className="rental-description">Daily Rate: {rental.dailyRate}.</p>
+      <p className="rental-description">
+        <span className="bold">Description:</span> {rental.description}
+      </p>
+      <p className="rental-description">
+        <span className="bold">Condition:</span> {rental.condition}.
+      </p>
+      <p className="rental-description">
+        <span className="bold">Daily Rate:</span> {rental.dailyRate} $.
+      </p>
       <hr />
       <RentalAssets />
     </div>
