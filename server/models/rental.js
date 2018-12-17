@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const rentalSchema = new Schema({
+  createdAt: { type: Date, default: Date.now },
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }],
   category: { type: String, required: true, lowercase: true },
   type: {
     type: String,
@@ -21,10 +24,7 @@ const rentalSchema = new Schema({
     min: [4, 'Too short, min is 4 characters']
   },
   image: { type: String, required: true },
-  dailyRate: Number,
-  createdAt: { type: Date, default: Date.now },
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
-  bookings: [{ type: Schema.Types.ObjectId, ref: 'Booking' }]
+  dailyRate: Number
 });
 
 module.exports = mongoose.model('Rental', rentalSchema);

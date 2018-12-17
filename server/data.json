@@ -1,0 +1,110 @@
+{
+    "rentals": [{
+            "category": "audio",
+            "type": "Microphone",
+            "brand": "Shure",
+            "model": "SM58",
+            "description": "Legendary live vocal microphone known for its rugged reliability on tour.",
+            "units": 4,
+            "condition": "Poor",
+            "country": "USA",
+            "city": "New York",
+            "street": "Times Square",
+            "image": "https://522bb370f5443d4fe5b9-f62de27af599bb6703e11b472beadbcc.ssl.cf2.rackcdn.com/product_image/zoomable_image/8248/SM58_HR.jpg",
+            "dailyRate": 30
+        },
+        {
+            "category": "video",
+            "type": "Proyector",
+            "brand": "Barco",
+            "model": "XDL-4K30",
+            "description": "30,000 lumens, 4K, 3-chip DLP RGB laser large venue projector.",
+            "units": 2,
+            "condition": "Mint",
+            "country": "USA",
+            "city": "San Francisco",
+            "street": "Main street",
+            "image": "https://az877327.vo.msecnd.net/~/media/images/products/u%20-%20z/xdl/xdl%204k60%20017%20onwhite%20jpg.jpg?v=2&mw=1200",
+            "dailyRate": 300
+        },
+        {
+            "category": "lights",
+            "type": "LED-based Moving Lights",
+            "brand": "Robe",
+            "model": "DL7S Profile",
+            "units": 2,
+            "condition": "Poor",
+            "description": "800 W 7 colours LED engine. Rotating and static gobo wheel, animation wheel, framing shutters module, 5-facet rotating prism.",
+            "country": "Slovakia",
+            "city": "Bratislava",
+            "street": "Hlavna",
+            "image": "https://cdn.robe.cz/fileadmin/_processed_/csm_dl7s-profile-01_33d201a970.png",
+            "dailyRate": 170
+        },
+        {
+            "category": "audio",
+            "type": "Digital Mixing Console for Live Sound",
+            "brand": "DiGiCo",
+            "model": "SD12",
+            "units": 3,
+            "condition": "Good",
+            "description": "SD12 comes complete with dual DMI (DiGiCo Multichannel Interface) option card slots, perfect for expandability, as it can interface with industry formats be it Analogue expansion, MADI, Dante, Waves SoundGrid, or Calrec's Hydra 2 Network. All bases are covered.",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Castellana",
+            "image": "https://www.digico.biz/public/images/toppic_2000/sd12-toppic.jpg",
+            "dailyRate": 250
+        },
+        {
+            "category": "audio",
+            "type": "Large format 3-way line array loudspeaker",
+            "brand": "d&b",
+            "model": "J8",
+            "units": 20,
+            "condition": "Near Mint",
+            "description": "The J8 is a 3-way design housing 2 x 12' LF drivers, one hornloaded 10 ' MF driver and two 1.4' exit HF compression drivers with 3 ' voicecoils mounted to a dedicated waveshaping device. The mechanical and acoustical design enables flown vertical columns of up to 24 loudspeakers to be suspended using vertical splay angles between them of 0° to 7° with a 1° resolution. The cylindrical wave segments produced couple coherently in the vertical plane.",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Sierra de Albarracín, 61",
+            "image": "https://www.dbaudio.com/assets/products/images/series/j-series/product-detailview-1200x1200/dbaudio-j8-loudspeaker-front.png",
+            "dailyRate": 100
+        },
+        {
+            "category": "audio",
+            "type": "High power four channel amplifier",
+            "brand": "d&b",
+            "model": "D80",
+            "units": 20,
+            "condition": "Good",
+            "description": "The 2 RU four channel D80 amplifier is a high power density amplifier, ideally suited for use in both mobile and installation environments. It contains configurations for all d&b loudspeakers and a linear mode.",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Sierra de Albarracín, 61",
+            "image": "https://www.dbaudio.com/assets/products/_processed_/6/5/csm_dbaudio-D80-amplifier-isometric_eaefbb8967.png",
+            "dailyRate": 150
+        },
+        {
+            "category": "audio",
+            "type": "Dual Channel Digital Wireless Receiver",
+            "brand": "Shure",
+            "model": "ULX-D4D",
+            "units": 30,
+            "condition": "Very Good",
+            "description": "RThe Shure ULXD4D Dual Channel Digital Wireless Receiver offers two channels of uncompromising audio quality, RF signal stability and efficiency, and advanced setup features in a single rack unit. Rugged, yet lightweight and compact, the all-metal chassis houses two independent receivers, each with its own audio and RF meters, gain control, and receiver outputs that can be either direct or summed for flexible signal routing. With RF cascade and two Ethernet ports, units easily can share RF signal and be networked together for simplified frequency coordination and deployment. For networked audio applications, Dante™ digital networking allows multiple channels of audio to be transmitted and received over a single Ethernet cable. When more compatible frequencies over shorter distances, High Density mode can be enabled to dramatically increase the number of available open frequencies.",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Prado del Espino",
+            "image": "https://522bb370f5443d4fe5b9-f62de27af599bb6703e11b472beadbcc.ssl.cf2.rackcdn.com/product/zoomable_image/7955/max_desktop_ULXD4D_Dual_Front-Panel.jpg",
+            "dailyRate": 150
+        }
+    ],
+    "users": [{
+        "username": "Test User",
+        "email": "test@gmail.com",
+        "password": "testtest"
+    }, {
+        "username": "Test User2",
+        "email": "test2@gmail.com",
+        "password": "testtest2"
+    }]
+}
