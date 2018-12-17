@@ -36,6 +36,9 @@ class Login extends Component {
                 </div>
               )}
               <LoginForm loginCb={this.loginUser} errors={errors} />
+              <p className="mt-3">
+                You need to login to book and see rental details.
+              </p>
             </div>
             <div className="col-md-6 ml-auto">
               <div className="image-container">

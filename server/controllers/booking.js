@@ -5,10 +5,10 @@ const { normalizeErrors } = require('../helpers/mongoose');
 const moment = require('moment');
 
 exports.createBooking = function(req, res) {
-  const { startAt, endAt, totalPrice, days, rental } = req.body;
+  const { startAt, endAt, totalPrice, days, units, rental } = req.body;
   const user = res.locals.user;
 
-  const booking = new Booking({ startAt, endAt, totalPrice, days });
+  const booking = new Booking({ startAt, endAt, totalPrice, days, units });
 
   Rental.findById(rental._id)
     .populate('bookings')
@@ -42,13 +42,17 @@ exports.createBooking = function(req, res) {
           }
 
           foundRental.save();
-          User.update(
+          User.updateMany(
             { _id: user.id },
             { $push: { bookings: booking } },
             function() {}
           );
 
-          return res.json({ startAt: booking.startAt, endAt: booking.endAt });
+          return res.json({
+            startAt: booking.startAt,
+            endAt: booking.endAt,
+            units: booking.units
+          });
         });
       } else {
         return res.status(422).send({
@@ -63,16 +67,16 @@ exports.createBooking = function(req, res) {
     });
 };
 
-function isValidBooking(propposedBooking, rental) {
+function isValidBooking(proposedBooking, rental) {
   let isValid = true;
 
   if (rental.bookings && rental.bookings.length > 0) {
     isValid = rental.bookings.every(function(booking) {
-      const proposedStart = moment(propposedBooking.startAt);
-      const proposedEnd = moment(propposedBooking.endtAt);
+      const proposedStart = moment(proposedBooking.startAt);
+      const proposedEnd = moment(proposedBooking.endAt);
 
       const actualStart = moment(booking.startAt);
-      const actualEnd = moment(booking.endtAt);
+      const actualEnd = moment(booking.endAt);
 
       return (
         (actualStart < proposedStart && actualEnd < proposedStart) ||
