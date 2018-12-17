@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import RentalSearchInput from './RentalSearchInput';
 
 function mapStateToProps(state) {
   return {
@@ -12,9 +13,7 @@ class Header extends Component {
     this.props.logoutUser();
     this.props.history.push('/login');
   };
-  renderAuthButtons() {
-    const { isAuth } = this.props.auth;
-
+  renderAuthButtons(isAuth) {
     if (isAuth) {
       return (
         <p className="nav-item nav-link clickable" onClick={this.handleLogout}>
@@ -25,7 +24,7 @@ class Header extends Component {
 
     return (
       <Fragment>
-        <Link to="/login" className="nav-item nav-link">
+        <Link to="/login" className="nav-item nav-link active">
           Login <span className="sr-only">(current)</span>
         </Link>
         <Link to="/register" className="nav-item nav-link">
@@ -34,26 +33,53 @@ class Header extends Component {
       </Fragment>
     );
   }
+
+  renderOwnerSection(isAuth) {
+    if (isAuth) {
+      return (
+        <div className="nav-item dropdown">
+          <button
+            className="nav-link dropdown-toggle clickable anchor-button"
+            id="navbarDropdownMenuLink"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+            Owner Section
+          </button>
+          <div
+            className="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink">
+            <Link className="dropdown-item" to="/rentals/new">
+              Create Rental
+            </Link>
+            <Link className="dropdown-item" to="#">
+              Manage Rentals
+            </Link>
+            <Link className="dropdown-item" to="#">
+              Manage Bookings
+            </Link>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render() {
+    const { username, isAuth } = this.props.auth;
     return (
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="container">
           <Link to="/rentals" className="navbar-brand">
+            <div className="navbar-brand">
+              <img
+                src={process.env.PUBLIC_URL + 'img/PAlogo.png'}
+                width="20"
+                alt="logo"
+              />
+            </div>
             Production Adviser
           </Link>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              className="form-control mr-sm-2 bwm-search"
-              type="search"
-              placeholder='Try "New York"'
-              aria-label="Search"
-            />
-            <button
-              className="btn btn-outline-success my-2 my-sm-0 btn-bwm-search"
-              type="submit">
-              Search
-            </button>
-          </form>
+          <RentalSearchInput />
           <button
             className="navbar-toggler"
             type="button"
@@ -65,7 +91,13 @@ class Header extends Component {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ml-auto">{this.renderAuthButtons()}</div>
+            <div className="navbar-nav ml-auto">
+              {isAuth && (
+                <p className="nav-item nav-link user-name">{username}</p>
+              )}
+              {this.renderOwnerSection(isAuth)}
+              {this.renderAuthButtons(isAuth)}
+            </div>
           </div>
         </div>
       </nav>
