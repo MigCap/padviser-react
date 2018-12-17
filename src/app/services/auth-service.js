@@ -23,6 +23,10 @@ class AuthService {
     return moment.unix(exp);
   }
 
+  getUserName() {
+    return jwt.decode(this.getToken()).username; // verify if is jwt.decode or this.decode
+  }
+
   isValid(token) {
     return moment().isBefore(this.getExpiration(token));
   }

@@ -57,7 +57,7 @@ exports.createRental = function(req, res) {
       return res.status(422).send({ errors: normalizeErrors(err.errors) });
     }
 
-    User.update(
+    User.updateMany(
       { _id: user.id },
       { $push: { rentals: newRental } },
       function() {}
