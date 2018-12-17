@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import { PaFormInput } from '../shared/form/PaFormInput';
-import { PaRespError } from '../shared/form/PaRespError';
+import PaRespError from '../shared/form/PaRespError';
 
 const RegisterForm = props => {
   const { handleSubmit, pristine, submitting, submitCb, valid, errors } = props;

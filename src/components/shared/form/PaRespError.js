@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function PaRespError(props) {
+export default function PaRespError(props) {
   const errors = props.errors;
   return (
     errors.length > 0 && (

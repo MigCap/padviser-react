@@ -11,7 +11,7 @@ import {
   LOGOUT
 } from './types';
 
-// RENTALS ACTIONS
+// RENTALS ACTIONS --------------------------------------------
 
 const axiosInstance = axiosService.getInstance();
 
@@ -54,7 +54,7 @@ export const fetchRentalById = rentalId => {
   };
 };
 
-// AUTH ACTIONS
+// AUTH ACTIONS ------------------------------------------------------
 
 const loginSuccess = () => {
   return {
@@ -86,7 +86,7 @@ export const checkAuthState = () => {
 export const login = userData => {
   return dispatch => {
     return axios
-      .post('/api/v1/users/auth', { ...userData })
+      .post('/api/v1/users/auth', userData)
       .then(res => res.data)
       .then(token => {
         authService.savetoken(token);
@@ -103,4 +103,13 @@ export const logout = () => {
   return {
     type: LOGOUT
   };
+};
+
+// BOOKING ACTIONS -----------------------------------------------
+
+export const createBooking = booking => {
+  return axiosInstance
+    .post('/bookings', booking)
+    .then(res => res.data)
+    .catch(({ response }) => Promise.reject(response.data.errors));
 };

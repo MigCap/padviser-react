@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RentalDetailInfo from './RentalDetailInfo';
 import RentalMap from './RentalMap';
+import Booking from '../../booking/Booking';
 
 import * as actions from '../../../app/actions';
 
@@ -38,12 +39,14 @@ class RentalDetail extends Component {
               </div>
             </div>
           </div>
-          <div className="details-section mt-md-5">
+          <div className="details-section mt-5 mb-5">
             <div className="row">
-              <div className="col-md-8 px-5">
+              <div className="col-lg-8 px-lg-5">
                 <RentalDetailInfo rental={rental} />
               </div>
-              <div className="col-md-4"> BOOKING</div>
+              <div className="col-lg-4 mt-3 mt-lg-0">
+                <Booking rental={rental} />
+              </div>
             </div>
           </div>
         </section>

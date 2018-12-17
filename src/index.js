@@ -7,6 +7,8 @@ import App from './app/layout/App';
 import './index.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-daterangepicker/daterangepicker.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const rootEl = document.getElementById('root');
 

@@ -18,7 +18,7 @@ class FakeDb {
         street: 'Times Square',
         image:
           'https://522bb370f5443d4fe5b9-f62de27af599bb6703e11b472beadbcc.ssl.cf2.rackcdn.com/product_image/zoomable_image/8248/SM58_HR.jpg',
-        dailyRate: 34
+        dailyRate: 30
       },
       {
         category: 'video',
@@ -34,7 +34,7 @@ class FakeDb {
         street: 'Main street',
         image:
           'https://az877327.vo.msecnd.net/~/media/images/products/u%20-%20z/xdl/xdl%204k60%20017%20onwhite%20jpg.jpg?v=2&mw=1200',
-        dailyRate: 12
+        dailyRate: 300
       },
       {
         category: 'lights',
@@ -50,7 +50,7 @@ class FakeDb {
         street: 'Hlavna',
         image:
           'https://cdn.robe.cz/fileadmin/_processed_/csm_dl7s-profile-01_33d201a970.png',
-        dailyRate: 334
+        dailyRate: 170
       },
       {
         category: 'audio',
@@ -66,7 +66,7 @@ class FakeDb {
         street: 'Castellana',
         image:
           'https://www.digico.biz/public/images/toppic_2000/sd12-toppic.jpg',
-        dailyRate: 134
+        dailyRate: 250
       }
     ];
 
