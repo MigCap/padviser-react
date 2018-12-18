@@ -8,7 +8,11 @@ router.get('/secret', UserCtrl.authMiddleware, function(req, res) {
   res.json({ secret: true });
 });
 
+router.get('/manage', UserCtrl.authMiddleware, RentalCtrl.manageRentals);
+
 router.get('/:id', RentalCtrl.findRentalById);
+
+router.delete('/:id', UserCtrl.authMiddleware, RentalCtrl.deleteRental);
 
 router.post('', UserCtrl.authMiddleware, RentalCtrl.createRental);
 
