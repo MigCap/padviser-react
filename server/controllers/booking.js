@@ -67,6 +67,20 @@ exports.createBooking = function(req, res) {
     });
 };
 
+exports.getUserBookings = function(req, res) {
+  const user = res.locals.user;
+
+  Booking.where({ user })
+    .populate('rental')
+    .exec(function(err, foundBookings) {
+      if (err) {
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
+      }
+
+      return res.json(foundBookings);
+    });
+};
+
 function isValidBooking(proposedBooking, rental) {
   let isValid = true;
 
