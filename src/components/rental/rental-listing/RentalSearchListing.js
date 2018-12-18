@@ -54,7 +54,7 @@ class RentalSearchListing extends Component {
       title = `Your Gear in ${toUpperCase(searchedCity)}`;
     }
 
-    return <h1 className="page-title underline">{title}</h1>;
+    return <h1 className="page-title main-color">{title}</h1>;
   }
 
   render() {

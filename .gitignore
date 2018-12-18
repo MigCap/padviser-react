@@ -54,5 +54,6 @@ yarn-error.log*
 # ignore css styles
 /src/**/*.css
 
-/server/config/dev.js
+# serv config
+/server/config/*
 /server/.vscode
