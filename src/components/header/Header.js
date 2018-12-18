@@ -16,7 +16,9 @@ class Header extends Component {
   renderAuthButtons(isAuth) {
     if (isAuth) {
       return (
-        <p className="nav-item nav-link clickable" onClick={this.handleLogout}>
+        <p
+          className="nav-item nav-link clickable link-hover"
+          onClick={this.handleLogout}>
           Logout
         </p>
       );
@@ -24,27 +26,30 @@ class Header extends Component {
 
     return (
       <Fragment>
-        <Link to="/login" className="nav-item nav-link active">
-          Login <span className="sr-only">(current)</span>
+        <Link to="/rentals" className="nav-item nav-link link-hover">
+          RENTALS <span className="sr-only">(current)</span>
         </Link>
-        <Link to="/register" className="nav-item nav-link">
+        <Link to="/login" className="nav-item nav-link link-hover">
+          Login
+        </Link>
+        <Link to="/register" className="nav-item nav-link link-hover">
           Register
         </Link>
       </Fragment>
     );
   }
 
-  renderOwnerSection(isAuth) {
+  renderUserSection(isAuth, username) {
     if (isAuth) {
       return (
         <div className="nav-item dropdown">
           <button
-            className="nav-link dropdown-toggle clickable anchor-button"
+            className="nav-link dropdown-toggle clickable anchor-button custom-nav-link"
             id="navbarDropdownMenuLink"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-            Owner Section
+            {username}
           </button>
           <div
             className="dropdown-menu"
@@ -52,10 +57,10 @@ class Header extends Component {
             <Link className="dropdown-item" to="/rentals/new">
               Create Rental
             </Link>
-            <Link className="dropdown-item" to="#">
+            <Link className="dropdown-item" to="/rentals/manage">
               Manage Rentals
             </Link>
-            <Link className="dropdown-item" to="#">
+            <Link className="dropdown-item" to="/bookings/manage">
               Manage Bookings
             </Link>
           </div>
@@ -70,13 +75,11 @@ class Header extends Component {
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="container">
           <Link to="/rentals" className="navbar-brand">
-            <div className="navbar-brand">
-              <img
-                src={process.env.PUBLIC_URL + 'img/PAlogo.png'}
-                width="20"
-                alt="logo"
-              />
-            </div>
+            <img
+              src={process.env.PUBLIC_URL + '/img/PAlogo.png'}
+              width="20"
+              alt="logo"
+            />
             Production Adviser
           </Link>
           <RentalSearchInput />
@@ -93,9 +96,11 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
               {isAuth && (
-                <p className="nav-item nav-link user-name">{username}</p>
+                <Link to="/rentals" className="nav-item nav-link link-hover">
+                  RENTALS <span className="sr-only">(current)</span>
+                </Link>
               )}
-              {this.renderOwnerSection(isAuth)}
+              {this.renderUserSection(isAuth, username)}
               {this.renderAuthButtons(isAuth)}
             </div>
           </div>

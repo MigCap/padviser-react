@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import BookingModal from './BookingModal';
@@ -6,7 +8,7 @@ import { getRangeOfDates } from '../../app/helpers';
 import * as moment from 'moment';
 import * as actions from '../../app/actions/index';
 
-export default class Booking extends React.Component {
+class Booking extends Component {
   constructor() {
     super();
 
@@ -130,67 +132,107 @@ export default class Booking extends React.Component {
   };
 
   render() {
-    const { rental } = this.props;
+    const {
+      rental,
+      auth: { isAuth }
+    } = this.props;
     const { startAt, endAt, units } = this.state.proposedBooking;
     return (
-      <div className="booking">
-        <ToastContainer transition={Slide} />
-        <h3 className="booking-price">
-          $ {rental.dailyRate}{' '}
-          <span className="booking-per-night">per day</span>
-        </h3>
-        <hr />
-        <div className="form-group">
-          <label htmlFor="dates">Dates</label>
-          <DateRangePicker
-            onApply={this.handleSelectedDates}
-            isInvalidDate={this.checkInvalidDates}
-            opens="left"
-            containerStyles={{ display: 'block' }}>
-            <input
-              ref={this.dateRef}
-              id="dates"
-              type="text"
-              className="form-control"
-            />
-          </DateRangePicker>
+      <Fragment>
+        <div className="rental-owner">
+          <img
+            src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="owner"
+            className="img-thumbnail"
+          />
+          <p>
+            {rental.user && rental.user.username}
+            <br />
+            <span>Rental Owner</span>
+            <i className="fa fa-star" />
+            <i className="fa fa-star" />
+            <i className="fa fa-star" />
+            <i className="fa fa-star-half" />
+          </p>
         </div>
-        <div className="form-group">
-          <label htmlFor="units">Units</label>
-          <input
-            onChange={event => {
-              this.selectUnits(event);
-            }}
-            value={units}
-            type="number"
-            className="form-control"
-            id="units"
-            aria-describedby="units"
-            placeholder=""
+        <div className="booking">
+          <ToastContainer transition={Slide} />
+
+          <h3 className="booking-price">
+            $ {rental.dailyRate}{' '}
+            <span className="booking-per-night">per day</span>
+          </h3>
+          <hr />
+          {!isAuth && (
+            <Link to="/login" className="btn btn-pa btn-confirm btn-block">
+              {' '}
+              Login to book equipment
+            </Link>
+          )}
+          {isAuth && (
+            <Fragment>
+              <div className="form-group">
+                <label htmlFor="dates">Dates</label>
+                <DateRangePicker
+                  onApply={this.handleSelectedDates}
+                  isInvalidDate={this.checkInvalidDates}
+                  opens="left"
+                  containerStyles={{ display: 'block' }}>
+                  <input
+                    ref={this.dateRef}
+                    id="dates"
+                    type="text"
+                    className="form-control"
+                  />
+                </DateRangePicker>
+              </div>
+              <div className="form-group">
+                <label htmlFor="units">Units</label>
+                <input
+                  onChange={event => {
+                    this.selectUnits(event);
+                  }}
+                  value={units}
+                  type="number"
+                  className="form-control"
+                  id="units"
+                  aria-describedby="units"
+                  placeholder=""
+                />
+              </div>
+              <button
+                disabled={!startAt || !endAt || !units}
+                onClick={() => this.confirmProposedBooking()}
+                className="btn btn-pa btn-confirm btn-block">
+                Book equipment now
+              </button>
+            </Fragment>
+          )}
+          <hr />
+          <p className="booking-note-title">
+            People are interested in this equipment
+          </p>
+          <p className="booking-note-text">
+            More than 500 people checked this rental in last month.
+          </p>
+          <BookingModal
+            booking={this.state.proposedBooking}
+            open={this.state.modal.open}
+            closeModal={this.cancelProposedBooking}
+            confirmModal={this.bookRental}
+            errors={this.state.errors}
+            rentalPrice={rental.dailyRate}
           />
         </div>
-        <button
-          disabled={!startAt || !endAt || !units}
-          onClick={() => this.confirmProposedBooking()}
-          className="btn btn-pa btn-confirm btn-block">
-          Book equipment now
-        </button>
-        <hr />
-        <p className="booking-note-title">
-          People are interested in this equipment
-        </p>
-        <p className="booking-note-text">
-          More than 500 people checked this rental in last month.
-        </p>
-        <BookingModal
-          booking={this.state.proposedBooking}
-          open={this.state.modal.open}
-          closeModal={this.cancelProposedBooking}
-          confirmModal={this.bookRental}
-          errors={this.state.errors}
-          rentalPrice={rental.dailyRate}
-        />
-      </div>
+      </Fragment>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps)(Booking);

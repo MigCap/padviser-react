@@ -41,10 +41,10 @@ class RentalDetail extends Component {
           </div>
           <div className="details-section mt-5 mb-5">
             <div className="row">
-              <div className="col-lg-8 px-lg-5">
+              <div className="col-lg-8 pr-lg-4">
                 <RentalDetailInfo rental={rental} />
               </div>
-              <div className="col-lg-4 mt-3 mt-lg-0">
+              <div className="col-lg-4 mt-3 mt-lg-3">
                 <Booking rental={rental} />
               </div>
             </div>

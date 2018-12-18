@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { rentalReducer, selectedRentalReducer } from './rental-reducer';
+import { userBookingsReducer } from './booking-reducer';
 import { authReducer } from './auth-reducer';
 
 import { reducer as formReducer } from 'redux-form';
@@ -12,7 +13,8 @@ export const init = () => {
     rentals: rentalReducer,
     rental: selectedRentalReducer,
     form: formReducer,
-    auth: authReducer
+    auth: authReducer,
+    userBookings: userBookingsReducer
   });
 
   const store = createStore(

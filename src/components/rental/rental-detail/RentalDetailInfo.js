@@ -1,5 +1,6 @@
 import React from 'react';
 import RentalAssets from './RentalAssets';
+import RentalRating from './RentalRating';
 import { toUpperCase } from 'app/helpers';
 
 export default function RentalDetailInfo(props) {
@@ -16,14 +17,8 @@ export default function RentalDetailInfo(props) {
       <div className="rental-room-info">
         <span className="bold">
           <i className="fa fa-building" />
-          {rental.units} units
+          {rental.units} units available at the moment
         </span>
-        {/*<span>
-            <i className="fa fa-user" /> {rental.bedrooms + 4} guests
-          </span>
-          <span>
-            <i className="fa fa-bed" /> {rental.bedrooms + 2} beds
-          </span>*/}
       </div>
       <hr />
       <p className="rental-description">
@@ -37,6 +32,8 @@ export default function RentalDetailInfo(props) {
       </p>
       <hr />
       <RentalAssets />
+      <hr />
+      <RentalRating />
     </div>
   );
 }

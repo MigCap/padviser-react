@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RentalCard = props => {
   const rental = props.rental;
   return (
-    <div className="col-md-3 col-xs-6 mb-4">
+    <div className="col-md-3 col-xs-6 mb-3">
       <Link className="rental-detail-link" to={`/rentals/${rental._id}`}>
         <div className="card bwm-card">
           <img
