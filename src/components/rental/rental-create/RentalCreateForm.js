@@ -64,12 +64,6 @@ const RentalCreateForm = props => {
         component={PaFormTextArea}
       />
       <Field
-        name="image"
-        label="Image"
-        component={PaFormFileUpload}
-        validate={[required]}
-      />
-      <Field
         options={conditionOptions}
         name="condition"
         label="Condition"
@@ -118,7 +112,12 @@ const RentalCreateForm = props => {
         component={PaFormInput}
         validate={[required]}
       />
-
+      <Field
+        name="image"
+        label="Image"
+        component={PaFormFileUpload}
+        validate={[required]}
+      />
       <button
         className="btn btn-pa btn-form"
         type="submit"
