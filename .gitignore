@@ -56,4 +56,5 @@ yarn-error.log*
 
 # serv config
 /server/config/*
+/server/config/dev.js
 /server/.vscode

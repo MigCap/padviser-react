@@ -17,6 +17,7 @@ class RentalCreate extends Component {
   }
 
   createRental = rentalData => {
+    debugger;
     actions.createRental(rentalData).then(
       rental => {
         this.setState({ redirect: true });
