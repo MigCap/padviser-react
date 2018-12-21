@@ -13,7 +13,12 @@ import {
   FETCH_USER_BOOKINGS_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
-  LOGOUT
+  LOGOUT,
+  UPDATE_RENTAL_SUCCESS,
+  UPDATE_RENTAL_FAIL,
+  RESET_RENTAL_ERRORS,
+  RELOAD_MAP,
+  RELOAD_MAP_FINISH
 } from './types';
 
 // RENTALS ACTIONS --------------------------------------------
@@ -82,6 +87,44 @@ export const createRental = rentalData => {
   return axiosInstance
     .post('/rentals', { ...rentalData })
     .then(res => res.data, err => Promise.reject(err.response.data.errors));
+};
+
+export const resetRentalErrors = () => {
+  return {
+    type: RESET_RENTAL_ERRORS
+  };
+};
+
+const updateRentalSuccess = updatedRental => {
+  return {
+    type: UPDATE_RENTAL_SUCCESS,
+    rental: updatedRental
+  };
+};
+
+const updateRentalFail = errors => {
+  return {
+    type: UPDATE_RENTAL_FAIL,
+    errors
+  };
+};
+
+export const updateRental = (id, rentalData) => {
+  return dispatch => {
+    axiosInstance
+      .patch(`/rentals/${id}`, rentalData)
+      .then(res => res.data)
+      .then(updatedRental => {
+        dispatch(updateRentalSuccess(updatedRental));
+
+        if (rentalData.city || rentalData.street) {
+          dispatch(reloadMap());
+        }
+      })
+      .catch(({ response }) =>
+        dispatch(updateRentalFail(response.data.errors))
+      );
+  };
 };
 
 // USER RENTALS ACTIONS ------------------------------------------------------
@@ -210,4 +253,17 @@ export const uploadImage = image => {
     .catch(({ response }) => {
       Promise.reject(response.data.errors[0]);
     });
+};
+
+// MAP ACTIONS
+
+export const reloadMap = () => {
+  return {
+    type: RELOAD_MAP
+  };
+};
+export const reloadMapFinish = () => {
+  return {
+    type: RELOAD_MAP_FINISH
+  };
 };

@@ -10,6 +10,8 @@ router.get('/secret', UserCtrl.authMiddleware, function(req, res) {
 
 router.get('/manage', UserCtrl.authMiddleware, RentalCtrl.manageRentals);
 
+router.patch('/:id', UserCtrl.authMiddleware, RentalCtrl.editRental);
+
 router.get('/:id', RentalCtrl.findRentalById);
 
 router.delete('/:id', UserCtrl.authMiddleware, RentalCtrl.deleteRental);

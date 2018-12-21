@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from '../../components/header/Header';
 import RentalListing from '../../components/rental/rental-listing/RentalListing';
@@ -41,6 +42,7 @@ class App extends Component {
           <Fragment>
             <Header logoutUser={this.logoutUser} />
             <div className="container">
+              <ToastContainer transition={Slide} />
               <Switch>
                 <Route
                   exact

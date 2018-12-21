@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
-import { ToastContainer, toast, Slide } from 'react-toastify';
+import { toast } from 'react-toastify';
 import BookingModal from './BookingModal';
 import { getRangeOfDates } from '../../app/helpers';
 import * as moment from 'moment';
@@ -139,26 +139,7 @@ class Booking extends Component {
     const { startAt, endAt, units } = this.state.proposedBooking;
     return (
       <Fragment>
-        <div className="rental-owner">
-          <img
-            src="https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="owner"
-            className="img-thumbnail"
-          />
-          <p>
-            {rental.user && rental.user.username}
-            <br />
-            <span>Rental Owner</span>
-            <br />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star-half" />
-          </p>
-        </div>
         <div className="booking">
-          <ToastContainer transition={Slide} />
-
           <h3 className="booking-price">
             $ {rental.dailyRate}{' '}
             <span className="booking-per-night">per day</span>
@@ -224,6 +205,24 @@ class Booking extends Component {
             errors={this.state.errors}
             rentalPrice={rental.dailyRate}
           />
+        </div>
+
+        <div className="rental-owner">
+          <img
+            src={process.env.PUBLIC_URL + '/img/user.png'}
+            alt="owner"
+            className="img-thumbnail"
+          />
+          <p>
+            {rental.user && rental.user.username}
+            <br />
+            <span>Rental Owner</span>
+            <br />
+            <i className="fa fa-star" />
+            <i className="fa fa-star" />
+            <i className="fa fa-star" />
+            <i className="fa fa-star-half" />
+          </p>
         </div>
       </Fragment>
     );
