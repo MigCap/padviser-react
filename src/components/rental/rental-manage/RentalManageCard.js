@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { toUpperCase, pretifyDate } from '../../../app/helpers';
 
-export default class RentalManageCard extends Component {
+class RentalManageCard extends Component {
   constructor() {
     super();
 
@@ -54,13 +54,23 @@ export default class RentalManageCard extends Component {
           <div className="card-footer text-muted">
             Created on {pretifyDate(rental.createdAt)}
             {!wantDelete && (
-              <button
-                onClick={() => {
-                  this.showDeleteMenu();
-                }}
-                className="btn btn-info delete-btn">
-                Delete
-              </button>
+              <Fragment>
+                <button
+                  onClick={() => {
+                    this.showDeleteMenu();
+                  }}
+                  className="btn btn-info delete-btn">
+                  Delete
+                </button>
+                <Link
+                  className="btn btn-warning edit-btn"
+                  to={{
+                    pathname: `/rentals/${rental._id}`,
+                    state: { isUpdate: true }
+                  }}>
+                  Edit
+                </Link>
+              </Fragment>
             )}
             {wantDelete && (
               <div className="delete-menu">
@@ -87,3 +97,5 @@ export default class RentalManageCard extends Component {
     );
   }
 }
+
+export default RentalManageCard;

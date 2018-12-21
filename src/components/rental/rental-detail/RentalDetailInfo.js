@@ -9,7 +9,7 @@ export default function RentalDetailInfo(props) {
     <div className="rental">
       <h2 className={`rental-type ${rental.category}`}>{rental.category}</h2>
       <h1 className="rental-title">
-        {rental.type} {rental.brand} {rental.model}
+        {rental.type} - {rental.brand} {rental.model}
       </h1>
       <h2 className="rental-city">
         {toUpperCase(rental.city)}, {toUpperCase(rental.country)}
@@ -33,7 +33,7 @@ export default function RentalDetailInfo(props) {
       <hr />
       <RentalAssets />
       <hr />
-      <RentalRating />
+      <RentalRating rental={rental} />
     </div>
   );
 }

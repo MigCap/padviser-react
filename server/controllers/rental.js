@@ -111,7 +111,37 @@ exports.deleteRental = function(req, res) {
     });
 };
 
-exports.manageRentals = function(rew, res) {
+exports.editRental = function(req, res) {
+  const rentalData = req.body;
+  const user = res.locals.user;
+
+  Rental.findById(req.params.id)
+    .populate('user')
+    .exec(function(err, foundRental) {
+      if (err) {
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
+      }
+
+      if (user.id !== foundRental.user.id) {
+        return res.status(422).send({
+          errors: [
+            { title: 'Invalid User', detail: 'You are not rental owner!' }
+          ]
+        });
+      }
+
+      foundRental.set(rentalData);
+      foundRental.save(function(err) {
+        if (err) {
+          return res.status(422).send({ errors: normalizeErrors(err.errors) });
+        }
+
+        return res.status(200).send(foundRental);
+      });
+    });
+};
+
+exports.manageRentals = function(req, res) {
   const user = res.locals.user;
 
   Rental.where({ user })
