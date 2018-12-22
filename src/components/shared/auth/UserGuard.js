@@ -10,7 +10,11 @@ export default class UserGuard extends Component {
     } else if (!isAllowed && !isFeching) {
       return <Redirect to={'/rentals'} />;
     } else {
-      return <h1>Loading ...</h1>;
+      return (
+        <div className="img-loading-overlay">
+          <div className="img-spinning-circle" />
+        </div>
+      );
     }
   }
 }
