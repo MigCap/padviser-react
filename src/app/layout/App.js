@@ -40,9 +40,9 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Fragment>
+            <ToastContainer transition={Slide} />
             <Header logoutUser={this.logoutUser} />
             <div className="container">
-              <ToastContainer transition={Slide} />
               <Switch>
                 <Route
                   exact

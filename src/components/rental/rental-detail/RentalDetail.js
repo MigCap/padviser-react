@@ -4,6 +4,7 @@ import RentalDetailInfo from './RentalDetailInfo';
 import RentalDetailUpdate from './RentalDetailUpdate';
 import RentalMap from './RentalMap';
 import Booking from '../../booking/Booking';
+import UserGuard from '../../shared/auth/UserGuard';
 
 import * as actions from '../../../app/actions';
 
@@ -13,28 +14,59 @@ const imageStyled = {
 };
 
 class RentalDetail extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isAllowed: false,
+      isFeching: true
+    };
+  }
+
   componentWillMount() {
     const rentalId = this.props.match.params.id;
     this.props.dispatch(actions.fetchRentalById(rentalId));
   }
 
+  componentDidMount() {
+    const { isUpdate } = this.props.location.state || false;
+
+    if (isUpdate) this.verifyRentalOwner();
+  }
+
+  verifyRentalOwner = () => {
+    const rentalId = this.props.match.params.id;
+    this.setState({ isFeching: true });
+
+    return actions.verifyRentalOwner(rentalId).then(
+      () => {
+        this.setState({ isAllowed: true, isFeching: false });
+      },
+      () => {
+        this.setState({ isAllowed: false, isFeching: false });
+      }
+    );
+  };
+
   renderRentalDetail(rental, errors) {
     const { isUpdate } = this.props.location.state || false;
-    const { isAuth } = this.props.auth;
+    const { isAllowed, isFeching } = this.state;
 
-    return isUpdate && isAuth ? (
-      <RentalDetailUpdate
-        dispatch={this.props.dispatch}
-        rental={rental}
-        errors={errors}
-      />
+    return isUpdate ? (
+      <UserGuard isAllowed={isAllowed} isFeching={isFeching}>
+        <RentalDetailUpdate
+          dispatch={this.props.dispatch}
+          rental={rental}
+          errors={errors}
+          verifyUser={this.verifyRentalOwner}
+        />
+      </UserGuard>
     ) : (
       <RentalDetailInfo rental={rental} />
     );
   }
 
   render() {
-    const { isUpdate } = this.props.location.state || false;
     const { rental, errors } = this.props;
 
     if (rental._id) {
@@ -56,7 +88,7 @@ class RentalDetail extends Component {
                 {this.renderRentalDetail(rental, errors)}
               </div>
               <div className="col-lg-4 mt-3 mt-lg-3">
-                {!isUpdate ? <Booking rental={rental} /> : ''}
+                <Booking rental={rental} />
               </div>
             </div>
           </div>

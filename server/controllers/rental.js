@@ -141,6 +141,29 @@ exports.editRental = function(req, res) {
     });
 };
 
+exports.verifyUser = function(req, res) {
+  const user = res.locals.user;
+  const rentalId = req.params.id;
+
+  Rental.findById(rentalId)
+    .populate('user')
+    .exec(function(err, foundRental) {
+      if (err) {
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
+      }
+
+      if (foundRental.user.id !== user.id) {
+        return res.status(422).send({
+          errors: [
+            { title: 'Invalid User', detail: 'You are not rental owner!' }
+          ]
+        });
+      }
+
+      return res.json({ status: 'verified' });
+    });
+};
+
 exports.manageRentals = function(req, res) {
   const user = res.locals.user;
 

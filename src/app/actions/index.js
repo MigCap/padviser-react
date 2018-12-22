@@ -267,3 +267,9 @@ export const reloadMapFinish = () => {
     type: RELOAD_MAP_FINISH
   };
 };
+
+// VERIFY USER --- USER GUARD
+
+export const verifyRentalOwner = rentalId => {
+  return axiosInstance.get(`/rentals/${rentalId}/verify-user`);
+};
