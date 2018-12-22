@@ -24,34 +24,27 @@ const RentalCreateForm = props => {
   return (
     <form onSubmit={handleSubmit(rentalCreateCb)}>
       <Field
-        options={categoryOptions}
-        name="category"
-        label="Category"
-        className="form-control"
-        component={PaFormSelect}
-        validate={[required]}
-      />
-      <Field
         name="brand"
         type="text"
-        label="Brand"
-        className="form-control"
+        label="Item"
+        placeholder="Brand"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
         name="model"
         type="text"
-        label="Model"
-        className="form-control"
+        placeholder="Model"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
         name="type"
         type="text"
-        label="Type"
-        className="form-control"
+        placeholder="Type"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
@@ -59,62 +52,73 @@ const RentalCreateForm = props => {
         name="description"
         type="text"
         rows="3"
-        label="Description"
-        className="form-control"
+        placeholder="Description"
+        className="form-control form-control-sm"
         component={PaFormTextArea}
       />
       <Field
-        name="image"
-        label="Image"
-        component={PaFormFileUpload}
+        name="category"
+        placeholder="Category"
+        symbol="Category"
+        options={categoryOptions}
+        className="custom-select form-control form-control-sm"
+        component={PaFormSelect}
         validate={[required]}
       />
       <Field
         options={conditionOptions}
         name="condition"
-        label="Condition"
-        className="form-control"
+        symbol="Condition"
+        className="custom-select form-control form-control-sm"
         component={PaFormSelect}
         validate={[required]}
       />
       <Field
         name="units"
         type="number"
-        label="Units available"
-        className="form-control"
+        symbol="Number"
+        placeholder="Units available"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
         name="dailyRate"
         type="number"
-        label="Daily Rate"
-        className="form-control"
+        placeholder="Daily Rate"
+        className="form-control form-control-sm"
         symbol="$"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
+        name="image"
+        placeholder="Image"
+        component={PaFormFileUpload}
+        validate={[required]}
+      />
+      <Field
         name="country"
         type="text"
-        label="Country"
-        className="form-control"
+        label="Location"
+        placeholder="Country"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
         name="city"
         type="text"
-        label="City"
-        className="form-control"
+        placeholder="City"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
       <Field
         name="street"
         type="text"
-        label="Street"
-        className="form-control"
+        placeholder="Street"
+        className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
       />
@@ -123,7 +127,7 @@ const RentalCreateForm = props => {
         className="btn btn-pa btn-form"
         type="submit"
         disabled={!valid || pristine || submitting}>
-        Create Rental
+        Add to Inventory
       </button>
       <PaRespError errors={errors} />
     </form>

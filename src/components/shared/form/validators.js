@@ -3,4 +3,4 @@ const minLength = min => value =>
 
 export const minLength4 = minLength(4);
 
-export const required = value => (value ? undefined : 'This input is required');
+export const required = value => (value ? undefined : 'This field is required');
