@@ -51,9 +51,6 @@ yarn-error.log*
 # ignore scss styles
 /src/**/*.scss
 
-# ignore css styles
-/src/**/*.css
-
 # serv config
 /server/config/*
 /server/config/index.js

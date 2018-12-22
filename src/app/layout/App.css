@@ -1,0 +1,806 @@
+.navbar {
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: #20232a;
+}
+
+.navbar .navbar-brand {
+    margin-right: 100px;
+    font-size: 27px;
+    letter-spacing: 1px;
+    color: #61dafb !important;
+    font-weight: 500;
+}
+
+.navbar .navbar-brand img {
+    margin-right: 20px;
+}
+
+.navbar .nav-item {
+    font-size: 14px;
+}
+
+.navbar .bwm-search {
+    max-height: 40px;
+    width: 300px !important;
+    font-size: 16px;
+}
+
+.navbar .btn-bwm-search {
+    border-color: #61dafb;
+    color: #61dafb;
+    font-size: 16px;
+    padding: 5px 25px;
+    margin: 10px 0;
+}
+
+.navbar .btn-bwm-search:hover,
+.navbar .btn-bwm-search:focus,
+.navbar .btn-bwm-search:active {
+    background-color: #61dafb !important;
+    border-color: #61dafb !important;
+    color: white !important;
+    box-shadow: none;
+}
+
+.navbar .nav-item {
+    color: #ededed;
+}
+
+.navbar p.clickable {
+    margin-bottom: 0;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    font-size: 14px;
+}
+
+.navbar .dropdown-menu .dropdown-item:active {
+    background-color: #61dafb;
+}
+
+.custom-nav-link {
+    color: #61dafb !important;
+    font-weight: 500;
+}
+
+.custom-nav-link:hover {
+    color: #acebfd !important;
+}
+
+.bwm-form {
+    color: #4a4a4a;
+}
+
+.bwm-form h1 {
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.bwm-form .image-container {
+    position: relative;
+    height: 100%;
+}
+
+.bwm-form .image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: 80% 20%;
+}
+
+.bwm-form label {
+    font-size: 12px;
+}
+
+.bwm-form .form-text {
+    font-size: 13px;
+}
+
+.bwm-form .catchphrase {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    position: absolute;
+    color: #f1f1f1;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: 50px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.bwm-form .btn-form {
+    margin-top: 15px;
+}
+
+.pa-res-errors {
+    margin: 10px 0;
+}
+
+.pa-res-errors p {
+    margin: 5px;
+}
+
+.alert-danger {
+    margin-top: 10px !important;
+    padding: 5px 10px !important;
+    font-size: 16px;
+}
+
+#rentalListing {
+    /* SINGLE CARD STYLES*/
+}
+
+#rentalListing .page-title.main-color {
+    color: #61dafb;
+}
+
+#rentalListing .title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#rentalListing .rental-detail-link:hover {
+    text-decoration: none;
+}
+
+#rentalListing .bwm-card {
+    padding: 10px !important;
+    box-sizing: border-box;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+#rentalListing .bwm-card .card-block {
+    padding-top: 8px;
+}
+
+#rentalListing .bwm-card .card-block .card-subtitle {
+    margin: 0;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    min-height: 30px;
+}
+
+#rentalListing .bwm-card .card-block .card-title {
+    font-size: 19px;
+    margin: 3px 0;
+    color: #4a4a4a;
+    max-height: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#rentalListing .bwm-card .card-block .card-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: #7e7e7e;
+    margin-bottom: 0;
+}
+
+#rentalListing .bwm-card:hover {
+    transition: all 0.5s ease-out;
+    border: solid 1px #61dafb !important;
+}
+
+#rentalListing .rental-card-img {
+    object-fit: cover;
+    object-position: center 0;
+    height: 180px;
+}
+
+#rentalDetails .upper-section {
+    margin-bottom: 30px;
+}
+
+#rentalDetails .upper-section img {
+    width: 100%;
+}
+
+#rentalDetails .details-section {
+    color: #4a4a4a;
+}
+
+#rentalDetails .details-section .bold {
+    font-weight: 500;
+}
+
+#rentalDetails .details-section .rental-type {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#rentalDetails .details-section .rental-title {
+    margin-bottom: 5px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#rentalDetails .details-section .rental-city {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+#rentalDetails .details-section .rental-room-info {
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+#rentalDetails .details-section .rental-room-info span {
+    margin-right: 10px;
+}
+
+#rentalDetails .details-section .rental-room-info span span {
+    margin-left: 5px;
+}
+
+#rentalDetails .details-section .rental-room-info i {
+    margin-right: 2px;
+}
+
+#rentalDetails .details-section .rental-room-info .rental-units {
+    margin-right: 0;
+}
+
+#rentalDetails .details-section .rental-description {
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+#rentalDetails .details-section .rental-assets .title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+#rentalDetails .details-section .rental-assets .review-title {
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+#rentalDetails .details-section .rental-assets span {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+#rentalDetails .details-section .fa {
+    padding-right: 5px;
+}
+
+.review-card-container {
+    margin: 10px 0 1em 0;
+    padding: 20px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.review-card-container .avatar-container {
+    flex-basis: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+.review-card-container .avatar-container img {
+    min-width: 70px;
+    max-width: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: auto 0;
+}
+
+.review-card-container .avatar-container p {
+    padding: 10px 0;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+}
+
+.review-card-container p {
+    flex-basis: 70%;
+    display: block;
+    margin: auto 0;
+    padding: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.review-card-container p span {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+#userRentals .toBeDeleted {
+    border-color: red;
+}
+
+#userRentals .card {
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+#userRentals .card-block {
+    padding: 20px;
+}
+
+#userRentals .card-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+    max-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#userRentals .card-text {
+    font-size: 14px;
+    max-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#userRentals .btn-pa {
+    font-size: 16px;
+}
+
+#userRentals .card-footer {
+    font-size: 14px;
+    padding: 15px 5px;
+}
+
+#userRentals .btn-bookings {
+    border-color: #61dafb;
+    background-color: transparent;
+    color: #61dafb;
+}
+
+#userRentals .btn-bookings:hover,
+#userRentals .btn-bookings:focus {
+    border-color: #61dafb !important;
+    background-color: transparent !important;
+    color: #61dafb !important;
+}
+
+#userRentals .delete-btn,
+#userRentals .edit-btn {
+    font-size: 1em;
+    margin-left: 15px;
+    padding: 5px 10px;
+}
+
+#userRentals .edit-btn {
+    font-size: 1em;
+    margin-left: 10px;
+    padding: 5px 15px;
+}
+
+#userRentals .delete-menu {
+    font-size: 1em;
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+#userRentals .delete-menu .btn {
+    font-size: 1em;
+    margin-left: 10px;
+    padding: 3px 10px;
+    min-width: 50px;
+}
+
+.rental-booking-modal {
+    border-radius: 5px;
+    color: #4a4a4a;
+}
+
+.rental-booking-modal .modal-footer {
+    padding: 20px 20px 0 20px;
+}
+
+.rental-booking-modal .bookings-inner-container p {
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.booking {
+    padding: 20px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+}
+
+.booking .btn-confirm {
+    font-size: 17px;
+    font-weight: 700;
+    padding: 13px;
+}
+
+.booking label {
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.booking-price {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.booking-per-night {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.booking-note-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.booking-note-text {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.booking .should-login-btn-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.booking .should-login-btn-container .btn-login {
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+}
+
+.booking .should-login-btn-container .btn-login:hover,
+.booking .should-login-btn-container .btn-login:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.daterangepicker td.in-range {
+    background-color: red #61dafb;
+}
+
+.daterangepicker td.active {
+    background-color: #61dafb !important;
+}
+
+.booking-modal {
+    border-radius: 5px;
+    padding: 50px 50px 10px 50px;
+    color: #4a4a4a;
+}
+
+.booking-modal .dates {
+    font-size: 0.8em;
+}
+
+.booking-modal .title {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.booking-modal .modal-footer {
+    justify-content: flex-end;
+}
+
+.booking-modal .buttons {
+    margin: 15px 0px;
+}
+
+.booking-modal em {
+    font-style: normal;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.booking-modal p {
+    margin: 0;
+}
+
+.rental-owner {
+    max-height: 100px;
+    margin: 1em 0 0 0;
+    padding: 10px 20px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.rental-owner img {
+    min-width: 50px;
+    max-width: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: auto 0;
+}
+
+.rental-owner p {
+    display: block;
+    margin: auto 0;
+    padding: 0 1.5em;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.rental-owner p span {
+    font-size: 12px;
+    font-weight: 300;
+    margin-right: 10px;
+}
+
+#userBookings .card {
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+#userBookings h1 {
+    margin-bottom: 20px;
+}
+
+#userBookings .card-block {
+    padding: 20px;
+}
+
+#userBookings .card-header {
+    text-transform: capitalize;
+}
+
+#userBookings .card-title h4 {
+    font-size: 22px;
+}
+
+#userBookings .booking-desc {
+    font-size: 14px;
+    max-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#userBookings .booking-days {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#userBookings .booking-price-value {
+    font-weight: 700;
+}
+
+#userBookings .card-footer {
+    font-size: 0.8em;
+}
+
+#userBookings .btn-pa {
+    font-size: 16px;
+}
+
+.toast-success {
+    background: #61dafb;
+    color: #20232a;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+}
+
+.success-toast {
+    background: #61dafb;
+    color: #20232a;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+}
+
+
+/* .toast-body {
+  background-color: $main-color;
+} */
+
+.toast-progress-bar {
+    background: #a9a9a9;
+}
+
+.editableComponent input {
+    width: 75%;
+}
+
+.editableComponent .btn-editable {
+    margin: 5px 0 5px 10px;
+    padding: 3px 9px;
+    font-size: 12px;
+}
+
+.editableComponent .btn-editable-image {
+    margin: 10px;
+}
+
+.rental-update-titles {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.img-upload-container {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.img-upload-container .img-preview-container {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.img-upload-container .img-preview {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 116px;
+    width: 116px;
+    margin: auto;
+}
+
+.img-upload-container .img-upload {
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+.img-upload-container .upload-text {
+    font-size: 17px;
+    margin: 0 10px 0 0;
+}
+
+.img-upload-container input {
+    display: none;
+}
+
+.img-upload-container .alert {
+    margin-top: 10px;
+}
+
+.img-upload-container .btn-select {
+    background-color: #61dafb;
+    border: 1px solid #61dafb !important;
+    color: white;
+    padding: 5px 0 5px 10px;
+}
+
+.img-upload-container .btn-select:hover:not([disabled]),
+.img-upload-container .btn-select:focus:not([disabled]),
+.img-upload-container .btn-select:active:not([disabled]) {
+    color: #61dafb;
+    background-color: transparent;
+}
+
+.img-upload-container .btn-select:disabled {
+    cursor: not-allowed;
+}
+
+.img-upload-container .btn-upload {
+    padding: 5px 10px;
+    font-size: 17px;
+}
+
+.img-upload-container .btn-upload:disabled {
+    cursor: not-allowed;
+}
+
+.img-loading-overlay {
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    opacity: .2;
+    position: absolute;
+}
+
+.img-spinning-circle {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.img-spinning-circle:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.link-hover:hover {
+    color: #61dafb !important;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.audio {
+    color: #a72da3;
+}
+
+.video {
+    color: #bf1818;
+}
+
+.lights {
+    color: #d68000;
+}
+
+.btn-pa {
+    background-color: #61dafb;
+    border: 1px solid #61dafb !important;
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.btn-pa:hover:not([disabled]),
+.btn-pa:focus:not([disabled]),
+.btn-pa:active:not([disabled]) {
+    color: #61dafb;
+    background-color: transparent;
+}
+
+.btn-pa:disabled {
+    cursor: not-allowed;
+}
+
+.anchor-button {
+    background-color: transparent;
+    border: none;
+}
+
+.anchor-button:focus {
+    background: transparent !important;
+}
+
+.anchor-button:not([href]):not([tabindex]):focus {
+    outline: 0;
+    outline-color: initial;
+    outline-style: initial;
+    outline-width: 0px;
+}
