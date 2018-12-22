@@ -46,7 +46,7 @@
         "heroku-postbuild": "yarn run build",
         "build-css": "node-sass-chokidar ./src/app/layout -o ./src/app/layout",
         "watch-css": "yarn run build-css && node-sass-chokidar ./src/app/layout -o ./src/app/layout --watch --recursive",
-        "start": "yarn start --prefix server",
+        "start": "npm start --prefix server",
         "start-dev": "npm-run-all -p watch-css start-js",
         "build": "npm-run-all build-css build-js",
         "start-js": "react-scripts start",
