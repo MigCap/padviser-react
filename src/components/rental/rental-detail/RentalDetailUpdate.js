@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { toast } from 'react-toastify';
+import { toUpperCase } from '../../../app/helpers';
 import RentalAssets from './RentalAssets';
 import EditableInput from '../../shared/editable/EditableInput';
 import EditableTextArea from '../../shared/editable/EditableTextArea';
@@ -80,6 +81,7 @@ class RentalDetailUpdate extends Component {
             updateEntity={this.updateRental}
             errors={errors}
             resetErrors={this.resetRentalErrors}
+            formatPipe={[toUpperCase]}
           />
         </div>
         <div className="rental-update-titles">
@@ -92,6 +94,7 @@ class RentalDetailUpdate extends Component {
             updateEntity={this.updateRental}
             errors={errors}
             resetErrors={this.resetRentalErrors}
+            formatPipe={[toUpperCase]}
           />
         </div>
         <div className="rental-update-titles">
@@ -104,6 +107,7 @@ class RentalDetailUpdate extends Component {
             updateEntity={this.updateRental}
             errors={errors}
             resetErrors={this.resetRentalErrors}
+            formatPipe={[toUpperCase]}
           />
         </div>
         <div className="rental-update-titles">
@@ -116,6 +120,7 @@ class RentalDetailUpdate extends Component {
             updateEntity={this.updateRental}
             errors={errors}
             resetErrors={this.resetRentalErrors}
+            formatPipe={[toUpperCase]}
           />
         </div>
         <div className="rental-room-info">

@@ -2,6 +2,18 @@ import React, { Fragment } from 'react';
 import EditableComponent from './EditableComponent';
 
 export default class EditableInput extends EditableComponent {
+  formatView(value) {
+    const { formatPipe } = this.props;
+
+    if (formatPipe) {
+      let formatedValue = value;
+
+      formatPipe.forEach(pipe => (formatedValue = pipe(formatedValue)));
+      return formatedValue;
+    }
+    return value;
+  }
+
   renderComponentView() {
     const { value, isActive } = this.state;
     const { className, type } = this.props;
@@ -33,7 +45,7 @@ export default class EditableInput extends EditableComponent {
 
     return (
       <Fragment>
-        <span className={className}>{value}</span>
+        <span className={className}>{this.formatView(value)}</span>
         <button
           onClick={() => this.enableEdit()}
           className="btn btn-warning btn-editable"
