@@ -1,6 +1,11 @@
 {
     "name": "padviser-react",
     "version": "0.1.0",
+    "engines": {
+        "node": "8.12.0",
+        "npm": "6.4.1",
+        "yarn": "1.12.3"
+    },
     "private": true,
     "dependencies": {
         "aws-sdk": "^2.378.0",
@@ -38,9 +43,11 @@
         "titleize": "^1.0.1"
     },
     "scripts": {
+        "heroku-postbuild": "npm run build",
         "build-css": "node-sass-chokidar ./src/app/layout -o ./src/app/layout",
         "watch-css": "npm run build-css && node-sass-chokidar ./src/app/layout -o ./src/app/layout --watch --recursive",
-        "start": "npm-run-all -p watch-css start-js",
+        "start": "npm start --prefix server",
+        "start-dev": "npm-run-all -p watch-css start-js",
         "build": "npm-run-all build-css build-js",
         "start-js": "react-scripts start",
         "build-js": "react-scripts build",

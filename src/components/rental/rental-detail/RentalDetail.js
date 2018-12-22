@@ -95,7 +95,11 @@ class RentalDetail extends Component {
         </section>
       );
     } else {
-      return <h1> Loading ... </h1>;
+      return (
+        <div className="img-loading-overlay">
+          <div className="img-spinning-circle" />
+        </div>
+      );
     }
   }
 }
