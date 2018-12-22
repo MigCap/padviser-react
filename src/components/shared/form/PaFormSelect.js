@@ -3,6 +3,8 @@ import React from 'react';
 export const PaFormSelect = ({
   input,
   label,
+  symbol,
+  placeholder,
   options,
   className,
   meta: { touched, error }
@@ -18,9 +20,16 @@ export const PaFormSelect = ({
   }
   return (
     <div className="form-group">
-      <label>{label}</label>
-      <div className="input-group">
-        <select {...input} className={className}>
+      {label && <label>{label}</label>}
+      <div className="input-group input-group-sm">
+        {symbol && (
+          <div className="input-group-prepend">
+            <div id="inputGroup-sizing-sm" className="input-group-text">
+              {symbol}
+            </div>
+          </div>
+        )}
+        <select {...input} className={className} placeholder={placeholder}>
           {renderOptions()}
         </select>
       </div>

@@ -34,8 +34,8 @@ class RentalCreate extends Component {
       <section id="newRental" className="mb-5">
         <div className="bwm-form">
           <div className="row">
-            <div className="col-md-6">
-              <h1 className="page-title">Create Rental</h1>
+            <div className="col-md-7">
+              <h1 className="page-title">Add item to Inventory</h1>
               <RentalCreateForm
                 rentalCreateCb={this.createRental}
                 categoryOptions={this.rentalCategories}

@@ -27,7 +27,7 @@ class Header extends Component {
     return (
       <Fragment>
         <Link to="/rentals" className="nav-item nav-link link-hover">
-          RENTALS <span className="sr-only">(current)</span>
+          EQUIPMENT <span className="sr-only">(current)</span>
         </Link>
         <Link to="/login" className="nav-item nav-link link-hover">
           Login
@@ -55,10 +55,10 @@ class Header extends Component {
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink">
             <Link className="dropdown-item" to="/rentals/new">
-              Create Rental
+              Add Item
             </Link>
             <Link className="dropdown-item" to="/rentals/manage">
-              Manage Rentals
+              Manage Inventory
             </Link>
             <Link className="dropdown-item" to="/bookings/manage">
               Manage Bookings
@@ -97,7 +97,7 @@ class Header extends Component {
             <div className="navbar-nav ml-auto">
               {isAuth && (
                 <Link to="/rentals" className="nav-item nav-link link-hover">
-                  RENTALS <span className="sr-only">(current)</span>
+                  INVENTORY <span className="sr-only">(current)</span>
                 </Link>
               )}
               {this.renderUserSection(isAuth, username)}
