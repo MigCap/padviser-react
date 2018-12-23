@@ -59,10 +59,12 @@ class RentalSearchListing extends Component {
 
   render() {
     return (
-      <section id="rentalListing">
-        {this.renderTitle()}
-        <RentalList rentals={this.props.rentals.data} />
-      </section>
+      <div className="container pt-5">
+        <section id="rentalListing">
+          {this.renderTitle()}
+          <RentalList rentals={this.props.rentals.data} />
+        </section>
+      </div>
     );
   }
 }

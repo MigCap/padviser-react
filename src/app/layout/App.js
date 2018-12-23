@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from '../../components/header/Header';
+import HomePage from '../../components/home-page/HomePage';
 import RentalListing from '../../components/rental/rental-listing/RentalListing';
 import RentalSearchListing from '../../components/rental/rental-listing/RentalSearchListing';
 import RentalDetail from '../../components/rental/rental-detail/RentalDetail';
@@ -42,41 +43,33 @@ class App extends Component {
           <Fragment>
             <ToastContainer transition={Slide} />
             <Header logoutUser={this.logoutUser} />
-            <div className="container">
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={() => {
-                    return <Redirect to="/rentals" />;
-                  }}
-                />
-                <Route exact path="/rentals" component={RentalListing} />
-                <ProtectedRoute
-                  exact
-                  path="/rentals/manage"
-                  component={RentalManage}
-                />
-                <ProtectedRoute
-                  exact
-                  path="/bookings/manage"
-                  component={BookingManage}
-                />
-                <Route
-                  exact
-                  path="/rentals/:city/products"
-                  component={RentalSearchListing}
-                />
-                <ProtectedRoute
-                  exact
-                  path="/rentals/new"
-                  component={RentalCreate}
-                />
-                <Route exact path="/rentals/:id" component={RentalDetail} />
-                <Route exact path="/login" component={Login} />
-                <LoggedInRoute exact path="/register" component={Register} />
-              </Switch>
-            </div>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/rentals" component={RentalListing} />
+              <ProtectedRoute
+                exact
+                path="/rentals/manage"
+                component={RentalManage}
+              />
+              <ProtectedRoute
+                exact
+                path="/bookings/manage"
+                component={BookingManage}
+              />
+              <Route
+                exact
+                path="/rentals/:city/products"
+                component={RentalSearchListing}
+              />
+              <ProtectedRoute
+                exact
+                path="/rentals/new"
+                component={RentalCreate}
+              />
+              <Route exact path="/rentals/:id" component={RentalDetail} />
+              <Route exact path="/login" component={Login} />
+              <LoggedInRoute exact path="/register" component={Register} />
+            </Switch>
           </Fragment>
         </BrowserRouter>
       </Provider>

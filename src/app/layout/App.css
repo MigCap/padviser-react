@@ -1,6 +1,5 @@
 .navbar {
   padding: 20px;
-  margin-bottom: 40px;
   background-color: #20232a; }
   .navbar .navbar-brand {
     margin-right: 100px;
@@ -41,6 +40,25 @@
   font-weight: 500; }
   .custom-nav-link:hover {
     color: #acebfd !important; }
+
+.masthead {
+  background-color: #20232a;
+  min-height: 500px;
+  height: 100% !important;
+  margin: 0;
+  padding: 0; }
+
+.ui-container {
+  color: #61dafb; }
+  .ui-container img {
+    display: block;
+    margin: 0 auto;
+    padding: 3em 0 0.5em 0;
+    width: 60%; }
+  .ui-container h2 {
+    font-size: 2em;
+    font-weight: normal;
+    text-align: center; }
 
 .form-group {
   margin: 10px 0 !important; }

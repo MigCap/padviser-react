@@ -31,32 +31,34 @@ class RentalCreate extends Component {
       return <Redirect to={{ pathname: '/rentals' }} />;
     }
     return (
-      <section id="newRental" className="mb-5">
-        <div className="bwm-form">
-          <div className="row">
-            <div className="col-md-7">
-              <h1 className="page-title">Add item to Inventory</h1>
-              <RentalCreateForm
-                rentalCreateCb={this.createRental}
-                categoryOptions={this.rentalCategories}
-                conditionOptions={this.rentalCondition}
-                errors={this.state.errors}
-              />
-            </div>
-            <div className="col-md-5 ml-auto">
-              <div className="image-container">
-                <h2 className="catchphrase">
-                  Book or rent any AV equipement just with a few clicks.
-                </h2>
-                <img
-                  src={process.env.PUBLIC_URL + '/img/login-image.jpeg'}
-                  alt="NewRentalImage"
+      <div className="container pt-5">
+        <section id="newRental" className="mb-5">
+          <div className="bwm-form">
+            <div className="row">
+              <div className="col-md-7">
+                <h1 className="page-title">Add item to Inventory</h1>
+                <RentalCreateForm
+                  rentalCreateCb={this.createRental}
+                  categoryOptions={this.rentalCategories}
+                  conditionOptions={this.rentalCondition}
+                  errors={this.state.errors}
                 />
+              </div>
+              <div className="col-md-5 ml-auto">
+                <div className="image-container">
+                  <h2 className="catchphrase">
+                    Book or rent any AV equipement just with a few clicks.
+                  </h2>
+                  <img
+                    src={process.env.PUBLIC_URL + '/img/login-image.jpeg'}
+                    alt="NewRentalImage"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     );
   }
 }

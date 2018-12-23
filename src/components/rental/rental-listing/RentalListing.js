@@ -17,10 +17,12 @@ class ReantalListing extends Component {
 
   render() {
     return (
-      <section id="rentalListing">
-        <h1 className="page-title">Your Gear All Around the World</h1>
-        <RentalList rentals={this.props.rentals} />
-      </section>
+      <div className="container pt-5">
+        <section id="rentalListing">
+          <h1 className="page-title">Your Gear All Around the Globe</h1>
+          <RentalList rentals={this.props.rentals} />
+        </section>
+      </div>
     );
   }
 }
