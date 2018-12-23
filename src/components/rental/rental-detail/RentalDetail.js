@@ -71,33 +71,41 @@ class RentalDetail extends Component {
 
     if (rental._id) {
       return (
-        <section id="rentalDetails">
-          <div className="upper-section">
-            <div className="row">
-              <div className="col-md-6">
-                <img src={rental.image} alt={rental.type} style={imageStyled} />
-              </div>
-              <div className="col-md-6">
-                <RentalMap location={`${rental.city}, ${rental.street}`} />
-              </div>
-            </div>
-          </div>
-          <div className="details-section mt-5 mb-5">
-            <div className="row">
-              <div className="col-lg-8 pr-lg-4">
-                {this.renderRentalDetail(rental, errors)}
-              </div>
-              <div className="col-lg-4 mt-3 mt-lg-3">
-                <Booking rental={rental} />
+        <div className="container pt-5">
+          <section id="rentalDetails">
+            <div className="upper-section">
+              <div className="row">
+                <div className="col-md-6">
+                  <img
+                    src={rental.image}
+                    alt={rental.type}
+                    style={imageStyled}
+                  />
+                </div>
+                <div className="col-md-6">
+                  <RentalMap location={`${rental.city}, ${rental.street}`} />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+            <div className="details-section mt-5 mb-5">
+              <div className="row">
+                <div className="col-lg-8 pr-lg-4">
+                  {this.renderRentalDetail(rental, errors)}
+                </div>
+                <div className="col-lg-4 mt-3 mt-lg-3">
+                  <Booking rental={rental} />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       );
     } else {
       return (
-        <div className="img-loading-overlay">
-          <div className="img-spinning-circle" />
+        <div className="container pt-5">
+          <div className="img-loading-overlay">
+            <div className="img-spinning-circle" />
+          </div>
         </div>
       );
     }

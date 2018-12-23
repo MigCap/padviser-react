@@ -55,12 +55,15 @@ class Header extends Component {
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink">
             <Link className="dropdown-item" to="/rentals/new">
+              <i className="fa fa-plus pr-2" />
               Add Item
             </Link>
             <Link className="dropdown-item" to="/rentals/manage">
+              <i className="fa fa-indent pr-2" />
               Manage Inventory
             </Link>
             <Link className="dropdown-item" to="/bookings/manage">
+              <i className="fa fa-book pr-2" />
               Manage Bookings
             </Link>
           </div>
@@ -74,7 +77,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="container">
-          <Link to="/rentals" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             <img
               src={process.env.PUBLIC_URL + '/img/PAlogo.png'}
               width="20"
