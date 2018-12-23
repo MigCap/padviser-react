@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import RentalManageCard from './RentalManageCard';
+// import RentalManageCard from './RentalManageCard';
+import RentalManageCardH from './RentalManageCardH';
 import RentalManageModal from './RentalManageModal';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 
@@ -29,7 +30,7 @@ class RentalManage extends Component {
 
   renderRentalCards = rentals =>
     rentals.map((rental, index) => (
-      <RentalManageCard
+      <RentalManageCardH
         rental={rental}
         key={index}
         rentalIndex={index}
