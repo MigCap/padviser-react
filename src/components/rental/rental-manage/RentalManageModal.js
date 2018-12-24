@@ -44,7 +44,10 @@ class RentalManageModal extends Component {
     const { bookings } = this.props;
     return (
       <Fragment>
-        <button type="button" onClick={this.openModal} className="btn btn-pa">
+        <button
+          type="button"
+          onClick={this.openModal}
+          className="badge badge-pill btn-pa-rental">
           Bookings
         </button>
         <Modal

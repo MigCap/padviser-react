@@ -29,7 +29,7 @@ class RentalSearchInput extends Component {
           onClick={() => this.handleSearch()}
           className="btn btn-outline-success btn-bwm-search"
           type="submit">
-          Search
+          <i className="fa fa-search" />
         </button>
       </form>
     );

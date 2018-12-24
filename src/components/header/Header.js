@@ -85,17 +85,20 @@ class Header extends Component {
             />
             Production Adviser
           </Link>
-          <RentalSearchInput />
+
           <button
-            className="navbar-toggler"
+            className="navbar-toggler collapsed"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
             aria-expanded="false"
             aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
+            <span className="icon-bar top-bar" />
+            <span className="icon-bar middle-bar" />
+            <span className="icon-bar bottom-bar" />
           </button>
+          <RentalSearchInput />
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
               {isAuth && (
