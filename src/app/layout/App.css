@@ -393,6 +393,8 @@
       .rental-card-manage-container .avatar-container {
         flex: 0 1 30%; } }
     .rental-card-manage-container .avatar-container img {
+      object-fit: contain;
+      object-position: center center;
       width: 80px;
       height: 70px;
       display: block;

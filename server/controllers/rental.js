@@ -12,7 +12,7 @@ exports.findRentalById = function(req, res) {
     .exec(function(err, foundRental) {
       if (err) {
         return res.status(422).send({
-          errors: [{ title: 'Rental Error', detail: 'Could not find Rental' }]
+          errors: [{ title: 'Item Error', detail: 'Could not find Item' }]
         });
       }
       return res.json(foundRental);
@@ -84,9 +84,7 @@ exports.deleteRental = function(req, res) {
 
       if (user.id !== foundRental.user.id) {
         return res.status(422).send({
-          errors: [
-            { title: 'Invalid User', detail: 'You are not rental owner!' }
-          ]
+          errors: [{ title: 'Invalid User', detail: 'You are not item owner!' }]
         });
       }
 
@@ -95,7 +93,7 @@ exports.deleteRental = function(req, res) {
           errors: [
             {
               title: 'Active Bookings',
-              detail: 'Cannot delete rental with active bookings!'
+              detail: 'Cannot delete item with active bookings!'
             }
           ]
         });
@@ -125,7 +123,7 @@ exports.editRental = function(req, res) {
       if (user.id !== foundRental.user.id) {
         return res.status(422).send({
           errors: [
-            { title: 'Invalid User', detail: 'You are not rental owner!' }
+            { title: 'Invalid User', detail: 'You are not equipment owner!' }
           ]
         });
       }
@@ -155,7 +153,7 @@ exports.verifyUser = function(req, res) {
       if (foundRental.user.id !== user.id) {
         return res.status(422).send({
           errors: [
-            { title: 'Invalid User', detail: 'You are not rental owner!' }
+            { title: 'Invalid User', detail: 'You are not equipment owner!' }
           ]
         });
       }
@@ -193,8 +191,8 @@ exports.searchCity = function(req, res) {
         return res.status(422).send({
           errors: [
             {
-              title: 'No Rentals Found',
-              detail: `There are no rentals for city ${city}`
+              title: 'No Items Found',
+              detail: `There are no items for city ${city}`
             }
           ]
         });

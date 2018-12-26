@@ -12,7 +12,8 @@ const bookingSchema = new Schema({
   totalPrice: Number,
   createdAt: { type: Date, default: Date.now },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  rental: { type: Schema.Types.ObjectId, ref: 'Rental' }
+  rental: { type: Schema.Types.ObjectId, ref: 'Rental' },
+  review: { type: Schema.Types.ObjectId, ref: 'Review' }
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

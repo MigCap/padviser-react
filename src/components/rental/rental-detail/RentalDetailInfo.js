@@ -1,6 +1,6 @@
 import React from 'react';
 import RentalAssets from './RentalAssets';
-import RentalRating from './RentalRating';
+import RentalReview from './RentalReview';
 import { toUpperCase } from 'app/helpers';
 
 export default function RentalDetailInfo(props) {
@@ -33,7 +33,7 @@ export default function RentalDetailInfo(props) {
       <hr />
       <RentalAssets />
       <hr />
-      <RentalRating rental={rental} />
+      <RentalReview rental={rental} />
     </div>
   );
 }
