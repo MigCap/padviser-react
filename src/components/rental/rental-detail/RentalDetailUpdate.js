@@ -41,7 +41,7 @@ class RentalDetailUpdate extends Component {
             className={`rental-type ${rental.category}`}
             containerStyle={{ display: 'inline-block' }}
             updateEntity={this.updateRental}
-            options={['Audio', 'Video', 'Lighting']}
+            options={['Audio', 'Video', 'lights']}
             errors={errors}
             resetErrors={this.resetRentalErrors}
           />

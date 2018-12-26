@@ -19,7 +19,7 @@ class Header extends Component {
         <p
           className="nav-item nav-link clickable link-hover"
           onClick={this.handleLogout}>
-          Logout
+          <i className="fa fa-power-off" />
         </p>
       );
     }
@@ -27,7 +27,7 @@ class Header extends Component {
     return (
       <Fragment>
         <Link to="/rentals" className="nav-item nav-link link-hover">
-          EQUIPMENT <span className="sr-only">(current)</span>
+          INVENTORY <span className="sr-only">(current)</span>
         </Link>
         <Link to="/login" className="nav-item nav-link link-hover">
           Login

@@ -47,7 +47,7 @@ class RentalCreate extends Component {
               <div className="col-md-5 ml-auto">
                 <div className="image-container">
                   <h2 className="catchphrase">
-                    Book or rent any AV equipement just with a few clicks.
+                    Book or Rent any AV equipement just with a few clicks.
                   </h2>
                   <img
                     src={process.env.PUBLIC_URL + '/img/login-image.jpeg'}

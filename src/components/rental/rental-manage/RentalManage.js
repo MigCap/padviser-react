@@ -64,7 +64,7 @@ class RentalManage extends Component {
       <div className="container pt-5">
         <section id="userRentals">
           <ToastContainer transition={Slide} />
-          <h1 className="page-title">My Rentals</h1>
+          <h1 className="page-title">My Inventory</h1>
           <div className="row mb-5">{this.renderRentalCards(userRentals)}</div>
           {!isFetching && userRentals.length === 0 && (
             <div className="alert alert-warning">

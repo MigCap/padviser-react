@@ -23,7 +23,7 @@ exports.createBooking = function(req, res) {
           errors: [
             {
               title: 'Invalid user',
-              detail: 'Cannot create booking on your own rental!'
+              detail: 'Cannot create booking on your own equipment!'
             }
           ]
         });
