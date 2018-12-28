@@ -217,11 +217,11 @@ class Booking extends Component {
             {rental.user && rental.user.username}
             <br />
             <span>Rental Owner</span>
-            <br />
+            {/*<br />
             <i className="fa fa-star" />
             <i className="fa fa-star" />
             <i className="fa fa-star" />
-            <i className="fa fa-star-half" />
+            <i className="fa fa-star-half" />*/}
           </p>
         </div>
       </Fragment>

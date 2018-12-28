@@ -725,6 +725,18 @@
     .img-upload-container .btn-upload:disabled {
       cursor: not-allowed; }
 
+.review-booking-modal {
+  border-radius: 5px;
+  color: #4a4a4a;
+  padding: 2em 25px 25px 25px; }
+  .review-booking-modal .review-rating {
+    margin: 1em 0; }
+    .review-booking-modal .review-rating .star-ratings {
+      left: 50%;
+      transform: translateX(-50%); }
+  .review-booking-modal .modal-footer {
+    padding: 20px 20px 0 20px; }
+
 .img-loading-overlay {
   background-color: black;
   bottom: 0;

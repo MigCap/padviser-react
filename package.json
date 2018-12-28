@@ -36,6 +36,7 @@
         "react-responsive-modal": "3.0.3",
         "react-router-dom": "^4.3.1",
         "react-scripts": "2.1.1",
+        "react-star-ratings": "^2.3.0",
         "react-toastify": "^4.5.0",
         "redux": "3.7.2",
         "redux-form": "7.3.0",
