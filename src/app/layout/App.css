@@ -214,8 +214,8 @@
       transition: all 0.5s ease-out;
       border: solid 1px #61dafb !important; }
   #rentalListing .rental-card-img {
-    object-fit: cover;
-    object-position: center 0;
+    object-fit: contain;
+    object-position: center center;
     height: 180px; }
 
 #rentalDetails .upper-section {
@@ -259,19 +259,20 @@
     margin-bottom: 10px;
     font-weight: 700;
     font-size: 22px; }
-  #rentalDetails .details-section .rental-assets .review-title {
-    font-weight: 400;
-    font-size: 1.5em; }
   #rentalDetails .details-section .rental-assets span {
     display: block;
     margin-bottom: 15px;
     font-weight: 300; }
+  #rentalDetails .details-section .rental-reviews .review-title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 22px; }
   #rentalDetails .details-section .fa {
     padding-right: 5px; }
 
 .review-card-container {
   margin: 10px 0 1em 0;
-  padding: 20px;
+  padding: 10px 20px;
   border: 1px solid #a9a9a9;
   border-radius: 5px;
   display: flex;
@@ -279,8 +280,9 @@
   align-items: baseline; }
   .review-card-container .avatar-container {
     flex-basis: 20%;
+    align-self: flex-end;
     margin: 0;
-    padding: 0; }
+    padding: 10px 0 0 0; }
     .review-card-container .avatar-container img {
       min-width: 70px;
       max-width: 80px;
@@ -288,21 +290,33 @@
       display: block;
       margin: auto 0; }
     .review-card-container .avatar-container p {
+      margin: 0;
       padding: 10px 0;
       display: block;
       text-align: left;
       font-size: 14px; }
-  .review-card-container p {
+  .review-card-container .review-body-container {
     flex-basis: 70%;
+    align-self: center;
     display: block;
-    margin: auto 0;
-    padding: 0 10px;
-    font-size: 16px;
-    font-weight: 600; }
-    .review-card-container p span {
-      margin-top: 5px;
-      font-size: 14px;
-      font-weight: 300; }
+    margin: 0;
+    padding: 0 10px; }
+    @media screen and (max-width: 500px) {
+      .review-card-container .review-body-container {
+        flex-basis: 80%;
+        padding: 0 0 0 20px; } }
+    .review-card-container .review-body-container p {
+      margin-bottom: 0;
+      font-size: 16px;
+      font-weight: 600; }
+      .review-card-container .review-body-container p span {
+        margin-top: 5px;
+        margin-bottom: 0 !important;
+        font-size: 14px;
+        font-weight: 300; }
+    .review-card-container .review-body-container .star-ratings,
+    .review-card-container .review-body-container .star-container {
+      padding: 0; }
 
 #userRentals {
   /* .card {

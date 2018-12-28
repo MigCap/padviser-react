@@ -30,7 +30,6 @@ class ReviewModal extends Component {
   };
 
   handleCreateReview(reviewData) {
-    this.closeModal();
     this.props.reset('reviewCreateForm');
 
     const user = this.props.booking.user;

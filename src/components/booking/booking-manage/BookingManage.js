@@ -16,7 +16,7 @@ class BookingManage extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(actions.fetchUserBookings());
   }
 
@@ -25,7 +25,6 @@ class BookingManage extends Component {
       <BookingCard
         booking={booking}
         key={index}
-        reviewSubmitted={this.state.reviewSubmitted}
         modal={
           <ReviewModal
             key={index}

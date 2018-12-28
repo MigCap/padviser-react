@@ -8,6 +8,9 @@ import {
   FETCH_RENTAL_SUCCESS,
   FETCH_RENTALS_INIT,
   FETCH_RENTAL_FAIL,
+  FETCH_REVIEWS_INIT,
+  FETCH_REVIEWS_SUCCESS,
+  FETCH_REVIEWS_FAIL,
   FETCH_USER_BOOKINGS_INIT,
   FETCH_USER_BOOKINGS_SUCCESS,
   FETCH_USER_BOOKINGS_FAIL,
@@ -34,6 +37,17 @@ const fetchRentalByIdSuccess = rental => {
   return {
     type: FETCH_RENTAL_BY_ID_SUCCESS,
     rental
+  };
+};
+
+export const fetchRentalById = rentalId => {
+  return function(dispatch) {
+    dispatch(fetchRentalByIdInit());
+
+    axios
+      .get(`/api/v1/rentals/${rentalId}`)
+      .then(res => res.data)
+      .then(rental => dispatch(fetchRentalByIdSuccess(rental)));
   };
 };
 
@@ -69,17 +83,6 @@ export const fetchRentals = city => {
       .catch(({ response }) =>
         dispatch(fetchRentalsFail(response.data.errors))
       );
-  };
-};
-
-export const fetchRentalById = rentalId => {
-  return function(dispatch) {
-    dispatch(fetchRentalByIdInit());
-
-    axios
-      .get(`/api/v1/rentals/${rentalId}`)
-      .then(res => res.data)
-      .then(rental => dispatch(fetchRentalByIdSuccess(rental)));
   };
 };
 
@@ -255,7 +258,7 @@ export const uploadImage = image => {
     });
 };
 
-// MAP ACTIONS
+// MAP ACTIONS ---------------------------------------------------
 
 export const reloadMap = () => {
   return {
@@ -268,17 +271,52 @@ export const reloadMapFinish = () => {
   };
 };
 
-// VERIFY USER --- USER GUARD
+// VERIFY USER --- USER GUARD ---------------------------------------------------
 
 export const verifyRentalOwner = rentalId => {
   return axiosInstance.get(`/rentals/${rentalId}/verify-user`);
 };
 
-// REVIEWS ACTIONS
+// REVIEWS ACTIONS ---------------------------------------------------
 
 export const createReview = reviewData => {
   return axiosInstance
-    .post(`/reviews?bookingid=${reviewData.bookingId}`, { ...reviewData })
+    .post(`/reviews?bookingId=${reviewData.bookingId}`, { ...reviewData })
     .then(res => res.data)
     .then(res => res.data, err => Promise.reject(err.response.data.errors));
+};
+
+const fetchReviewsInit = () => {
+  return {
+    type: FETCH_REVIEWS_INIT
+  };
+};
+
+const fetchReviewsSuccess = reviews => {
+  return {
+    type: FETCH_REVIEWS_SUCCESS,
+    reviews
+  };
+};
+
+const fetchReviewsFail = errors => {
+  return {
+    type: FETCH_REVIEWS_FAIL,
+    errors
+  };
+};
+
+export const fetchReviews = rentalId => {
+  const url = `/reviews?rentalId=${rentalId}`;
+  return dispatch => {
+    dispatch(fetchReviewsInit());
+
+    axiosInstance
+      .get(url)
+      .then(res => res.data)
+      .then(reviews => dispatch(fetchReviewsSuccess(reviews)))
+      .catch(({ response }) =>
+        dispatch(fetchReviewsFail(response.data.errors))
+      );
+  };
 };
