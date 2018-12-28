@@ -6,6 +6,7 @@ import { rentalReducer, selectedRentalReducer } from './rental-reducer';
 import { userBookingsReducer } from './booking-reducer';
 import { authReducer } from './auth-reducer';
 import { rentalMapReducer } from './map-reducer';
+import { reviewReducer } from './review-reducer';
 
 import { reducer as formReducer } from 'redux-form';
 
@@ -16,7 +17,8 @@ export const init = () => {
     form: formReducer,
     auth: authReducer,
     userBookings: userBookingsReducer,
-    map: rentalMapReducer
+    map: rentalMapReducer,
+    reviews: reviewReducer
   });
 
   const store = createStore(

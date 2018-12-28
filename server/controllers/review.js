@@ -8,9 +8,9 @@ const moment = require('moment');
 const { normalizeErrors } = require('../helpers/mongoose');
 
 exports.getReviews = function(req, res) {
-  const { rentalid } = req.query;
+  const { rentalId } = req.query;
 
-  Review.find({ rental: rentalid })
+  Review.find({ rental: rentalId })
     .populate('user')
     .exec((err, reviews) => {
       if (err) {
@@ -23,10 +23,10 @@ exports.getReviews = function(req, res) {
 
 exports.createReview = function(req, res) {
   const reviewData = req.body;
-  const { bookingid } = req.query;
+  const { bookingId } = req.query;
   const user = res.locals.user;
 
-  Booking.findById(bookingid)
+  Booking.findById(bookingId)
     .populate({ path: 'rental', populate: { path: 'user' } })
     .populate('review')
     .populate('user')

@@ -1,56 +1,39 @@
 import React, { Component } from 'react';
+import StarRatings from 'react-star-ratings';
+import moment from 'moment';
 
 class RentalDetailReview extends Component {
   render() {
+    const review = this.props.review;
     return (
-      <div className="rental-assets">
-        <h3 className="review-title">Customer Reviews</h3>
-        <div className="row">
-          <div className="col-lg-10">
-            <div className="review-card-container">
-              <div className="avatar-container">
-                <img
-                  src={process.env.PUBLIC_URL + '/img/user.png'}
-                  alt="owner"
-                  className="img-thumbnail"
-                />
-                <p>6 hours ago</p>
-              </div>
-              <p>
-                Test User Random
-                <br />
-                <span>
-                  "Perfect conditions. Great equipment. Cabling was correct.
-                  Firmware was not up to date."
-                </span>
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star-half" />
-              </p>
+      <div className="row">
+        <div className="col-lg-10">
+          <div className="review-card-container">
+            <div className="avatar-container">
+              <img
+                src={process.env.PUBLIC_URL + '/img/user.png'}
+                alt="owner"
+                className="img-thumbnail"
+              />
+              <p>{moment(review.createdAt).fromNow()}</p>
             </div>
-
-            <div className="review-card-container">
-              <div className="avatar-container">
-                <img
-                  src={process.env.PUBLIC_URL + '/img/user.png'}
-                  alt="owner"
-                  className="img-thumbnail"
-                />
-                <p>6 hours ago</p>
-              </div>
+            <div className="review-body-container">
               <p>
-                Test User Random
+                {review.user.username}
                 <br />
-                <span>
-                  "Perfect conditions. Great equipment. Cabling was correct.
-                  Firmware was not up to date."
-                </span>
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
-                <i className="fa fa-star" />
+                <span>"{review.text}"</span>
               </p>
+              <StarRatings
+                rating={review.rating}
+                starRatedColor="#61dafb"
+                starHoverColor="grey"
+                isSelectable={false}
+                isAggregateRating={false}
+                numberOfStars={5}
+                starDimension="15px"
+                starSpacing="0px"
+                name="rentalDetailRating"
+              />
             </div>
           </div>
         </div>

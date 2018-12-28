@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RentalAssets from './RentalAssets';
 import RentalDetailReview from './RentalDetailReview';
 import { toUpperCase } from 'app/helpers';
 
 export default function RentalDetailInfo(props) {
-  const rental = props.rental;
+  const { rental, reviews, isAuth } = props;
   return (
     <div className="rental">
       <h2 className={`rental-type ${rental.category}`}>{rental.category}</h2>
@@ -33,7 +34,27 @@ export default function RentalDetailInfo(props) {
       <hr />
       <RentalAssets />
       <hr />
-      <RentalDetailReview rental={rental} />
+      <div className="rental-reviews">
+        <h3 className="review-title">Customer Reviews</h3>
+
+        {isAuth ? (
+          reviews.map((review, index) => (
+            <RentalDetailReview key={index} review={review} rental={rental} />
+          ))
+        ) : (
+          <p>
+            You have to be{' '}
+            <Link to="/register" className="link-hover">
+              registered
+            </Link>{' '}
+            or{' '}
+            <Link to="/login" className="link-hover">
+              login
+            </Link>{' '}
+            to see reviews.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

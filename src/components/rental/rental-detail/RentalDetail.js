@@ -26,6 +26,7 @@ class RentalDetail extends Component {
   componentWillMount() {
     const rentalId = this.props.match.params.id;
     this.props.dispatch(actions.fetchRentalById(rentalId));
+    this.props.dispatch(actions.fetchReviews(rentalId));
   }
 
   componentDidMount() {
@@ -62,7 +63,11 @@ class RentalDetail extends Component {
         />
       </UserGuard>
     ) : (
-      <RentalDetailInfo rental={rental} />
+      <RentalDetailInfo
+        rental={rental}
+        isAuth={this.props.auth.isAuth}
+        reviews={this.props.reviews}
+      />
     );
   }
 
@@ -116,7 +121,9 @@ const mapStateToProps = state => {
   return {
     rental: state.rental.data,
     auth: state.auth,
-    errors: state.rental.errors
+    errors: state.rental.errors,
+    reviews: state.reviews.data,
+    reviewsErrors: state.reviews.errors
   };
 };
 
