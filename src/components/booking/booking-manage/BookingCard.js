@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+
 import { toUpperCase, pretifyDate } from '../../../app/helpers';
+import moment from 'moment';
 
 export default function BookingCard(props) {
-  const { booking } = props;
+  const { booking, modal } = props;
 
   return (
     <div className="col-md-4">
@@ -43,6 +45,7 @@ export default function BookingCard(props) {
               Go to Rental
             </Link>
           )}
+          {!booking.review && moment().isAfter(booking.endAt) && modal}
         </div>
         <div className="card-footer text-muted">
           Created at {pretifyDate(booking.createdAt)}

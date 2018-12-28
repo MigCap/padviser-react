@@ -273,3 +273,12 @@ export const reloadMapFinish = () => {
 export const verifyRentalOwner = rentalId => {
   return axiosInstance.get(`/rentals/${rentalId}/verify-user`);
 };
+
+// REVIEWS ACTIONS
+
+export const createReview = reviewData => {
+  return axiosInstance
+    .post(`/reviews?bookingid=${reviewData.bookingId}`, { ...reviewData })
+    .then(res => res.data)
+    .then(res => res.data, err => Promise.reject(err.response.data.errors));
+};

@@ -1,20 +1,56 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import BookingCard from './BookingCard';
+import ReviewModal from '../../review/ReviewModal';
 
 import * as actions from '../../../app/actions';
 
 class BookingManage extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      errors: []
+    };
+  }
+
   componentWillMount() {
     this.props.dispatch(actions.fetchUserBookings());
   }
 
   renderBookingsCards(bookings) {
     return bookings.map((booking, index) => (
-      <BookingCard booking={booking} key={index} />
+      <BookingCard
+        booking={booking}
+        key={index}
+        reviewSubmitted={this.state.reviewSubmitted}
+        modal={
+          <ReviewModal
+            key={index}
+            reviewCreateCb={this.reviewCreateCb}
+            booking={booking}
+            errors={this.state.errors}
+          />
+        }
+      />
     ));
   }
+
+  reviewCreateCb = reviewData => {
+    actions.createReview(reviewData).then(
+      reviewed => {
+        toast.info('Review has been succesfully created!', {
+          hideProgressBar: true
+        });
+        this.props.dispatch(actions.fetchUserBookings());
+      },
+      errors => {
+        this.setState({ errors });
+      }
+    );
+  };
 
   render() {
     const { data: bookings, isFetching } = this.props.userBookings;

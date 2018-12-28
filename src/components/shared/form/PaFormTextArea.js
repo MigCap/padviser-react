@@ -6,6 +6,7 @@ export const PaFormTextArea = ({
   type,
   placeholder,
   rows,
+  cols,
   className,
   meta: { touched, error }
 }) => (
@@ -16,6 +17,7 @@ export const PaFormTextArea = ({
         {...input}
         type={type}
         rows={rows}
+        cols={cols}
         className={className}
         placeholder={placeholder}>
         {' '}

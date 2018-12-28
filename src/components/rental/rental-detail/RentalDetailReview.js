@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-class RentalReview extends Component {
+class RentalDetailReview extends Component {
   render() {
-    const { rental } = this.props;
     return (
       <div className="rental-assets">
         <h3 className="review-title">Customer Reviews</h3>
@@ -60,4 +59,4 @@ class RentalReview extends Component {
   }
 }
 
-export default RentalReview;
+export default RentalDetailReview;
