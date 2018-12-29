@@ -3,6 +3,32 @@ const { normalizeErrors } = require('../helpers/mongoose');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
+exports.getUser = function(req, res) {
+  const requestedUserId = req.params.id;
+  const user = res.locals.user;
+
+  if (requestedUserId === user.id) {
+    // Display all user data
+    User.findById(requestedUserId, function(err, foundUser) {
+      if (err) {
+        return res.status(422).send({ errors: normalizeErrors(err.errors) });
+      }
+
+      return res.json(foundUser);
+    });
+  } else {
+    // Restrict some User Data
+    User.findById(requestedUserId)
+      .select('-password -bookings -_id -__v')
+      .exec(function(err, foundUser) {
+        if (err) {
+          return res.status(422).send({ errors: normalizeErrors(err.errors) });
+        }
+        return res.json(foundUser);
+      });
+  }
+};
+
 exports.auth = function(req, res) {
   const { email, password } = req.body;
 
