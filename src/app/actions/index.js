@@ -14,6 +14,9 @@ import {
   FETCH_USER_BOOKINGS_INIT,
   FETCH_USER_BOOKINGS_SUCCESS,
   FETCH_USER_BOOKINGS_FAIL,
+  FETCH_USER_PROFILE_INIT,
+  FETCH_USER_PROFILE_SUCCESS,
+  FETCH_USER_PROFILE_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
@@ -317,6 +320,43 @@ export const fetchReviews = rentalId => {
       .then(reviews => dispatch(fetchReviewsSuccess(reviews)))
       .catch(({ response }) =>
         dispatch(fetchReviewsFail(response.data.errors))
+      );
+  };
+};
+
+// USERS PROFILE ACTIONS ---------------------------------------------------
+
+const fetchUserProfileInit = () => {
+  return {
+    type: FETCH_USER_PROFILE_INIT
+  };
+};
+
+const fetchUserProfileSuccess = userProfile => {
+  return {
+    type: FETCH_USER_PROFILE_SUCCESS,
+    userProfile
+  };
+};
+
+const fetchUserProfileFail = errors => {
+  return {
+    type: FETCH_USER_PROFILE_FAIL,
+    errors
+  };
+};
+
+export const fetchUserProfile = userId => {
+  const url = `/users/${userId}`;
+  return dispatch => {
+    dispatch(fetchUserProfileInit());
+
+    axiosInstance
+      .get(url)
+      .then(res => res.data)
+      .then(userProfile => dispatch(fetchUserProfileSuccess(userProfile)))
+      .catch(({ response }) =>
+        dispatch(fetchUserProfileFail(response.data.errors))
       );
   };
 };

@@ -16,7 +16,7 @@ export const reviewReducer = (state = INITIAL_STATE.reviews, action) => {
     case FETCH_REVIEWS_INIT:
       return { ...state, data: [], errors: [] };
     case FETCH_REVIEWS_SUCCESS:
-      return { ...state, data: action.reviews };
+      return { ...state, data: action.reviews, errors: [] };
     case FETCH_REVIEWS_FAIL:
       return { ...state, data: [], errors: action.errors };
 

@@ -114,6 +114,10 @@
       .ui-container h2 {
         font-size: 1em; } }
 
+.user-profile-container .img-circle {
+  border-radius: 50%;
+  max-width: 150px; }
+
 .form-group {
   margin: 10px 0 !important; }
 
