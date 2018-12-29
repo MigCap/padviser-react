@@ -7,6 +7,7 @@ import { userBookingsReducer } from './booking-reducer';
 import { authReducer } from './auth-reducer';
 import { rentalMapReducer } from './map-reducer';
 import { reviewReducer } from './review-reducer';
+import { userProfileReducer } from './user-reducer';
 
 import { reducer as formReducer } from 'redux-form';
 
@@ -18,7 +19,8 @@ export const init = () => {
     auth: authReducer,
     userBookings: userBookingsReducer,
     map: rentalMapReducer,
-    reviews: reviewReducer
+    reviews: reviewReducer,
+    userProfile: userProfileReducer
   });
 
   const store = createStore(

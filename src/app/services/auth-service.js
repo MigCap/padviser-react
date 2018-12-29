@@ -27,6 +27,10 @@ class AuthService {
     return jwt.decode(this.getToken()).username; // verify if is jwt.decode or this.decode
   }
 
+  getUserId() {
+    return jwt.decode(this.getToken()).userId;
+  }
+
   isValid(token) {
     return moment().isBefore(this.getExpiration(token));
   }

@@ -54,6 +54,10 @@ class Header extends Component {
           <div
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink">
+            <Link className="dropdown-item" to="/users/profile">
+              <i className="fa fa-user pr-2" />
+              Profile
+            </Link>
             <Link className="dropdown-item" to="/rentals/new">
               <i className="fa fa-plus pr-2" />
               Add Item

@@ -5,6 +5,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from '../../components/header/Header';
 import HomePage from '../../components/home-page/HomePage';
+import UserDetail from '../../components/user/UserDetail';
 import RentalListing from '../../components/rental/rental-listing/RentalListing';
 import RentalSearchListing from '../../components/rental/rental-listing/RentalSearchListing';
 import RentalDetail from '../../components/rental/rental-detail/RentalDetail';
@@ -50,6 +51,11 @@ class App extends Component {
                 exact
                 path="/rentals/manage"
                 component={RentalManage}
+              />
+              <ProtectedRoute
+                exact
+                path="/users/profile"
+                component={UserDetail}
               />
               <ProtectedRoute
                 exact
