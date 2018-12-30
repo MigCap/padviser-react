@@ -51,7 +51,10 @@ class ReviewModal extends Component {
     const { handleSubmit, pristine, submitting, valid, errors } = this.props;
     return (
       <Fragment>
-        <button type="button" onClick={this.openModal} className="btn btn-pa">
+        <button
+          type="button"
+          onClick={this.openModal}
+          className="btn btn-pa mb-1">
           Write a Review
         </button>
         <Modal

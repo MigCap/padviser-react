@@ -24,7 +24,8 @@ class Booking extends Component {
       modal: {
         open: false
       },
-      errors: []
+      errors: [],
+      invalidUnits: false
     };
   }
   componentWillMount() {
@@ -69,12 +70,20 @@ class Booking extends Component {
   };
 
   selectUnits(event) {
-    this.setState({
-      proposedBooking: {
-        ...this.state.proposedBooking,
-        units: parseInt(event.target.value)
-      }
-    });
+    this.setState({ invalidUnits: false });
+    const rentalMaxUnits = this.props.rental.units;
+    const proposedUnits = parseInt(event.target.value);
+    if (proposedUnits > rentalMaxUnits) {
+      this.setState({ invalidUnits: true });
+    } else {
+      this.setState({
+        invalidUnits: false,
+        proposedBooking: {
+          ...this.state.proposedBooking,
+          units: parseInt(event.target.value)
+        }
+      });
+    }
   }
 
   cancelProposedBooking = () => {
@@ -99,14 +108,14 @@ class Booking extends Component {
   }
 
   confirmProposedBooking() {
-    const { startAt, endAt } = this.state.proposedBooking;
+    const { startAt, endAt, units } = this.state.proposedBooking;
     const days = getRangeOfDates(startAt, endAt).length - 1;
     const { rental } = this.props;
     this.setState({
       proposedBooking: {
         ...this.state.proposedBooking,
         days,
-        totalPrice: days * rental.dailyRate,
+        totalPrice: days * (rental.dailyRate * units),
         rental
       },
       modal: {
@@ -137,6 +146,7 @@ class Booking extends Component {
       auth: { isAuth }
     } = this.props;
     const { startAt, endAt, units } = this.state.proposedBooking;
+    const invalidUnits = this.state.invalidUnits;
     return (
       <Fragment>
         <div className="booking">
@@ -175,6 +185,8 @@ class Booking extends Component {
                     this.selectUnits(event);
                   }}
                   value={units}
+                  min="1"
+                  max={rental.units}
                   type="number"
                   className="form-control"
                   id="units"
@@ -182,8 +194,13 @@ class Booking extends Component {
                   placeholder=""
                 />
               </div>
+              {invalidUnits && (
+                <div className="alert alert-danger">
+                  Max number of units: {rental.units}
+                </div>
+              )}
               <button
-                disabled={!startAt || !endAt || !units}
+                disabled={!startAt || !endAt || !units || invalidUnits}
                 onClick={() => this.confirmProposedBooking()}
                 className="btn btn-pa btn-confirm btn-block">
                 Book equipment now

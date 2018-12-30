@@ -10,7 +10,7 @@ export const getRangeOfDates = (startAt, endAt, dateFormat = 'Y/MM/DD') => {
   const mEndAt = moment(endAt);
   let mStartAt = moment(startAt);
 
-  while (mStartAt < mEndAt) {
+  while (mStartAt <= mEndAt) {
     tempDates.push(mStartAt.format(dateFormat));
     mStartAt = mStartAt.add(1, 'day');
   }

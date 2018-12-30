@@ -5,6 +5,16 @@ import { toUpperCase, pretifyDate } from '../../../app/helpers';
 import moment from 'moment';
 
 export default function BookingCard(props) {
+  function renderReviewButtons(booking, modal) {
+    let bookingFinished = moment().isAfter(booking.endAt);
+
+    if (!booking.review && bookingFinished) {
+      return modal;
+    }
+
+    return <div />;
+  }
+
   const { booking, modal } = props;
 
   return (
@@ -34,18 +44,20 @@ export default function BookingCard(props) {
           )}
           <p className="card-text booking-days">
             {pretifyDate(booking.startAt)} - {pretifyDate(booking.endAt)} |{' '}
-            {booking.days} days
+            {booking.days} day/s
           </p>
           <p className="card-text booking-price">
             <span>Price: </span>{' '}
             <span className="booking-price-value">{booking.totalPrice} $</span>
           </p>
           {booking.rental && (
-            <Link className="btn btn-pa" to={`/rentals/${booking.rental._id}`}>
+            <Link
+              className="btn btn-pa mb-1"
+              to={`/rentals/${booking.rental._id}`}>
               Go to Rental
             </Link>
           )}
-          {!booking.review && moment().isAfter(booking.endAt) && modal}
+          {renderReviewButtons(booking, modal)}
         </div>
         <div className="card-footer text-muted">
           Created at {pretifyDate(booking.createdAt)}

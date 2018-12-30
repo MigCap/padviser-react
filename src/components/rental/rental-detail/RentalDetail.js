@@ -24,9 +24,12 @@ class RentalDetail extends Component {
   }
 
   componentWillMount() {
+    const isAuth = this.props.auth.isAuth;
     const rentalId = this.props.match.params.id;
     this.props.dispatch(actions.fetchRentalById(rentalId));
-    this.props.dispatch(actions.fetchReviews(rentalId));
+    if (isAuth) {
+      this.props.dispatch(actions.fetchReviews(rentalId));
+    }
   }
 
   componentDidMount() {
