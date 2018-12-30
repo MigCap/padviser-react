@@ -18,7 +18,7 @@ class UserDetail extends Component {
   }
   render() {
     const { username, email, rentals, bookings } = this.props.userProfile.data;
-    console.log(this.props.userProfile.data);
+    // console.log(this.props.userProfile.data);
     return (
       <div className="container bootstrap snippet user-profile-container my-5">
         {/*<div className="row">
@@ -220,7 +220,7 @@ class UserDetail extends Component {
                     <div className="col-xs-12">
                       <br />
                       <button
-                        className="btn btn-lg btn-success pull-right"
+                        className="btn btn-sm btn-success pull-right"
                         type="submit">
                         <i className="glyphicon glyphicon-ok-sign" /> Save
                       </button>
