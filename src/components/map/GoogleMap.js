@@ -18,15 +18,19 @@ function MapComponent(props) {
       center={coordinates}
       options={{ disableDefaultUI: isError ? true : false }}>
       {isLocationLoaded && !isError && (
-        <Circle center={coordinates} radius={500} />
+        <Circle
+          center={coordinates}
+          radius={550}
+          options={{
+            fillColor: '#61dafb',
+            fillOpacity: 0.6,
+            strokeColor: 'transparent'
+          }}
+        />
       )}
       {isError && (
         <InfoWindow position={coordinates} options={{ maxWidth: 300 }}>
-          <div>
-            fkdfjksfjksdkfksdhkfsjdfhksdfhksdhfjksdkhfkj
-            sdhfkhsdkfhjsdhfsdkfhskjdfdskfjksdhfjdshjfhdskhfsdjkfhksdjhfjksdhf
-            fdsjfhjfh jk hf fdkshfkjsdh fs
-          </div>
+          <div>We couldn't find this address</div>
         </InfoWindow>
       )}
     </GoogleMap>
