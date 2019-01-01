@@ -26,7 +26,7 @@ class RentalDetailUpdate extends Component {
     const { rental, errors } = this.props;
 
     if (errors && errors.length > 0) {
-      toast.info(errors[0].detail, {
+      toast.error(errors[0].detail, {
         hideProgressBar: true
       });
     }
