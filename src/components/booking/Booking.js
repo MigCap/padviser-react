@@ -125,13 +125,23 @@ class Booking extends Component {
   }
 
   bookRental = () => {
+    const ToastIcon = () => (
+      <div>
+        <div className="">
+          <i className="fa fa-check pr-2" />
+          Booking has been succesfully created!
+        </div>
+      </div>
+    );
     actions.createBooking(this.state.proposedBooking).then(
       booking => {
         this.addNewBookedOutDates(booking);
         this.cancelProposedBooking();
         this.resetFormData();
-        toast.info('Booking has been succesfully created!', {
-          hideProgressBar: true
+        toast(<ToastIcon />, {
+          hideProgressBar: true,
+          className: 'toast-success-background',
+          bodyClassName: 'toast-success-body'
         });
       },
       errors => {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import RentalManageCard from './RentalManageCard';
 import RentalManageCardH from './RentalManageCardH';
 import RentalManageModal from './RentalManageModal';
-import { ToastContainer, toast, Slide } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import * as actions from '../../../app/actions';
 
@@ -63,7 +63,6 @@ class RentalManage extends Component {
     return (
       <div className="container pt-5">
         <section id="userRentals">
-          <ToastContainer transition={Slide} />
           <h1 className="page-title">My Inventory</h1>
           <div className="row mb-5">{this.renderRentalCards(userRentals)}</div>
           {!isFetching && userRentals.length === 0 && (

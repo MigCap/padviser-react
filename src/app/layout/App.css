@@ -687,23 +687,24 @@ a.active {
 #userBookings .btn-pa {
   font-size: 16px; }
 
-.toast-success {
-  background: #61dafb;
-  color: #20232a;
-  border-radius: 5px;
-  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
-  font-size: 14px; }
+.toast-success-background {
+  background: #20232a !important;
+  border-radius: 5px !important;
+  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3) !important;
+  min-height: 77px !important; }
 
-.success-toast {
-  background: #61dafb;
-  color: #20232a;
+.toast-success-body {
+  color: #61dafb;
   border-radius: 5px;
-  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
-  font-size: 14px; }
+  margin: 0 15px;
+  padding: 0 15px 0 20px;
+  font-size: 16px;
+  text-align: justify; }
 
-/* .toast-body {
-  background-color: $main-color;
-} */
+.Toastify__close-button {
+  padding: 0 5px !important;
+  color: #61dafb !important; }
+
 .toast-progress-bar {
   background: #a9a9a9; }
 

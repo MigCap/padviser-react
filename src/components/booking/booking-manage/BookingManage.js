@@ -38,10 +38,20 @@ class BookingManage extends Component {
   }
 
   reviewCreateCb = reviewData => {
+    const ToastIcon = () => (
+      <div>
+        <div className="">
+          <i className="fa fa-check pr-2" />
+          Booking has been succesfully created!
+        </div>
+      </div>
+    );
     actions.createReview(reviewData).then(
       reviewed => {
-        toast.info('Review has been succesfully created!', {
-          hideProgressBar: true
+        toast(<ToastIcon />, {
+          hideProgressBar: true,
+          className: 'toast-success-background',
+          bodyClassName: 'toast-success-body'
         });
         this.props.dispatch(actions.fetchUserBookings());
       },
