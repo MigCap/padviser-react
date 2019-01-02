@@ -52,7 +52,7 @@ function withGeocode(WrappedComponent) {
         isLocationLoaded: false
       };
     }
-    componentWillMount() {
+    componentDidMount() {
       this.getGeocodedLocation();
     }
 

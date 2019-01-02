@@ -5,6 +5,7 @@ import DateRangePicker from 'react-bootstrap-daterangepicker';
 import { toast } from 'react-toastify';
 import BookingModal from './BookingModal';
 import { getRangeOfDates } from '../../app/helpers';
+import Payment from '../payment/Payment';
 import * as moment from 'moment';
 import * as actions from '../../app/actions/index';
 
@@ -19,16 +20,18 @@ class Booking extends Component {
       proposedBooking: {
         startAt: '',
         endAt: '',
-        units: ''
+        units: '',
+        paymentToken: undefined
       },
       modal: {
         open: false
       },
       errors: [],
-      invalidUnits: false
+      invalidUnits: false,
+      paymentTokenExists: false
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.getBookOutDates();
   }
 
@@ -94,6 +97,16 @@ class Booking extends Component {
     });
   };
 
+  setPaymentToken = paymentToken => {
+    const { proposedBooking } = this.state;
+
+    proposedBooking.paymentToken = paymentToken;
+
+    if (paymentToken !== undefined) {
+      this.setState({ proposedBooking, paymentTokenExists: true });
+    }
+  };
+
   addNewBookedOutDates(booking) {
     const dateRange = getRangeOfDates(booking.startAt, booking.endAt);
     this.bookedOutDates.push(...dateRange);
@@ -138,6 +151,7 @@ class Booking extends Component {
         this.addNewBookedOutDates(booking);
         this.cancelProposedBooking();
         this.resetFormData();
+        this.setState({ invalidUnits: false, paymentTokenExists: false });
         toast(<ToastIcon />, {
           hideProgressBar: true,
           className: 'toast-success-background',
@@ -145,7 +159,7 @@ class Booking extends Component {
         });
       },
       errors => {
-        this.setState({ errors });
+        this.setState({ errors, paymentTokenExists: false });
       }
     );
   };
@@ -155,8 +169,8 @@ class Booking extends Component {
       rental,
       auth: { isAuth }
     } = this.props;
-    const { startAt, endAt, units } = this.state.proposedBooking;
-    const invalidUnits = this.state.invalidUnits;
+    const { startAt, endAt, units, paymentToken } = this.state.proposedBooking;
+    const { invalidUnits, paymentTokenExists } = this.state;
     return (
       <Fragment>
         <div className="booking">
@@ -231,6 +245,14 @@ class Booking extends Component {
             confirmModal={this.bookRental}
             errors={this.state.errors}
             rentalPrice={rental.dailyRate}
+            disabled={!paymentToken}
+            paymentTokenExists={paymentTokenExists}
+            acceptPayment={() => (
+              <Payment
+                setPaymentToken={this.setPaymentToken}
+                paymentTokenExists={paymentTokenExists}
+              />
+            )}
           />
         </div>
 

@@ -20,7 +20,7 @@ class RentalSearchListing extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.searchRentalsByCity();
   }
 

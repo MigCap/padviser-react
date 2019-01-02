@@ -55,7 +55,7 @@ class RentalManageModal extends Component {
           onClose={this.closeModal}
           little
           classNames={{ modal: 'rental-booking-modal' }}>
-          <h4 className="modal-title title">Made Bookings</h4>
+          <h4 className="modal-title title mt-3">Made Bookings</h4>
           <div className="modal-body bookings-inner-container">
             {this.renderBookings(bookings)}
           </div>
@@ -63,7 +63,7 @@ class RentalManageModal extends Component {
             <button
               type="button"
               onClick={this.closeModal}
-              className="btn btn-pa">
+              className="btn btn-sm btn-pa">
               Cancel
             </button>
           </div>
