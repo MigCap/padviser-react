@@ -18,7 +18,7 @@ class RentalManage extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ isFetching: true });
     actions.getUserRentals().then(
       userRentals => {

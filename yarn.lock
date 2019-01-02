@@ -8529,7 +8529,7 @@ qs@6.5.1:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
   integrity sha512-eRzhrN1WSINYCDCbrz796z37LOe3m5tmW7RQf6oBntukAG1nmovJvhnwHHRMAfeoItc1m2Hk02WER2aQ/iqs+A==
 
-qs@6.5.2, qs@~6.5.2:
+qs@6.5.2, qs@~6.5.1, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
@@ -8823,6 +8823,13 @@ react-star-ratings@^2.3.0:
     classnames "^2.2.1"
     prop-types "^15.6.0"
     react "^16.1.0"
+
+react-stripe-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-stripe-elements/-/react-stripe-elements-2.0.1.tgz#197db4762c57bf73a07d852564ebdbac52954094"
+  integrity sha512-P70Yd55FZGgOChvgSyegPOisfc/5kWVucYvb9je9RhTMm44fY5Q0yQz9yL0kLcYfCPkJWVmXl6Ex7FiMEuAdtg==
+  dependencies:
+    prop-types "^15.5.10"
 
 react-toastify@^4.5.1:
   version "4.5.1"
@@ -10080,6 +10087,15 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
+
+stripe@^6.20.0:
+  version "6.20.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-6.20.0.tgz#b862165da39507194962e8b91131fbf537fd81c1"
+  integrity sha512-a/F/hyuQpUKuiY1zyK1PcLiWBsEUR8WbsAJ7UP1xHTPyWrRZV0zWGAjhL1p0SKXPfuC5EMYNKUplmod7pBBsyg==
+  dependencies:
+    lodash.isplainobject "^4.0.6"
+    qs "~6.5.1"
+    safe-buffer "^5.1.1"
 
 style-loader@0.23.0:
   version "0.23.0"

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import PaFormFileUpload from '../shared/form/PaFormFileUpload';
 import { required } from '../shared/form/validators';
+import { Redirect } from 'react-router-dom';
 
 import authService from '../../app/services/auth-service';
 import * as actions from '../../app/actions';
@@ -23,16 +24,18 @@ class UserDetail extends Component {
       this.props.dispatch(actions.fetchUserProfile(userId));
     }
   }
+
   render() {
     const {
       username,
       email,
-      image,
       rentals,
-      bookings
+      bookings,
+      image,
+      revenue
     } = this.props.userProfile.data;
-    // console.log(this.props.userProfile.data);
-    return (
+    const isAuth = this.props.auth.isAuth;
+    return isAuth ? (
       <div className="container bootstrap snippet user-profile-container my-5">
         {/*<div className="row">
           <div className="col-sm-10">
@@ -46,7 +49,10 @@ class UserDetail extends Component {
           <div className="col-sm-3">
             <div className="text-center">
               <img
-                src={process.env.PUBLIC_URL + '/img/user.png'}
+                src={
+                  image ||
+                  'https://s3.eu-west-3.amazonaws.com/pa-dev-react/user.png'
+                }
                 className="avatar img-circle img-thumbnail mb-3"
                 alt="avatar"
               />
@@ -101,14 +107,14 @@ class UserDetail extends Component {
                 <span className="pull-left">
                   <strong>Euros</strong>
                 </span>{' '}
-                1450
+                ****
               </li>
 
               <li className="list-group-item text-right">
                 <span className="pull-left">
                   <strong>Dollars</strong>
                 </span>{' '}
-                1250
+                {revenue} $
               </li>
             </ul>
             {/*<div className="panel panel-default mt-3">
@@ -427,6 +433,8 @@ class UserDetail extends Component {
           </div>
         </div>
       </div>
+    ) : (
+      <Redirect to={'/rentals'} />
     );
   }
 }

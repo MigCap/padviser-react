@@ -23,18 +23,17 @@ class RentalDetail extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const isAuth = this.props.auth.isAuth;
     const rentalId = this.props.match.params.id;
+
     this.props.dispatch(actions.fetchRentalById(rentalId));
+
     if (isAuth) {
       this.props.dispatch(actions.fetchReviews(rentalId));
     }
-  }
 
-  componentDidMount() {
     const { isUpdate } = this.props.location.state || false;
-
     if (isUpdate) this.verifyRentalOwner();
   }
 

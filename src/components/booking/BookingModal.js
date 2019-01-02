@@ -9,7 +9,9 @@ export default function BookingModal(props) {
     booking,
     confirmModal,
     errors,
-    rentalPrice
+    rentalPrice,
+    acceptPayment,
+    disabled
   } = props;
   return (
     <Modal
@@ -29,14 +31,22 @@ export default function BookingModal(props) {
         <p>
           Price: <em>{`${booking.totalPrice} $`}</em>
         </p>
+        {acceptPayment && acceptPayment()}
         <p>Do you confirm your booking for selected days?</p>
       </div>
       <PaRespError errors={errors} />
       <div className="modal-footer">
-        <button onClick={confirmModal} type="button" className="btn btn-pa">
+        <button
+          disabled={disabled}
+          onClick={confirmModal}
+          type="button"
+          className="btn btn-sm btn-pa">
           Confirm
         </button>
-        <button type="button" onClick={closeModal} className="btn btn-pa">
+        <button
+          type="button"
+          onClick={closeModal}
+          className="btn btn-sm btn-pa">
           Cancel
         </button>
       </div>

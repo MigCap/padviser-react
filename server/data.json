@@ -96,15 +96,45 @@
             "street": "Prado del Espino",
             "image": "https://522bb370f5443d4fe5b9-f62de27af599bb6703e11b472beadbcc.ssl.cf2.rackcdn.com/product/zoomable_image/7955/max_desktop_ULXD4D_Dual_Front-Panel.jpg",
             "dailyRate": 150
+        },
+        {
+            "category": "audio",
+            "type": "Digital Mixing Console",
+            "brand": "Yamaha",
+            "model": "CL5",
+            "units": 4,
+            "condition": "Good",
+            "description": "With a three-section fader layout for efficient hands-on control, the CL5 is the ideal choice for a diverse spectrum of live sound systems. Input channels: 72 mono, 8 stereo. Fader configuration: 16-fader left section, 8-fader Centralogic section, 8-fader right section, 2-fader master section .",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Tres Cantos",
+            "image": "https://asia-latinamerica-mea.yamaha.com/en/files/FA594699D32949AFBDFC2243FFFFDC9D_12073_2999x1462_c85ebb05d5ccd93e188a5e663c03f9c2.jpg",
+            "dailyRate": 140
+        },
+        {
+            "category": "audio",
+            "type": "Digital Mixing Console",
+            "brand": "Yamaha",
+            "model": "QL5",
+            "units": 4,
+            "condition": "Good",
+            "description": "32 + 2 fader configuration adapts to a wide range of channel layouts. The QL5 is a compact console with large-scale capabilities.",
+            "country": "Spain",
+            "city": "Madrid",
+            "street": "Tres Cantos",
+            "image": "https://asia-latinamerica-mea.yamaha.com/en/files/F6A3BCE3447E429FB3CC6FA85C6EFC25_12073_900x900_598125b5c638aa503f912b3b0417ffa3.jpg",
+            "dailyRate": 100
         }
     ],
     "users": [{
         "username": "Test User",
         "email": "test@gmail.com",
-        "password": "testtest"
+        "password": "testtest",
+        "image": "https://s3.eu-west-3.amazonaws.com/pa-dev-react/user.png"
     }, {
         "username": "Test User2",
         "email": "test2@gmail.com",
-        "password": "testtest2"
+        "password": "testtest2",
+        "image": "https://s3.eu-west-3.amazonaws.com/pa-dev-react/user.png"
     }]
 }

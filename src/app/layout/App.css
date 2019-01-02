@@ -649,42 +649,59 @@ a.active {
       font-weight: 300;
       margin-right: 10px; }
 
-#userBookings .card {
+.payment .payment-alert {
+  margin: 10px 0 0 0; }
+
+.payment .payment-alert-success {
+  margin: 15px 0 0 0;
+  padding: 5px 10px; }
+
+#userBookings .card,
+#pendingBookings .card {
   margin-bottom: 20px;
   box-sizing: border-box;
   max-height: 500px;
   overflow: hidden; }
 
-#userBookings h1 {
+#userBookings h1,
+#pendingBookings h1 {
   margin-bottom: 20px; }
 
-#userBookings .card-block {
+#userBookings .card-block,
+#pendingBookings .card-block {
   padding: 20px; }
 
-#userBookings .card-header {
+#userBookings .card-header,
+#pendingBookings .card-header {
   text-transform: capitalize; }
 
-#userBookings .card-title h4 {
+#userBookings .card-title h4,
+#pendingBookings .card-title h4 {
   font-size: 22px; }
 
-#userBookings .booking-desc {
+#userBookings .booking-desc,
+#pendingBookings .booking-desc {
   font-size: 14px;
   max-height: 30px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
-#userBookings .booking-days {
+#userBookings .booking-days,
+#pendingBookings .booking-days {
   font-size: 14px;
   font-weight: bold; }
 
-#userBookings .booking-price-value {
+#userBookings .booking-price-value,
+#pendingBookings .booking-price-value {
   font-weight: 700; }
 
-#userBookings .card-footer {
+#userBookings .card-footer,
+#pendingBookings .card-footer {
   font-size: 0.8em; }
 
-#userBookings .btn-pa {
+#userBookings .btn-pa,
+#pendingBookings .btn-pa {
   font-size: 16px; }
 
 .toast-success-background {

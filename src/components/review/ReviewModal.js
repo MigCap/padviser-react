@@ -54,7 +54,7 @@ class ReviewModal extends Component {
         <button
           type="button"
           onClick={this.openModal}
-          className="btn btn-pa mb-1">
+          className="btn btn-sm btn-pa mb-1">
           Write a Review
         </button>
         <Modal
@@ -93,7 +93,7 @@ class ReviewModal extends Component {
             <PaRespError errors={errors} />
             <div className="modal-footer">
               <button
-                className="btn btn-pa btn-form"
+                className="btn btn-sm btn-pa btn-form"
                 type="submit"
                 disabled={!valid || pristine || submitting}>
                 Confirm
@@ -101,7 +101,7 @@ class ReviewModal extends Component {
               <button
                 type="button"
                 onClick={this.closeModal}
-                className="btn btn-pa">
+                className="btn btn-sm btn-pa">
                 Cancel
               </button>
             </div>

@@ -11,13 +11,13 @@ const mapStateToProps = state => {
 };
 
 class ReantalListing extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(actions.fetchRentals());
   }
 
   render() {
     return (
-      <div className="container pt-5">
+      <div className="container pt-5 pb-5">
         <section id="rentalListing">
           <h1 className="page-title">Your Gear All Around the Globe</h1>
           <RentalList rentals={this.props.rentals} />
