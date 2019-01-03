@@ -54,7 +54,7 @@ class ReviewModal extends Component {
         <button
           type="button"
           onClick={this.openModal}
-          className="btn btn-sm btn-pa mb-1">
+          className="badge badge-pill btn-pa-booking">
           Write a Review
         </button>
         <Modal

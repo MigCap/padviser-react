@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import BookingCard from './BookingCard';
-import { PaymentCard } from './BookingCard';
+// import BookingCard from './BookingCard';
+import BookingCardH from './BookingCardH';
+import { PaymentCardH } from './BookingCardH';
 import ReviewModal from '../../review/ReviewModal';
 
 import * as actions from '../../../app/actions';
@@ -49,7 +50,7 @@ class BookingManage extends Component {
 
   renderBookingsCards(bookings) {
     return bookings.map((booking, index) => (
-      <BookingCard
+      <BookingCardH
         booking={booking}
         key={index}
         modal={
@@ -66,7 +67,7 @@ class BookingManage extends Component {
 
   renderPaymentsCards(payments) {
     return payments.map((payment, index) => (
-      <PaymentCard
+      <PaymentCardH
         booking={payment.booking}
         payment={payment}
         paymentBtns={this.renderPaymentButtons}
@@ -79,12 +80,12 @@ class BookingManage extends Component {
     return (
       <div>
         <button
-          className="btn btn-sm btn-success m-1"
+          className="btn badge badge-success m-1"
           onClick={() => this.acceptPayment(payment)}>
           Accept
         </button>
         <button
-          className="btn btn-sm btn-danger m-1"
+          className="btn badge badge-danger m-1"
           onClick={() => this.declinePayment(payment)}>
           Decline
         </button>
