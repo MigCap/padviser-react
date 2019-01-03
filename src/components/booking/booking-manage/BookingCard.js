@@ -67,7 +67,7 @@ export default function BookingCard(props) {
           {renderReviewButtons(booking, modal)}
         </div>
         <div className="card-footer text-muted">
-          Created at {pretifyDate(booking.createdAt)}
+          Created on {pretifyDate(booking.createdAt)}
         </div>
       </div>
     </div>
