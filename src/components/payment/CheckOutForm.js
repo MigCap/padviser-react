@@ -9,12 +9,13 @@ import {
 
 class CheckOutForm extends Component {
   state = {
-    error: undefined
+    error: undefined,
+    checkingCard: false
   };
 
   handleSubmit = e => {
     const { stripe, setPaymentToken } = this.props;
-    this.setState({ error: undefined });
+    this.setState({ error: undefined, checkingCard: true });
 
     e.preventDefault();
 
@@ -32,8 +33,8 @@ class CheckOutForm extends Component {
   };
 
   render() {
-    const { error } = this.state;
-    const { paymentTokenExists } = this.props;
+    const { error, checkingCard } = this.state;
+    const { paymentTokenExists, errors } = this.props;
     return (
       <form onSubmit={this.handleSubmit} {...formStyles()}>
         <CardElement {...cardElementOptions()} />
@@ -51,7 +52,18 @@ class CheckOutForm extends Component {
           <div className="alert alert-danger payment-alert">{error}</div>
         )}
 
-        <button className="btn btn-sm btn-secondary" {...buttonStyles()}>
+        {checkingCard && !paymentTokenExists && !error && !errors && (
+          <div className="mt-3" style={{ width: '100%' }}>
+            <div className="img-loading-overlay-button">
+              <div className="img-spinning-circle-button" />
+            </div>
+          </div>
+        )}
+
+        <button
+          className="btn btn-sm btn-secondary mt-3"
+          {...buttonStyles()}
+          style={{ width: '100%' }}>
           Submit Card Details. You will not be charged yet
         </button>
       </form>

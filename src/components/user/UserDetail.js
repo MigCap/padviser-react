@@ -17,11 +17,44 @@ function mapStateToProps(state) {
 }
 
 class UserDetail extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      pendingPayments: [],
+      numberPendingsPayments: 0
+    };
+  }
+
   componentDidMount() {
     const isAuth = this.props.auth.isAuth;
     const userId = authService.getUserId();
     if (isAuth) {
       this.props.dispatch(actions.fetchUserProfile(userId));
+      this.getPendingPayments();
+    }
+  }
+
+  getPendingPayments() {
+    actions
+      .getPendingPayments()
+      .then(pendingPayments => {
+        this.setState({ pendingPayments });
+        this.getOnlyPendingPayments(pendingPayments);
+      })
+      .catch(err => console.error(err));
+  }
+
+  getOnlyPendingPayments(payments) {
+    if (payments && payments.length > 0) {
+      let numberPendingsPayments = 0;
+      payments.map(payment => {
+        if (payment.status === 'pending') {
+          numberPendingsPayments++;
+        }
+        return numberPendingsPayments;
+      });
+      this.setState({ numberPendingsPayments });
     }
   }
 
@@ -35,6 +68,7 @@ class UserDetail extends Component {
       revenue
     } = this.props.userProfile.data;
     const isAuth = this.props.auth.isAuth;
+
     return isAuth ? (
       <div className="container bootstrap snippet user-profile-container my-5">
         {/*<div className="row">
@@ -91,9 +125,18 @@ class UserDetail extends Component {
                 className="list-group-item list-group-item-action text-right"
                 to="/bookings/manage">
                 <span className="pull-left">
-                  <strong>Bookings</strong>
+                  <strong>My Bookings</strong>
                 </span>{' '}
                 {bookings && bookings.length}
+              </Link>
+
+              <Link
+                className="list-group-item list-group-item-action text-right"
+                to="/bookings/manage">
+                <span className="pull-left">
+                  <strong>Pending Bookings</strong>
+                </span>{' '}
+                {this.state.numberPendingsPayments}
               </Link>
             </ul>
 
@@ -105,16 +148,9 @@ class UserDetail extends Component {
 
               <li className="list-group-item text-right">
                 <span className="pull-left">
-                  <strong>Euros</strong>
-                </span>{' '}
-                ****
-              </li>
-
-              <li className="list-group-item text-right">
-                <span className="pull-left">
                   <strong>Dollars</strong>
                 </span>{' '}
-                {revenue} $
+                {revenue / 100} $
               </li>
             </ul>
             {/*<div className="panel panel-default mt-3">
@@ -134,7 +170,7 @@ class UserDetail extends Component {
             <ul className="nav nav-tabs">
               <li className="nav-item">
                 <a
-                  className="nav-link custom-tab-link active"
+                  className="nav-link custom-tab-link"
                   data-toggle="tab"
                   href="#myProfile">
                   My Profile
@@ -142,7 +178,7 @@ class UserDetail extends Component {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link custom-tab-link"
+                  className="nav-link custom-tab-link active"
                   data-toggle="tab"
                   href="#updateProfile">
                   Update Profile
@@ -150,7 +186,7 @@ class UserDetail extends Component {
               </li>
             </ul>
             <div className="tab-content">
-              <div className="tab-pane active" id="myProfile">
+              <div className="tab-pane" id="myProfile">
                 <form className="form">
                   <div className="form-group">
                     <div className="col-xs-6">
@@ -205,7 +241,7 @@ class UserDetail extends Component {
                 </form>
               </div>
 
-              <div className="tab-pane" id="updateProfile">
+              <div className="tab-pane active" id="updateProfile">
                 <form className="form">
                   <div className="form-group">
                     <div className="col-xs-6">

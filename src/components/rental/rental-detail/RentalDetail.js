@@ -8,11 +8,6 @@ import UserGuard from '../../shared/auth/UserGuard';
 
 import * as actions from '../../../app/actions';
 
-const imageStyled = {
-  objectFit: 'contain',
-  height: '360px'
-};
-
 class RentalDetail extends Component {
   constructor() {
     super();
@@ -51,7 +46,7 @@ class RentalDetail extends Component {
     );
   };
 
-  renderRentalDetail(rental, errors) {
+  renderRentalDetail = (rental, errors) => {
     const { isUpdate } = this.props.location.state || false;
     const { isAllowed, isFeching } = this.state;
 
@@ -71,23 +66,25 @@ class RentalDetail extends Component {
         reviews={this.props.reviews}
       />
     );
-  }
+  };
+
+  updateRentalAfterBooking = () => {
+    // debugger;
+    // const rentalId = this.props.match.params.id;
+    // this.props.dispatch(actions.fetchRentalById(rentalId));
+  };
 
   render() {
-    const { rental, errors } = this.props;
+    const { rental, errors, fetchingRental } = this.props;
 
-    if (rental._id) {
+    if (rental._id && !fetchingRental) {
       return (
         <div className="container pt-5">
           <section id="rentalDetails">
             <div className="upper-section">
               <div className="row">
                 <div className="col-md-6">
-                  <img
-                    src={rental.image}
-                    alt={rental.type}
-                    style={imageStyled}
-                  />
+                  <img src={rental.image} alt={rental.type} />
                 </div>
                 <div className="col-md-6">
                   <RentalMap location={`${rental.city}, ${rental.street}`} />
@@ -100,7 +97,11 @@ class RentalDetail extends Component {
                   {this.renderRentalDetail(rental, errors)}
                 </div>
                 <div className="col-lg-4 mt-3 mt-lg-3">
-                  <Booking rental={rental} />
+                  <Booking
+                    rental={rental}
+                    isAuth={this.props.auth.isAuth}
+                    updateRentalAfterBooking={this.updateRentalAfterBooking}
+                  />
                 </div>
               </div>
             </div>
@@ -122,6 +123,7 @@ class RentalDetail extends Component {
 const mapStateToProps = state => {
   return {
     rental: state.rental.data,
+    fetchingRental: state.rental.fetchingRental,
     auth: state.auth,
     errors: state.rental.errors,
     reviews: state.reviews.data,

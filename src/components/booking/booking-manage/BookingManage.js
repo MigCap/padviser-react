@@ -65,8 +65,8 @@ class BookingManage extends Component {
     ));
   }
 
-  renderPaymentsCards(payments) {
-    return payments.map((payment, index) => (
+  renderPaymentsCards(pendingPayments) {
+    return pendingPayments.map((payment, index) => (
       <PaymentCardH
         booking={payment.booking}
         payment={payment}

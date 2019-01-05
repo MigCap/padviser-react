@@ -246,7 +246,9 @@ a.active {
 #rentalDetails .upper-section {
   margin-bottom: 30px; }
   #rentalDetails .upper-section img {
-    width: 100%; }
+    width: 100%;
+    object-fit: contain;
+    height: 360px; }
 
 #rentalDetails .details-section {
   color: #4a4a4a; }
@@ -278,6 +280,7 @@ a.active {
     #rentalDetails .details-section .rental-room-info .rental-units {
       margin-right: 0; }
   #rentalDetails .details-section .rental-description {
+    font-size: 16px;
     font-weight: 300;
     margin-bottom: 30px; }
   #rentalDetails .details-section .rental-assets .title {
@@ -343,73 +346,8 @@ a.active {
     .review-card-container .review-body-container .star-container {
       padding: 0; }
 
-#userRentals {
-  /* .card {
-        margin-bottom: 20px;
-        box-sizing: border-box;
-        max-height: 350px;
-        overflow: hidden;
-    }
-    .card-block {
-        padding: 20px;
-    }
-    .card-title {
-        font-size: 20px;
-        margin-bottom: 5px;
-        max-height: 30px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .card-text {
-        font-size: 14px;
-        max-height: 30px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    .btn-pa {
-        font-size: 16px;
-    }
-    .card-footer {
-        font-size: 14px;
-        padding: 15px 5px;
-    }
-    .btn-bookings {
-        border-color: $main-color;
-        background-color: transparent;
-        color: $main-color;
-        &:hover,
-        &:focus {
-            border-color: $main-color !important;
-            background-color: transparent !important;
-            color: $main-color !important;
-        }
-    }
-    .delete-btn,
-    .edit-btn {
-        font-size: 1em;
-        margin-left: 15px;
-        padding: 5px 10px;
-    }
-    .edit-btn {
-        font-size: 1em;
-        margin-left: 10px;
-        padding: 5px 15px;
-    }
-    .delete-menu {
-        font-size: 1em;
-        margin: 5px 10px;
-        padding: 5px 10px;
-        .btn {
-            font-size: 1em;
-            margin-left: 10px;
-            padding: 3px 10px;
-            min-width: 50px;
-        }
-    } */ }
-  #userRentals .toBeDeleted {
-    border-color: red; }
+#userRentals .toBeDeleted {
+  border-color: red; }
 
 .rental-card-manage-container {
   margin: 10px 0 0 0;
@@ -568,9 +506,10 @@ a.active {
   border: 1px solid #a9a9a9;
   border-radius: 5px; }
   .booking .btn-confirm {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
-    padding: 13px; }
+    padding: 10px;
+    margin-top: 10px; }
   .booking label {
     font-size: 12px;
     font-weight: 300;
@@ -650,57 +589,12 @@ a.active {
       margin-right: 10px; }
 
 .payment .payment-alert {
-  margin: 10px 0 0 0; }
+  margin: 15px 0 0 0; }
 
 .payment .payment-alert-success {
   margin: 15px 0 0 0;
   padding: 5px 10px; }
 
-/* #userBookings,
-#pendingBookings {
-    .card {
-        margin-bottom: 20px;
-        box-sizing: border-box;
-        max-height: 500px;
-        overflow: hidden;
-    }
-    h1 {
-        margin-bottom: 20px;
-    }
-    .card-block {
-        padding: 20px;
-    }
-    .card-header {
-        text-transform: capitalize;
-    }
-    .card-title {
-        h4 {
-            font-size: 22px;
-        }
-    }
-    .booking {
-        &-desc {
-            font-size: 14px;
-            max-height: 30px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        &-days {
-            font-size: 14px;
-            font-weight: bold;
-        }
-        &-price-value {
-            font-weight: 700;
-        }
-    }
-    .card-footer {
-        font-size: 0.8em;
-    }
-    .btn-pa {
-        font-size: 16px;
-    }
-} */
 .booking-card-manage-container {
   margin: 10px 0 0 0;
   padding: 15px;
@@ -875,19 +769,6 @@ a.active {
     padding: 3px 10px;
     min-width: 50px; }
 
-/* .rental-booking-modal {
-    border-radius: 5px;
-    color: $main-text-grey-color;
-    .modal-footer {
-        padding: 20px 20px 0 20px;
-    }
-    .bookings-inner-container {
-        p {
-            font-size: 14px;
-            margin-bottom: 0px;
-        }
-    }
-} */
 .toast-success-background {
   background: #20232a !important;
   border-radius: 5px !important;
@@ -985,7 +866,8 @@ a.active {
   right: 0;
   top: 0;
   opacity: .2;
-  position: absolute; }
+  position: absolute;
+  border-radius: 5px; }
 
 .img-spinning-circle {
   display: inline-block;
@@ -1006,7 +888,31 @@ a.active {
   margin: 1px;
   border-radius: 50%;
   border: 5px solid #fff;
-  border-color: #fff transparent #fff transparent;
+  border-color: #61dafb transparent #61dafb transparent;
+  animation: lds-dual-ring 1.2s linear infinite; }
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.img-loading-overlay-button {
+  opacity: 1; }
+
+.img-spinning-circle-button {
+  display: block;
+  margin: 0 44%; }
+
+.img-spinning-circle-button:after {
+  content: ' ';
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  border-color: #61dafb transparent #61dafb transparent;
   animation: lds-dual-ring 1.2s linear infinite; }
 
 @keyframes lds-dual-ring {

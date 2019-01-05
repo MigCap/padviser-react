@@ -95,7 +95,9 @@ class ReviewModal extends Component {
               <button
                 className="btn btn-sm btn-pa btn-form"
                 type="submit"
-                disabled={!valid || pristine || submitting}>
+                disabled={
+                  !valid || pristine || submitting || this.state.rating <= 0
+                }>
                 Confirm
               </button>
               <button

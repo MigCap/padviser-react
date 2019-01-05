@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import DateRangePicker from 'react-bootstrap-daterangepicker';
 import { toast } from 'react-toastify';
 import BookingModal from './BookingModal';
 import { getRangeOfDates } from '../../app/helpers';
 import Payment from '../payment/Payment';
+
 import * as moment from 'moment';
 import * as actions from '../../app/actions/index';
 
@@ -28,7 +28,8 @@ class Booking extends Component {
       },
       errors: [],
       invalidUnits: false,
-      paymentTokenExists: false
+      paymentTokenExists: false,
+      settingBooking: false
     };
   }
   componentDidMount() {
@@ -93,7 +94,9 @@ class Booking extends Component {
     this.setState({
       modal: {
         open: false
-      }
+      },
+      errors: [],
+      paymentTokenExists: false
     });
   };
 
@@ -146,12 +149,19 @@ class Booking extends Component {
         </div>
       </div>
     );
+    this.setState({ settingBooking: true });
     actions.createBooking(this.state.proposedBooking).then(
       booking => {
         this.addNewBookedOutDates(booking);
         this.cancelProposedBooking();
         this.resetFormData();
-        this.setState({ invalidUnits: false, paymentTokenExists: false });
+        //this.props.updateRentalAfterBooking();
+        this.setState({
+          invalidUnits: false,
+          paymentTokenExists: false,
+          settingBooking: false
+        });
+
         toast(<ToastIcon />, {
           hideProgressBar: true,
           className: 'toast-success-background',
@@ -165,10 +175,7 @@ class Booking extends Component {
   };
 
   render() {
-    const {
-      rental,
-      auth: { isAuth }
-    } = this.props;
+    const { rental, isAuth } = this.props;
     const { startAt, endAt, units, paymentToken } = this.state.proposedBooking;
     const { invalidUnits, paymentTokenExists } = this.state;
     return (
@@ -198,12 +205,14 @@ class Booking extends Component {
                     ref={this.dateRef}
                     id="dates"
                     type="text"
-                    className="form-control"
+                    className="form-control form-control-sm"
                   />
                 </DateRangePicker>
               </div>
               <div className="form-group">
-                <label htmlFor="units">Units</label>
+                <label htmlFor="units">
+                  Units (maximum available: {rental.units})
+                </label>
                 <input
                   onChange={event => {
                     this.selectUnits(event);
@@ -212,7 +221,7 @@ class Booking extends Component {
                   min="1"
                   max={rental.units}
                   type="number"
-                  className="form-control"
+                  className="form-control form-control-sm"
                   id="units"
                   aria-describedby="units"
                   placeholder=""
@@ -246,11 +255,12 @@ class Booking extends Component {
             errors={this.state.errors}
             rentalPrice={rental.dailyRate}
             disabled={!paymentToken}
-            paymentTokenExists={paymentTokenExists}
+            settingBooking={this.state.settingBooking}
             acceptPayment={() => (
               <Payment
                 setPaymentToken={this.setPaymentToken}
                 paymentTokenExists={paymentTokenExists}
+                errors={this.state.errors}
               />
             )}
           />
@@ -278,10 +288,4 @@ class Booking extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  };
-}
-
-export default connect(mapStateToProps)(Booking);
+export default Booking;
