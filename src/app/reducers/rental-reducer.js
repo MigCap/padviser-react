@@ -15,7 +15,8 @@ const INITIAL_STATE = {
     errors: []
   },
   rental: {
-    data: []
+    data: [],
+    fetchingRental: false
   }
 };
 
@@ -36,9 +37,9 @@ export const rentalReducer = (state = INITIAL_STATE.rentals, action) => {
 export const selectedRentalReducer = (state = INITIAL_STATE.rental, action) => {
   switch (action.type) {
     case FETCH_RENTAL_BY_ID_INIT:
-      return { ...state, data: {} };
+      return { ...state, data: {}, fetchingRental: true };
     case FETCH_RENTAL_BY_ID_SUCCESS:
-      return { ...state, data: action.rental };
+      return { ...state, data: action.rental, fetchingRental: false };
     // return Object.assign({}, state, { data: action.rental });
     case UPDATE_RENTAL_SUCCESS:
       return { ...state, data: action.rental };

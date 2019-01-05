@@ -11,7 +11,8 @@ export default function BookingModal(props) {
     errors,
     rentalPrice,
     acceptPayment,
-    disabled
+    disabled,
+    settingBooking
   } = props;
   return (
     <Modal
@@ -34,7 +35,14 @@ export default function BookingModal(props) {
         {acceptPayment && acceptPayment()}
         <p>Do you confirm your booking for selected days?</p>
       </div>
-      <PaRespError errors={errors} />
+      {errors && errors.length > 0 && <PaRespError errors={errors} />}
+      {settingBooking && !errors && (
+        <div className="container pt-5">
+          <div className="img-loading-overlay">
+            <div className="img-spinning-circle" />
+          </div>
+        </div>
+      )}
       <div className="modal-footer">
         <button
           disabled={disabled}

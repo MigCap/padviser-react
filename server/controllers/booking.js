@@ -43,6 +43,19 @@ exports.createBooking = function(req, res) {
         });
       }
 
+      if (foundRental.units < units) {
+        return res.status(422).send({
+          errors: [
+            {
+              title: 'Invalid number of units',
+              detail: `Unavailable number of units. You can hire a maximum of ${
+                foundRental.units
+              }`
+            }
+          ]
+        });
+      }
+
       if (isValidBooking(booking, foundRental)) {
         booking.user = user;
         booking.rental = foundRental;
@@ -55,6 +68,16 @@ exports.createBooking = function(req, res) {
         if (payment) {
           booking.payment = payment;
           foundRental.bookings.push(booking);
+          foundRental.updateOne({ $inc: { units: -units } }, function(
+            err,
+            res
+          ) {
+            if (err) {
+              return res
+                .status(422)
+                .send({ errors: normalizeErrors(err.errors) });
+            }
+          });
 
           booking.save(function(err) {
             if (err) {
@@ -151,7 +174,7 @@ async function createPayment(booking, toUser, token) {
       () => {}
     );
 
-    // * 100 to give amount in cents * amount customer give to service-app
+    // * 100 to give amount in cents to Stripe API * amount customer gives to app
     const payment = new Payment({
       fromUser: user,
       toUser,
