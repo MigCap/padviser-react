@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import RentalCreateForm from './RentalCreateForm';
-import * as actions from '../../../app/actions';
+
+import * as rentalsActions from '../../../app/actions/rentals-action';
 
 class RentalCreate extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class RentalCreate extends Component {
   }
 
   createRental = rentalData => {
-    actions.createRental(rentalData).then(
+    rentalsActions.createRental(rentalData).then(
       rental => {
         this.setState({ redirect: true });
       },

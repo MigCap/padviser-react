@@ -6,7 +6,7 @@ import EditableInput from '../../shared/editable/EditableInput';
 import EditableTextArea from '../../shared/editable/EditableTextArea';
 import EditableSelect from '../../shared/editable/EditableSelect';
 
-import * as actions from '../../../app/actions';
+import * as rentalsActions from '../../../app/actions/rentals-action';
 
 class RentalDetailUpdate extends Component {
   updateRental = rentalData => {
@@ -15,11 +15,11 @@ class RentalDetailUpdate extends Component {
       dispatch
     } = this.props;
 
-    dispatch(actions.updateRental(_id, rentalData));
+    dispatch(rentalsActions.updateRental(_id, rentalData));
   };
 
   resetRentalErrors = () => {
-    this.props.dispatch(actions.resetRentalErrors());
+    this.props.dispatch(rentalsActions.resetRentalErrors());
   };
 
   render() {

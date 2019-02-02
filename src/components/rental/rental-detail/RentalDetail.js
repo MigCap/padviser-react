@@ -72,7 +72,7 @@ class RentalDetail extends Component {
   updateRentalAfterBooking = () => {
     // console.log('rental detail call');
     // const rentalId = this.props.match.params.id;
-    // this.props.dispatch(actions.fetchRentalById(rentalId));
+    // this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
   };
 
   render() {
