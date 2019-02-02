@@ -142,8 +142,12 @@ a.active {
 .bwm-form {
   color: #4a4a4a; }
   .bwm-form h1 {
+    color: #4a4a4a;
     font-weight: 700;
     margin-bottom: 30px; }
+    @media screen and (max-width: 500px) {
+      .bwm-form h1 {
+        font-size: 1.5rem; } }
   .bwm-form .image-container {
     position: relative;
     height: 100%; }
@@ -199,18 +203,34 @@ a.active {
 #rentalListing {
   /* SINGLE CARD STYLES*/ }
   #rentalListing .page-title.main-color {
-    color: #61dafb; }
+    color: #4a4a4a;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px; }
   #rentalListing .title {
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 20px; }
+    margin-bottom: 30px; }
   #rentalListing .rental-detail-link:hover {
     text-decoration: none; }
+  #rentalListing h1 {
+    color: #4a4a4a;
+    font-weight: 700;
+    margin-bottom: 30px; }
+    @media screen and (max-width: 500px) {
+      #rentalListing h1 {
+        font-size: 1.5rem;
+        text-align: center; } }
   #rentalListing .bwm-card {
     padding: 10px !important;
     box-sizing: border-box;
     max-height: 350px;
-    overflow: hidden; }
+    overflow: hidden;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
+    display: block;
+    position: relative;
+    bottom: 0;
+    transition: all 0.3s ease; }
     #rentalListing .bwm-card .card-block {
       padding-top: 8px; }
       #rentalListing .bwm-card .card-block .card-subtitle {
@@ -229,15 +249,13 @@ a.active {
         text-overflow: ellipsis; }
       #rentalListing .bwm-card .card-block .card-text {
         font-size: 14px;
-        font-weight: 300;
+        font-weight: 400;
         color: #7e7e7e;
         margin-bottom: 0; }
     #rentalListing .bwm-card:hover {
-      transition: all 0.5s ease-out;
-      border: solid 1px #61dafb !important; }
-      #rentalListing .bwm-card:hover .card-title,
-      #rentalListing .bwm-card:hover .card-text {
-        color: #61dafb; }
+      transition: all 0.3s ease;
+      bottom: 7px;
+      box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19); }
   #rentalListing .rental-card-img {
     object-fit: contain;
     object-position: center center;
@@ -921,6 +939,21 @@ a.active {
   100% {
     transform: rotate(360deg); } }
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+div#root,
+html {
+  height: 100vh; }
+
+/*************************************************/
 .clickable:hover {
   cursor: pointer; }
 

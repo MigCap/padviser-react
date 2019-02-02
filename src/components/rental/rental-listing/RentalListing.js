@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RentalList from './RentalList';
 
-import * as actions from '../../../app/actions';
+import * as actions from '../../../app/actions/rentals-action';
 
 const mapStateToProps = state => {
   return {
@@ -19,7 +19,7 @@ class ReantalListing extends Component {
     return (
       <div className="container pt-5 pb-5">
         <section id="rentalListing">
-          <h1 className="page-title">Your Gear All Around the Globe</h1>
+          <h1>Your Gear All Around the Globe</h1>
           <RentalList rentals={this.props.rentals} />
         </section>
       </div>

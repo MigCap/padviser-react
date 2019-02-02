@@ -36,7 +36,7 @@ class RentalCreate extends Component {
           <div className="bwm-form">
             <div className="row">
               <div className="col-md-7">
-                <h1 className="page-title">Add item to Inventory</h1>
+                <h1>Add item to Inventory</h1>
                 <RentalCreateForm
                   rentalCreateCb={this.createRental}
                   categoryOptions={this.rentalCategories}
