@@ -15,74 +15,11 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGOUT,
-  UPDATE_RENTAL_SUCCESS,
-  UPDATE_RENTAL_FAIL,
-  RESET_RENTAL_ERRORS,
   RELOAD_MAP,
   RELOAD_MAP_FINISH
 } from './types';
 
 const axiosInstance = axiosService.getInstance();
-
-// RENTALS ACTIONS --------------------------------------------
-
-export const createRental = rentalData => {
-  return axiosInstance
-    .post('/rentals', { ...rentalData })
-    .then(res => res.data, err => Promise.reject(err.response.data.errors));
-};
-
-export const resetRentalErrors = () => {
-  return {
-    type: RESET_RENTAL_ERRORS
-  };
-};
-
-const updateRentalSuccess = updatedRental => {
-  return {
-    type: UPDATE_RENTAL_SUCCESS,
-    rental: updatedRental
-  };
-};
-
-const updateRentalFail = errors => {
-  return {
-    type: UPDATE_RENTAL_FAIL,
-    errors
-  };
-};
-
-export const updateRental = (id, rentalData) => {
-  return dispatch => {
-    axiosInstance
-      .patch(`/rentals/${id}`, rentalData)
-      .then(res => res.data)
-      .then(updatedRental => {
-        dispatch(updateRentalSuccess(updatedRental));
-
-        if (rentalData.city || rentalData.street) {
-          dispatch(reloadMap());
-        }
-      })
-      .catch(({ response }) =>
-        dispatch(updateRentalFail(response.data.errors))
-      );
-  };
-};
-
-// USER RENTALS ACTIONS ------------------------------------------------------
-
-export const getUserRentals = () => {
-  return axiosInstance
-    .get('/rentals/manage')
-    .then(res => res.data, err => Promise.reject(err.response.data.errors));
-};
-
-export const deleteRental = rentalId => {
-  return axiosInstance
-    .delete(`/rentals/${rentalId}`)
-    .then(res => res.data, err => Promise.reject(err.response.data.errors));
-};
 
 // USER BOOKINGS ACTIONS ------------------------------------------------------
 

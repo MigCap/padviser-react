@@ -5,7 +5,7 @@ import RentalManageCardH from './RentalManageCardH';
 import RentalManageModal from './RentalManageModal';
 import { toast } from 'react-toastify';
 
-import * as actions from '../../../app/actions';
+import * as rentalsActions from '../../../app/actions/rentals-action';
 
 class RentalManage extends Component {
   constructor() {
@@ -20,7 +20,7 @@ class RentalManage extends Component {
 
   componentDidMount() {
     this.setState({ isFetching: true });
-    actions.getUserRentals().then(
+    rentalsActions.getUserRentals().then(
       userRentals => {
         this.setState({ userRentals, isFetching: false });
       },
@@ -40,7 +40,7 @@ class RentalManage extends Component {
     ));
 
   deleteRental = (rentalId, rentalIndex) => {
-    actions.deleteRental(rentalId).then(
+    rentalsActions.deleteRental(rentalId).then(
       () => {
         this.deleteRentalFromList(rentalIndex);
       },
