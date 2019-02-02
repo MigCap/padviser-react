@@ -7,6 +7,7 @@ import Booking from '../../booking/Booking';
 import UserGuard from '../../shared/auth/UserGuard';
 
 import * as actions from '../../../app/actions';
+import * as rentalsActions from '../../../app/actions/rentals-action';
 
 class RentalDetail extends Component {
   constructor() {
@@ -22,7 +23,7 @@ class RentalDetail extends Component {
     const isAuth = this.props.auth.isAuth;
     const rentalId = this.props.match.params.id;
 
-    this.props.dispatch(actions.fetchRentalById(rentalId));
+    this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
 
     if (isAuth) {
       this.props.dispatch(actions.fetchReviews(rentalId));
@@ -69,7 +70,7 @@ class RentalDetail extends Component {
   };
 
   updateRentalAfterBooking = () => {
-    // debugger;
+    // console.log('rental detail call');
     // const rentalId = this.props.match.params.id;
     // this.props.dispatch(actions.fetchRentalById(rentalId));
   };

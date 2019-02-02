@@ -102,7 +102,11 @@ class Header extends Component {
             <span className="icon-bar middle-bar" />
             <span className="icon-bar bottom-bar" />
           </button>
-          <RentalSearchInput />
+          {this.props.location.pathname === '/' ? (
+            <div />
+          ) : (
+            <RentalSearchInput />
+          )}
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
               {isAuth && (

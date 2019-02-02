@@ -3,11 +3,6 @@ import authService from '../../app/services/auth-service';
 import axiosService from '../../app/services/axios-service';
 
 import {
-  FETCH_RENTAL_BY_ID_SUCCESS,
-  FETCH_RENTAL_BY_ID_INIT,
-  FETCH_RENTAL_SUCCESS,
-  FETCH_RENTALS_INIT,
-  FETCH_RENTAL_FAIL,
   FETCH_REVIEWS_INIT,
   FETCH_REVIEWS_SUCCESS,
   FETCH_REVIEWS_FAIL,
@@ -27,67 +22,9 @@ import {
   RELOAD_MAP_FINISH
 } from './types';
 
-// RENTALS ACTIONS --------------------------------------------
-
 const axiosInstance = axiosService.getInstance();
 
-const fetchRentalByIdInit = () => {
-  return {
-    type: FETCH_RENTAL_BY_ID_INIT
-  };
-};
-const fetchRentalByIdSuccess = rental => {
-  return {
-    type: FETCH_RENTAL_BY_ID_SUCCESS,
-    rental
-  };
-};
-
-export const fetchRentalById = rentalId => {
-  return function(dispatch) {
-    dispatch(fetchRentalByIdInit());
-
-    axios
-      .get(`/api/v1/rentals/${rentalId}`)
-      .then(res => res.data)
-      .then(rental => dispatch(fetchRentalByIdSuccess(rental)));
-  };
-};
-
-const fetchRentalsSuccess = rentals => {
-  return {
-    type: FETCH_RENTAL_SUCCESS,
-    rentals
-  };
-};
-
-const fetchRentalsInit = () => {
-  return {
-    type: FETCH_RENTALS_INIT
-  };
-};
-
-const fetchRentalsFail = errors => {
-  return {
-    type: FETCH_RENTAL_FAIL,
-    errors
-  };
-};
-
-export const fetchRentals = city => {
-  const url = city ? `/rentals?city=${city}` : '/rentals';
-  return dispatch => {
-    dispatch(fetchRentalsInit());
-
-    axiosInstance
-      .get(url)
-      .then(res => res.data)
-      .then(rentals => dispatch(fetchRentalsSuccess(rentals)))
-      .catch(({ response }) =>
-        dispatch(fetchRentalsFail(response.data.errors))
-      );
-  };
-};
+// RENTALS ACTIONS --------------------------------------------
 
 export const createRental = rentalData => {
   return axiosInstance

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RentalList from './RentalList';
 import { toUpperCase } from '../../../app/helpers';
 
-import * as actions from '../../../app/actions';
+import * as actions from '../../../app/actions/rentals-action';
 
 const mapStateToProps = state => {
   return {
@@ -51,7 +51,7 @@ class RentalSearchListing extends Component {
     }
 
     if (data.length > 0) {
-      title = `Your Gear in ${toUpperCase(searchedCity)}`;
+      title = `Your Gear in '${toUpperCase(searchedCity)}' `;
     }
 
     return <h1 className="page-title main-color">{title}</h1>;

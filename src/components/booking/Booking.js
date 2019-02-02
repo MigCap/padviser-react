@@ -32,9 +32,15 @@ class Booking extends Component {
       settingBooking: false
     };
   }
+
   componentDidMount() {
     this.getBookOutDates();
   }
+
+  // componentWillUnmount() {
+  //   console.log('booking unmounted');
+  //   this.props.updateRentalAfterBooking();
+  // }
 
   getBookOutDates() {
     const { bookings } = this.props.rental;
@@ -149,13 +155,14 @@ class Booking extends Component {
         </div>
       </div>
     );
+    console.log('call bookRental');
     this.setState({ settingBooking: true });
     actions.createBooking(this.state.proposedBooking).then(
       booking => {
         this.addNewBookedOutDates(booking);
         this.cancelProposedBooking();
         this.resetFormData();
-        //this.props.updateRentalAfterBooking();
+
         this.setState({
           invalidUnits: false,
           paymentTokenExists: false,

@@ -17,9 +17,7 @@ const RentalCard = props => {
               {rental.brand} {rental.model} &#183; {rental.city}
             </h6>
             <h4 className="card-title">{rental.description}</h4>
-            <p className="card-text">
-              ${rental.dailyRate} per Day &#183; Free Cancelation
-            </p>
+            <p className="card-text">${rental.dailyRate} per Day</p>
           </div>
         </div>
       </Link>
