@@ -1,6 +1,3 @@
-const User = require('../models/user');
-const Rental = require('../models/rental');
-
 const Review = require('../models/review');
 const Booking = require('../models/booking');
 const moment = require('moment');
