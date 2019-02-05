@@ -181,6 +181,33 @@ class Booking extends Component {
     );
   };
 
+  renderPrice = () => {
+    const { isAuth } = this.props;
+    const { dailyRate } = this.props.rental;
+
+    if (isAuth) {
+      return (
+        <h3 className="booking-price">
+          $ {dailyRate} <span className="booking-per-night">per day</span>
+        </h3>
+      );
+    } else if (!isAuth) {
+      return (
+        <p>
+          You have to be{' '}
+          <Link to="/register" className="link-hover">
+            registered
+          </Link>{' '}
+          or{' '}
+          <Link to="/login" className="link-hover">
+            login
+          </Link>{' '}
+          to see the price of the equipment.
+        </p>
+      );
+    }
+  };
+
   render() {
     const { rental, isAuth } = this.props;
     const { startAt, endAt, units, paymentToken } = this.state.proposedBooking;
@@ -188,10 +215,7 @@ class Booking extends Component {
     return (
       <Fragment>
         <div className="booking">
-          <h3 className="booking-price">
-            $ {rental.dailyRate}{' '}
-            <span className="booking-per-night">per day</span>
-          </h3>
+          {this.renderPrice()}
           <hr />
           {!isAuth && (
             <Link to="/login" className="btn btn-pa btn-confirm btn-block">

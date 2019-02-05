@@ -25,9 +25,7 @@ class RentalDetail extends Component {
 
     this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
 
-    if (isAuth) {
-      this.props.dispatch(actions.fetchReviews(rentalId));
-    }
+    this.props.dispatch(actions.fetchReviews(rentalId));
 
     const { isUpdate } = this.props.location.state || false;
     if (isUpdate) this.verifyRentalOwner();
