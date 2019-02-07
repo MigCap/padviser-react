@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function RentalRating(props) {
-  // const { rental } = props;
   return (
     <div className="rental-assets">
       <h3 className="review-title">Customer Reviews</h3>

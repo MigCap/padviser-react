@@ -14,8 +14,6 @@
         margin: 0;
         width: 80%;
         font-size: 22px; } }
-  .navbar .nav-item {
-    font-size: 14px; }
   .navbar .bwm-search {
     max-height: 40px;
     width: 300px !important;
@@ -39,6 +37,7 @@
       .navbar .btn-bwm-search {
         margin: 15px auto; } }
   .navbar .nav-item {
+    font-size: 14px;
     color: #ededed; }
   .navbar p.clickable {
     margin-bottom: 0; }
@@ -957,8 +956,10 @@ html {
 .clickable:hover {
   cursor: pointer; }
 
-.link-hover:hover {
-  color: #61dafb !important; }
+.link-hover {
+  color: #61dafb; }
+  .link-hover:hover {
+    color: #61dafb !important; }
 
 .page-title {
   font-size: 30px;

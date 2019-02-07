@@ -7,7 +7,7 @@ class RentalDetailReview extends Component {
     const review = this.props.review;
     return (
       <div className="row">
-        <div className="col-lg-10">
+        <div className="col-lg-12">
           <div className="review-card-container">
             <div className="avatar-container">
               <img

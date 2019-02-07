@@ -15,12 +15,12 @@ class RentalDetail extends Component {
 
     this.state = {
       isAllowed: false,
-      isFeching: true
+      isFeching: true,
+      unitsChanged: false
     };
   }
 
   componentDidMount() {
-    const isAuth = this.props.auth.isAuth;
     const rentalId = this.props.match.params.id;
 
     this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
@@ -67,10 +67,12 @@ class RentalDetail extends Component {
     );
   };
 
+  getGearNewUnits = () => {};
+
   updateRentalAfterBooking = () => {
     // console.log('rental detail call');
-    // const rentalId = this.props.match.params.id;
-    // this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
+    const rentalId = this.props.match.params.id;
+    this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
   };
 
   render() {

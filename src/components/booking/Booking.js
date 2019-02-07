@@ -37,11 +37,6 @@ class Booking extends Component {
     this.getBookOutDates();
   }
 
-  // componentWillUnmount() {
-  //   console.log('booking unmounted');
-  //   this.props.updateRentalAfterBooking();
-  // }
-
   getBookOutDates() {
     const { bookings } = this.props.rental;
 
@@ -155,30 +150,30 @@ class Booking extends Component {
         </div>
       </div>
     );
-    console.log('call bookRental');
-    this.setState({ settingBooking: true });
-    actions.createBooking(this.state.proposedBooking).then(
-      booking => {
-        this.addNewBookedOutDates(booking);
-        this.cancelProposedBooking();
-        this.resetFormData();
 
-        this.setState({
-          invalidUnits: false,
-          paymentTokenExists: false,
-          settingBooking: false
-        });
+    actions
+      .createBooking(this.state.proposedBooking)
+      .then(
+        booking => {
+          this.addNewBookedOutDates(booking);
+          this.cancelProposedBooking();
+          //this.resetFormData();
 
-        toast(<ToastIcon />, {
-          hideProgressBar: true,
-          className: 'toast-success-background',
-          bodyClassName: 'toast-success-body'
-        });
-      },
-      errors => {
-        this.setState({ errors, paymentTokenExists: false });
-      }
-    );
+          this.setState({
+            invalidUnits: false
+          });
+
+          toast(<ToastIcon />, {
+            hideProgressBar: true,
+            className: 'toast-success-background',
+            bodyClassName: 'toast-success-body'
+          });
+        },
+        errors => {
+          this.setState({ errors });
+        }
+      )
+      .then(this.props.updateRentalAfterBooking());
   };
 
   renderPrice = () => {
@@ -307,11 +302,6 @@ class Booking extends Component {
             {rental.user && rental.user.username}
             <br />
             <span>Rental Owner</span>
-            {/*<br />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star" />
-            <i className="fa fa-star-half" />*/}
           </p>
         </div>
       </Fragment>
