@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import RentalAssets from './RentalAssets';
 import RentalDetailReview from './RentalDetailReview';
 import { toUpperCase } from 'app/helpers';
 
 export default function RentalDetailInfo(props) {
-  function renderReviews(reviews, isAuth, rental) {
+  function renderReviews(reviews, rental) {
     if (reviews.length === 0) {
       return <p>This equipment has not received a review yet.</p>;
     } else if (reviews.length > 0) {
