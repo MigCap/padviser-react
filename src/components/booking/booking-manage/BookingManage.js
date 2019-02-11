@@ -122,42 +122,54 @@ class BookingManage extends Component {
     const { data: bookings, isFetching } = this.props.userBookings;
     const { pendingPayments } = this.state;
 
-    return (
-      <Fragment>
+    if (!isFetching && pendingPayments && !isFetching && bookings) {
+      return (
+        <Fragment>
+          <div className="container pt-5">
+            <section id="userBookings">
+              <h1 className="page-title">My Bookings</h1>
+              <div className="row mb-5">
+                {this.renderBookingsCards(bookings)}
+              </div>
+              {!isFetching && bookings.length === 0 && (
+                <div className="alert alert-warning">
+                  You have no bookings created yet. Go to rentals section and
+                  book your equipment today.
+                  <Link className="btn btn-pa ml-3" to="/rentals">
+                    Available Rentals
+                  </Link>
+                </div>
+              )}
+            </section>
+          </div>
+          <div className="container pb-5">
+            <section id="pendingBookings">
+              <h1 className="page-title">Pending Bookings</h1>
+
+              {pendingPayments && pendingPayments.length > 0 && (
+                <div className="row">
+                  {this.renderPaymentsCards(pendingPayments)}
+                </div>
+              )}
+
+              {!isFetching && pendingPayments.length === 0 && (
+                <div className="alert alert-warning">
+                  You have no pending bookings.
+                </div>
+              )}
+            </section>
+          </div>
+        </Fragment>
+      );
+    } else {
+      return (
         <div className="container pt-5">
-          <section id="userBookings">
-            <h1 className="page-title">My Bookings</h1>
-            <div className="row mb-5">{this.renderBookingsCards(bookings)}</div>
-            {!isFetching && bookings.length === 0 && (
-              <div className="alert alert-warning">
-                You have no bookings created yet. Go to rentals section and book
-                your equipment today.
-                <Link className="btn btn-pa ml-3" to="/rentals">
-                  Available Rentals
-                </Link>
-              </div>
-            )}
-          </section>
+          <div className="img-loading-overlay">
+            <div className="img-spinning-circle" />
+          </div>
         </div>
-        <div className="container pb-5">
-          <section id="pendingBookings">
-            <h1 className="page-title">Pending Bookings</h1>
-
-            {pendingPayments && pendingPayments.length > 0 && (
-              <div className="row">
-                {this.renderPaymentsCards(pendingPayments)}
-              </div>
-            )}
-
-            {!isFetching && pendingPayments.length === 0 && (
-              <div className="alert alert-warning">
-                You have no pending bookings.
-              </div>
-            )}
-          </section>
-        </div>
-      </Fragment>
-    );
+      );
+    }
   }
 }
 

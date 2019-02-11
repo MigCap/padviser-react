@@ -6,7 +6,7 @@ import * as actions from '../../../app/actions/rentals-action';
 
 const mapStateToProps = state => {
   return {
-    rentals: state.rentals.data
+    rentals: state.rentals
   };
 };
 
@@ -16,11 +16,20 @@ class ReantalListing extends Component {
   }
 
   render() {
+    const { fetchingRentals, data: rentals } = this.props.rentals;
     return (
       <div className="container pt-5 pb-5">
         <section id="rentalListing">
           <h1>Your Gear All Around the Globe</h1>
-          <RentalList rentals={this.props.rentals} />
+          {!fetchingRentals && rentals ? (
+            <RentalList rentals={rentals} />
+          ) : (
+            <div className="container pt-5">
+              <div className="img-loading-overlay">
+                <div className="img-spinning-circle" />
+              </div>
+            </div>
+          )}
         </section>
       </div>
     );

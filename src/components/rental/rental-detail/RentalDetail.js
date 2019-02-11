@@ -70,7 +70,6 @@ class RentalDetail extends Component {
   getGearNewUnits = () => {};
 
   updateRentalAfterBooking = () => {
-    // console.log('rental detail call');
     const rentalId = this.props.match.params.id;
     this.props.dispatch(rentalsActions.fetchRentalById(rentalId));
   };
