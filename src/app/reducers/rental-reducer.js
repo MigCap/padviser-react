@@ -12,6 +12,7 @@ import {
 const INITIAL_STATE = {
   rentals: {
     data: [],
+    fetchingRentals: false,
     errors: []
   },
   rental: {
@@ -23,11 +24,16 @@ const INITIAL_STATE = {
 export const rentalReducer = (state = INITIAL_STATE.rentals, action) => {
   switch (action.type) {
     case FETCH_RENTALS_INIT:
-      return { ...state, data: [], errors: [] };
+      return { ...state, data: [], errors: [], fetchingRentals: true };
     case FETCH_RENTALS_SUCCESS:
-      return { ...state, data: action.rentals };
+      return { ...state, data: action.rentals, fetchingRentals: false };
     case FETCH_RENTALS_FAIL:
-      return { ...state, data: [], errors: action.errors };
+      return {
+        ...state,
+        data: [],
+        errors: action.errors,
+        fetchingRentals: false
+      };
 
     default:
       return state;

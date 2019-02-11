@@ -60,23 +60,36 @@ class RentalManage extends Component {
 
   render() {
     const { userRentals, isFetching } = this.state;
-    return (
-      <div className="container pt-5">
-        <section id="userRentals">
-          <h1 className="page-title">My Inventory</h1>
-          <div className="row mb-5">{this.renderRentalCards(userRentals)}</div>
-          {!isFetching && userRentals.length === 0 && (
-            <div className="alert alert-warning">
-              You dont have any rentals currently created. Create rentals to
-              advertise your equipment for free.
-              <Link className="btn btn-pa ml-5" to="/rentals/new">
-                Create Rental
-              </Link>
+
+    if (userRentals && !isFetching) {
+      return (
+        <div className="container pt-5">
+          <section id="userRentals">
+            <h1 className="page-title">My Inventory</h1>
+            <div className="row mb-5">
+              {this.renderRentalCards(userRentals)}
             </div>
-          )}
-        </section>
-      </div>
-    );
+            {!isFetching && userRentals.length === 0 && (
+              <div className="alert alert-warning">
+                You dont have any rentals currently created. Create rentals to
+                advertise your equipment for free.
+                <Link className="btn btn-pa ml-5" to="/rentals/new">
+                  Create Rental
+                </Link>
+              </div>
+            )}
+          </section>
+        </div>
+      );
+    } else {
+      return (
+        <div className="container pt-5">
+          <div className="img-loading-overlay">
+            <div className="img-spinning-circle" />
+          </div>
+        </div>
+      );
+    }
   }
 }
 
