@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import RentalAssets from './RentalAssets';
 import RentalDetailReview from './RentalDetailReview';
 import { toUpperCase } from 'app/helpers';
@@ -12,6 +13,22 @@ export default function RentalDetailInfo(props) {
         <RentalDetailReview key={index} review={review} rental={rental} />
       ));
     }
+  }
+
+  function renderPrice() {
+    return (
+      <span>
+        You have to be{' '}
+        <Link to="/register" className="link-hover">
+          registered
+        </Link>{' '}
+        or{' '}
+        <Link to="/login" className="link-hover">
+          login
+        </Link>{' '}
+        to see the price of the equipment.
+      </span>
+    );
   }
 
   const { rental, reviews, isAuth } = props;
@@ -38,7 +55,7 @@ export default function RentalDetailInfo(props) {
         <span className="bold">Condition:</span> {rental.condition}.
       </p>
       <p className="rental-description">
-        <span className="bold">Daily Rate:</span> {rental.dailyRate} $.
+        <span className="bold">Daily Rate:</span> {isAuth ? `${rental.dailyRate} $.` : renderPrice()}
       </p>
       <hr />
       <RentalAssets />
