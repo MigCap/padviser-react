@@ -1,22 +1,17 @@
-import React, { Component } from './node_modules/react';
-import { Link } from './node_modules/react-router-dom';
-import { connect } from './node_modules/react-redux';
-import { Field, reduxForm } from './node_modules/redux-form';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 import PaFormFileUpload from '../../components/shared/form/PaFormFileUpload';
 import { required } from '../../components/shared/form/validators';
-import { Redirect } from './node_modules/react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import authService from '../../app/services/auth-service';
 import * as actions from '../../app/actions';
 
-function mapStateToProps(state) {
-  return {
-    auth: state.auth,
-    userProfile: state.userProfile
-  };
-}
+import './UserProfile.scss';
 
-class UserDetail extends Component {
+class UserProfile extends Component {
   constructor() {
     super();
 
@@ -67,6 +62,7 @@ class UserDetail extends Component {
       image,
       revenue
     } = this.props.userProfile.data;
+    
     const isAuth = this.props.auth.isAuth;
 
     return isAuth ? (
@@ -479,4 +475,11 @@ const form = reduxForm({
   initialsValues: { category: 'Audio', condition: 'Good' }
 });
 
-export default connect(mapStateToProps)(form(UserDetail));
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+    userProfile: state.userProfile
+  };
+}
+
+export default connect(mapStateToProps)(form(UserProfile));

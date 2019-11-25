@@ -1,7 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import RentalSearchInput from './RentalSearchInput';
+import RentalSearchInput from 'components/RentalSearchInput/RentalSearchInput';
+
+import './Header.scss';
+
 
 function mapStateToProps(state) {
   return {

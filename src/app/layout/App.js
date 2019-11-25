@@ -4,20 +4,20 @@ import { Provider } from 'react-redux';
 import { StripeProvider } from 'react-stripe-elements';
 import { ToastContainer, Slide } from 'react-toastify';
 
-import Header from '../../components/header/Header';
+import Header from 'containers/Header/Header';
 import HomePage from 'containers/HomePage/HomePage';
-import UserDetail from '../../components/user/UserDetail';
-import RentalListing from '../../components/rental/rental-listing/RentalListing';
-import RentalSearchListing from '../../components/rental/rental-listing/RentalSearchListing';
-import RentalDetail from '../../components/rental/rental-detail/RentalDetail';
-import RentalCreate from '../../components/rental/rental-create/RentalCreate';
-import RentalManage from '../../components/rental/rental-manage/RentalManage';
-import BookingManage from '../../components/booking/booking-manage/BookingManage';
-import Login from '../../components/login/Login';
-import Register from '../../components/register/Register';
+import UserDetail from 'containers/UserProfile/UserProfile';
+import RentalListing from 'components/Rental/rental-listing/RentalListing';
+import RentalSearchListing from 'components/Rental/rental-listing/RentalSearchListing';
+import RentalDetail from 'components/Rental/rental-detail/RentalDetail';
+import RentalCreate from 'components/Rental/rental-create/RentalCreate';
+import RentalManage from 'components/Rental/rental-manage/RentalManage';
+import BookingManage from 'components/booking/booking-manage/BookingManage';
+import Login from 'components/login/Login';
+import Register from 'components/register/Register';
 
-import ProtectedRoute from '../../components/shared/auth/ProtectedRoute';
-import LoggedInRoute from '../../components/shared/auth/LoggedInRoute';
+import ProtectedRoute from 'components/shared/auth/ProtectedRoute';
+import LoggedInRoute from 'components/shared/auth/LoggedInRoute';
 
 import * as actions from '../actions';
 
