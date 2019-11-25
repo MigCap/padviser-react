@@ -56,4 +56,4 @@ yarn-error.log*
 /server/.vscode
 
 # no track files
-/src/components/rental/rental-detail/RentalMap.js
+RentalMap.js
