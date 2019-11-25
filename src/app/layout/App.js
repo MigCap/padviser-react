@@ -21,7 +21,7 @@ import LoggedInRoute from '../../components/shared/auth/LoggedInRoute';
 
 import * as actions from '../actions';
 
-import './App.css';
+import './App.scss';
 
 const store = require('../reducers').init();
 

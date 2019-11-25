@@ -16,7 +16,7 @@ class RentalMap extends Component {
     } = this.props;
     return (
       <MapWithGeocode
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNxskfU9HuNcT2BVk5b_kRfMuTCqHUvmQ&libraries=geometry,drawing,places"
+        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjjDqLCGDYr53fqpZHiD9t-5uMWgFTUJM&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `360px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
