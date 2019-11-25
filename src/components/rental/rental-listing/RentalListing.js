@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   };
 };
 
-class ReantalListing extends Component {
+class RentalListing extends Component {
   componentDidMount() {
     this.props.dispatch(actions.fetchRentals());
   }
@@ -36,4 +36,4 @@ class ReantalListing extends Component {
   }
 }
 
-export default connect(mapStateToProps)(ReantalListing);
+export default connect(mapStateToProps)(RentalListing);

@@ -5,7 +5,8 @@ import RentalSearchInput from './RentalSearchInput';
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    rentals: state.rentals
   };
 }
 class Header extends Component {
@@ -14,29 +15,21 @@ class Header extends Component {
     this.props.history.push('/login');
   };
   renderAuthButtons(isAuth) {
-    if (isAuth) {
+    if (!isAuth) {
       return (
-        <p
-          className="nav-item nav-link clickable link-hover"
-          onClick={this.handleLogout}>
-          <i className="fa fa-power-off" />
-        </p>
+        <Fragment>
+          <Link to="/rentals" className="nav-item nav-link link-hover">
+            Inventory <span className="sr-only">(current)</span>
+          </Link>
+          <Link to="/login" className="nav-item nav-link link-hover">
+            Login
+          </Link>
+          <Link to="/register" className="nav-item nav-link link-hover">
+            Register
+          </Link>
+        </Fragment>
       );
     }
-
-    return (
-      <Fragment>
-        <Link to="/rentals" className="nav-item nav-link link-hover">
-          INVENTORY <span className="sr-only">(current)</span>
-        </Link>
-        <Link to="/login" className="nav-item nav-link link-hover">
-          Login
-        </Link>
-        <Link to="/register" className="nav-item nav-link link-hover">
-          Register
-        </Link>
-      </Fragment>
-    );
   }
 
   renderUserSection(isAuth, username) {
@@ -70,6 +63,10 @@ class Header extends Component {
               <i className="fa fa-book pr-2" />
               Manage Bookings
             </Link>
+            <button className="dropdown-item" onClick={this.handleLogout}>
+              <i className="fa fa-power-off pr-2" />
+              Logout
+            </button>
           </div>
         </div>
       );
@@ -105,13 +102,13 @@ class Header extends Component {
           {this.props.location.pathname === '/' ? (
             <div />
           ) : (
-            <RentalSearchInput />
+            <RentalSearchInput rentals={this.props.rentals} />
           )}
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
               {isAuth && (
                 <Link to="/rentals" className="nav-item nav-link link-hover">
-                  INVENTORY <span className="sr-only">(current)</span>
+                  Inventory <span className="sr-only">(current)</span>
                 </Link>
               )}
               {this.renderUserSection(isAuth, username)}
