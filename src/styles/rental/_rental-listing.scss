@@ -1,0 +1,74 @@
+#rentalListing {
+    .page-title.main-color {
+        color: $main-text-grey-color;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    .title {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+    .rental-detail-link {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    h1 {
+        color: $main-text-grey-color;
+        font-weight: 700;
+        margin-bottom: 30px;
+        @include mediaSm {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
+    /* SINGLE CARD STYLES*/
+    .bwm-card {
+        padding: 10px !important;
+        box-sizing: border-box;
+        max-height: 350px;
+        overflow: hidden;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.08);
+        display: block;
+        position: relative;
+        bottom: 0;
+        @include ease();
+        .card-block {
+            padding-top: 8px;
+            .card-subtitle {
+                margin: 0;
+                font-weight: 500;
+                font-size: 12px;
+                text-transform: uppercase;
+                min-height: 30px;
+            }
+            .card-title {
+                font-size: 19px;
+                margin: 3px 0;
+                color: $main-text-grey-color;
+                max-height: 70px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .card-text {
+                font-size: 14px;
+                font-weight: 400;
+                color: $lighter-grey-color;
+                margin-bottom: 0;
+            }
+        }
+        &:hover {
+            @include ease();
+            bottom: 7px;
+            box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.19);
+        }
+    }
+    .rental-card-img {
+        object-fit: contain;
+        object-position: center center;
+        height: 180px;
+    }
+}

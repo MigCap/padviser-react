@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './HomePage.scss'; 
+import './HomeLanding.scss'; 
 
 const HomePage = ({ history }) => {
   return (

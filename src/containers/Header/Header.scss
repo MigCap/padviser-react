@@ -1,0 +1,125 @@
+@import '../../styles/variables';
+.navbar {
+    padding: 20px;
+    //margin-bottom: 40px;
+    background-color: $main-black-color;
+    .navbar-brand {
+        margin-right: 100px;
+        font-size: 27px;
+        letter-spacing: 1px;
+        color: $main-color !important;
+        font-weight: 500;
+        img {
+            margin-right: 20px;
+        }
+        @include mediaSm {
+            margin: 0;
+            padding: 10px 5px;
+            width: 70%;
+            font-size: 18px;
+        }
+    }
+    .bwm-search {
+        max-height: 40px;
+        width: 300px !important;
+        font-size: 16px;
+        @include mediaSm {
+            margin: 5px 0 0 10px;
+            width: 200px !important;
+        }
+    }
+    .btn-bwm-search {
+        border-color: $main-color;
+        color: $main-color;
+        font-size: 16px;
+        padding: 5px 15px;
+        margin: 10px 0;
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $main-color !important;
+            border-color: $main-color !important;
+            color: white !important;
+            box-shadow: none;
+        }
+        @include mediaSm {
+            margin: 20px 0 15px 20px;
+            padding: 5px 15px;
+        }
+    }
+    .nav-item {
+        font-size: 14px;
+        color: $main-white-color;
+    }
+    p.clickable {
+        margin-bottom: 0;
+    }
+    .dropdown-menu {
+        .dropdown-item {
+            font-size: 14px;
+            &:active {
+                background-color: $main-color;
+            }
+        }
+    }
+}
+
+.custom-nav-link {
+    color: $main-color !important;
+    font-weight: 500;
+    &:hover {
+        color: lighten($main-color, 15%) !important;
+    }
+}
+
+
+/* NAVBAR TOGGLE */
+
+.navbar-toggler {
+    color: rgba(255, 255, 255, .5);
+    border-color: transparent !important;
+    margin: 0 auto;
+    &:focus {
+        outline: none;
+    }
+    @include mediaSm {
+        margin: 0;
+        padding: 0 0 10px 10px !important;
+    }
+}
+
+// NAVBAR ANIMATION
+.icon-bar {
+    width: 30px;
+    height: 2px;
+    background-color: $main-color;
+    display: block;
+    transition: all 0.2s;
+    margin-top: 6px
+}
+
+.navbar-toggler .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+    opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+    transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+    transform: rotate(0);
+}

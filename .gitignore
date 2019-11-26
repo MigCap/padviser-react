@@ -48,12 +48,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# ignore scss styles
-/src/**/*.scss
-
 # serv config
 /server/config/dev.js
 /server/.vscode
 
 # no track files
-RentalMap.js
+#RentalMap.js

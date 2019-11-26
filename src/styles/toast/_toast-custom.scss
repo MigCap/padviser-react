@@ -1,0 +1,24 @@
+.toast-success-background {
+    background: $main-black-color !important;
+    border-radius: 5px !important;
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3) !important;
+    min-height: 77px !important;
+}
+
+.toast-success-body {
+    color: $main-color;
+    border-radius: 5px;
+    margin: 0 15px;
+    padding: 0 15px 0 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.Toastify__close-button {
+    padding: 0 5px !important;
+    color: $main-color !important;
+}
+
+.toast-progress-bar {
+    background: $light-grey-color;
+}

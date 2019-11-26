@@ -1,0 +1,78 @@
+.editableComponent {
+    input {
+        width: 75%;
+    }
+    .btn-editable {
+        margin: 5px 0 5px 10px;
+        padding: 3px 9px;
+        font-size: 12px;
+    }
+    .btn-editable-image {
+        margin: 10px;
+    }
+}
+
+.rental-update-titles {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+// IMAGE UPLOAD -------------------------------------------
+.img-upload-container {
+    margin-bottom: 20px;
+    position: relative;
+    .img-preview-container {
+        background-color: #f7f7f7;
+        border-radius: 5px;
+        margin: 10px;
+    }
+    .img-preview {
+        background: center center no-repeat;
+        background-size: contain;
+        height: 116px;
+        width: 116px;
+        margin: auto;
+    }
+    .img-upload {
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+    .upload-text {
+        font-size: 17px;
+        margin: 0 10px 0 0;
+    }
+    input {
+        display: none;
+    }
+    .alert {
+        margin-top: 10px;
+    }
+    .btn-select {
+        background-color: #e9ecef;
+        border: 1px solid #ced4da;
+        color: #495057;
+        padding: 5px 0 5px 10px;
+        &:hover,
+        &:focus,
+        &:active {
+            &:not([disabled]) {
+                background-color: transparent;
+            }
+        }
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+    .upload-text {
+        font-size: 18px;
+        text-transform: none;
+        font-weight: 400;
+    }
+    .btn-upload {
+        padding: 5px 10px;
+        font-size: 17px;
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+}

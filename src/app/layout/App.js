@@ -5,7 +5,7 @@ import { StripeProvider } from 'react-stripe-elements';
 import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from 'containers/Header/Header';
-import HomePage from 'containers/HomePage/HomePage';
+import HomePage from 'containers/HomeLanding/HomeLanding';
 import UserDetail from 'containers/UserProfile/UserProfile';
 import RentalListing from 'components/Rental/rental-listing/RentalListing';
 import RentalSearchListing from 'components/Rental/rental-listing/RentalSearchListing';

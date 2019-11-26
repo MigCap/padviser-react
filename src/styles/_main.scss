@@ -1,0 +1,98 @@
+@import 'variables.scss';
+@import 'form/form.scss';
+@import 'rental/rental-listing';
+@import 'rental/rental-detail';
+@import 'rental/rental-manage';
+@import 'booking/booking';
+@import 'payment/payment';
+@import 'booking/booking-manage';
+@import 'toast/toast-custom';
+@import 'editable/editable-component';
+@import 'review/review';
+@import 'shared/spinner';
+@import 'shared/spinner-button';
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+div#root,
+html {
+    height: 100vh;
+}
+
+
+/*************************************************/
+
+.clickable {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.link-hover {
+    color: $main-color;
+    &:hover {
+        color: $main-color !important;
+    }
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.audio {
+    color: #a72da3;
+}
+
+.video {
+    color: #bf1818;
+}
+
+.lights {
+    color: #d68000;
+}
+
+.btn-pa {
+    background-color: $main-color;
+    border: 1px solid $main-color !important;
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+        cursor: pointer;
+        &:not([disabled]) {
+            color: $main-color;
+            background-color: transparent;
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.anchor-button {
+    background-color: transparent;
+    border: none;
+    &:focus {
+        background: transparent !important;
+    }
+    &:not([href]):not([tabindex]):focus {
+        outline: 0;
+        outline-color: initial;
+        outline-style: initial;
+        outline-width: 0px;
+    }
+}
