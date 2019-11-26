@@ -103,7 +103,7 @@ class Header extends Component {
             <span className="icon-bar bottom-bar" />
           </button>
           {this.props.location.pathname === '/' ? (
-            <div />
+            <Fragment />
           ) : (
             <RentalSearchInput rentals={this.props.rentals} />
           )}
