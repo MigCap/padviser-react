@@ -1,0 +1,15 @@
+.review-booking-modal {
+    border-radius: 5px;
+    color: $main-text-grey-color;
+    padding: 2em 25px 25px 25px;
+    .review-rating {
+        margin: 1em 0;
+        .star-ratings {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .modal-footer {
+        padding: 20px 20px 0 20px;
+    }
+}

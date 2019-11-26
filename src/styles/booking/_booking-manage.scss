@@ -1,0 +1,204 @@
+// BOOKING MANAGE CARD
+.booking-card-manage-container {
+    margin: 10px 0 0 0;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    color: $main-text-grey-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    @include mediaSm {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .avatar-container {
+        flex: 5%;
+        margin: 0;
+        padding: 0;
+        @include mediaSm {
+            flex: 0 1 30%;
+        }
+        img {
+            object-fit: contain;
+            object-position: center center;
+            width: 80px;
+            height: 70px;
+            display: block;
+            margin-right: auto;
+            @include mediaSm {
+                display: none;
+            }
+        }
+        p {
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 0;
+        }
+    }
+    .description-container {
+        flex: 63%;
+        padding: 0 10px;
+        width: 80%;
+        @include mediaSm {
+            flex: 0 1 60%;
+            width: 100%;
+        }
+        .booking-category {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-left: 30px;
+        }
+        .booking-made-by {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-left: 30px;
+        }
+        .booking-card-manage-title {
+            display: block;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .booking-card-manage-description {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            font-weight: 200;
+            max-height: 25px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .booking-card-manage-date {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 200;
+            max-height: 25px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            span {
+                margin-left: 20px;
+                font-weight: 500;
+            }
+            @include mediaSm {
+                max-height: 35px;
+            }
+        }
+    }
+    .booking-units {
+        flex: 6%;
+        @include mediaSm {
+            flex: 0 1 30%;
+        }
+        span {
+            display: block !important;
+            margin: 10px 0 !important;
+            @include mediaSm {
+                margin: 10px 0 0 0 !important;
+            }
+        }
+    }
+    .buttons-container-one {
+        flex: 10%;
+        margin-left: 20px;
+        @include mediaSm {
+            flex: 0 1 30%;
+            margin-left: 0;
+        }
+    }
+    .buttons-container-two {
+        flex: 5%;
+        margin-left: 20px;
+        @include mediaSm {
+            flex: 0 1 auto;
+            margin-left: 0;
+        }
+        .delete-menu {
+            padding: 0;
+            p {
+                display: inline-block;
+                font-size: 12px;
+                font-weight: 200;
+            }
+        }
+    }
+}
+
+.booking-card-link {
+    color: $main-text-grey-color !important;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none !important;
+        color: $main-color !important;
+    }
+}
+
+.btn-pa-booking {
+    background-color: $main-color;
+    color: white;
+    font-size: 14px !important;
+    border: solid 1px $main-color;
+    padding: 3px 10px !important;
+    margin: 5px 0 !important;
+    @include mediaSm {
+        margin: 10px 0 0 0 !important;
+    }
+    cursor: pointer;
+    &:hover,
+    &:focus,
+    &:active {
+        cursor: pointer;
+        text-decoration: none;
+        &:not([disabled]) {
+            color: $main-color;
+            border: solid 1px $main-color;
+            background-color: transparent;
+        }
+    }
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+.delete-btn-manage,
+.edit-btn-manage {
+    font-size: 14px !important;
+    padding: 5px 10px !important;
+    border: none !important;
+    cursor: pointer !important;
+    &:hover {
+        background-color: $main-color !important;
+    }
+    @include mediaSm {
+        margin: 10px 0 0 10px !important;
+    }
+}
+
+.edit-btn-manage {
+    font-size: 14px !important;
+    margin-left: 10px;
+    padding: 5px 7px 5px 10px !important;
+}
+
+.btn-manage {
+    font-size: 14px !important;
+    margin-left: 15px;
+    padding: 0px 10px !important;
+}
+
+.delete-menu {
+    font-size: 1em;
+    margin: 0 10px;
+    padding: 5px 10px;
+    p {
+        margin: 0;
+        text-align: center;
+    }
+    .btn {
+        font-size: 1em;
+        margin-left: 10px;
+        padding: 3px 10px;
+        min-width: 50px;
+    }
+}

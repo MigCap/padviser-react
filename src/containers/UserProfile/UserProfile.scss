@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+.user-profile-container {
+    .img-circle {
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        max-width: 150px;
+        max-height: 150px;
+        min-width: 70px;
+        min-height: 70px;
+    }
+}
+
+.custom-tab-link {
+    color: $main-text-grey-color;
+    &:hover {
+        color: $main-color;
+    }
+}
+
+a.active {
+    color: $main-color !important;
+}
+
+.tab-content {
+    h6 {
+        color: $main-text-grey-color;
+    }
+}

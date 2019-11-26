@@ -1,0 +1,69 @@
+/* #userRentals {
+  .toBeDeleted {
+      border-color: red;
+  }
+  .card {
+      margin-bottom: 20px;
+      box-sizing: border-box;
+      max-height: 350px;
+      overflow: hidden;
+  }
+  .card-block {
+      padding: 20px;
+  }
+  .card-title {
+      font-size: 20px;
+      margin-bottom: 5px;
+      max-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .card-text {
+      font-size: 14px;
+      max-height: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .btn-pa {
+      font-size: 16px;
+  }
+  .card-footer {
+      font-size: 14px;
+      padding: 15px 5px;
+  }
+  .btn-bookings {
+      border-color: $main-color;
+      background-color: transparent;
+      color: $main-color;
+      &:hover,
+      &:focus {
+          border-color: $main-color !important;
+          background-color: transparent !important;
+          color: $main-color !important;
+      }
+  }
+  .delete-btn,
+  .edit-btn {
+      font-size: 1em;
+      margin-left: 15px;
+      padding: 5px 10px;
+  }
+  .edit-btn {
+      font-size: 1em;
+      margin-left: 10px;
+      padding: 5px 15px;
+  }
+  .delete-menu {
+      font-size: 1em;
+      margin: 5px 10px;
+      padding: 5px 10px;
+      .btn {
+          font-size: 1em;
+          margin-left: 10px;
+          padding: 3px 10px;
+          min-width: 50px;
+      }
+  }
+} */

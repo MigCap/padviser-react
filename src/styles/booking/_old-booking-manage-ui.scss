@@ -1,0 +1,77 @@
+/* #userBookings,
+#pendingBookings {
+    .card {
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        max-height: 500px;
+        overflow: hidden;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    .card-block {
+        padding: 20px;
+    }
+    .card-header {
+        text-transform: capitalize;
+    }
+    .card-title {
+        h4 {
+            font-size: 22px;
+        }
+    }
+    .booking {
+        &-desc {
+            font-size: 14px;
+            max-height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &-days {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        &-price-value {
+            font-weight: 700;
+        }
+    }
+    .card-footer {
+        font-size: 0.8em;
+    }
+    .btn-pa {
+        font-size: 16px;
+    }
+} */
+
+// MANAGE RENTAL MODAL
+
+/* .rental-booking-modal {
+    border-radius: 5px;
+    color: $main-text-grey-color;
+    .modal-footer {
+        padding: 20px 20px 0 20px;
+    }
+    .bookings-inner-container {
+        p {
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+    }
+} */
+
+// MANAGE RENTAL MODAL
+
+/* .rental-booking-modal {
+    border-radius: 5px;
+    color: $main-text-grey-color;
+    .modal-footer {
+        padding: 20px 20px 0 20px;
+    }
+    .bookings-inner-container {
+        p {
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+    }
+} */

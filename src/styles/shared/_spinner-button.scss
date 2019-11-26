@@ -1,0 +1,43 @@
+// SPINNER -------------------------------------------
+.img-loading-overlay-button {
+    // background-color: black;
+    // position: absolute;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    opacity: 1;
+}
+
+.img-spinning-circle-button {
+    display: block;
+    // width: 34px;
+    // height: 34px;
+    margin: 0 44%;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
+}
+
+.img-spinning-circle-button:after {
+    content: ' ';
+    display: block;
+    width: 26px;
+    height: 26px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-color: #61dafb transparent #61dafb transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

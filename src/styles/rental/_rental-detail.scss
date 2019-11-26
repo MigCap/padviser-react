@@ -1,0 +1,136 @@
+#rentalDetails {
+    .upper-section {
+        img {
+            width: 100%;
+            object-fit: contain;
+            height: 360px;
+        }
+        margin-bottom: 30px;
+    }
+    .details-section {
+        color: $main-text-grey-color;
+        .bold {
+            font-weight: 500;
+        }
+        .rental {
+            &-type {
+                font-size: 16px;
+                font-weight: 400;
+                text-transform: uppercase;
+                margin: 0;
+            }
+            &-title {
+                margin-bottom: 5px;
+                font-size: 32px;
+                font-weight: 700;
+            }
+            &-city {
+                font-size: 14px;
+                font-weight: 300;
+                margin-bottom: 20px;
+            }
+            &-room-info {
+                margin-bottom: 20px;
+                font-weight: 300;
+                font-size: 16px;
+                span {
+                    margin-right: 10px;
+                    span {
+                        margin-left: 5px;
+                    }
+                }
+                i {
+                    margin-right: 2px;
+                }
+                .rental-units {
+                    margin-right: 0;
+                }
+            }
+            &-description {
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom: 30px;
+            }
+            &-assets {
+                .title {
+                    margin-bottom: 10px;
+                    font-weight: 700;
+                    font-size: 22px;
+                }
+                span {
+                    display: block;
+                    margin-bottom: 15px;
+                    font-weight: 300;
+                }
+            }
+            &-reviews {
+                .review-title {
+                    margin-bottom: 10px;
+                    font-weight: 700;
+                    font-size: 22px;
+                }
+            }
+        }
+        // FontAwesome Icons
+        .fa {
+            padding-right: 5px;
+        }
+    }
+}
+
+// CUSTOMER REVIEWS
+.review-card-container {
+    margin: 10px 0 1em 0;
+    padding: 10px 20px;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    .avatar-container {
+        flex-basis: 20%;
+        align-self: flex-end;
+        margin: 0;
+        padding: 10px 0 0 0;
+        img {
+            min-width: 70px;
+            max-width: 80px;
+            border-radius: 50%;
+            display: block;
+            margin: auto 0;
+        }
+        p {
+            margin: 0;
+            padding: 10px 0;
+            display: block;
+            text-align: left;
+            font-size: 14px;
+        }
+    }
+    .review-body-container {
+        flex-basis: 70%;
+        align-self: center;
+        display: block;
+        margin: 0;
+        padding: 0 10px;
+        @include mediaSm {
+            flex-basis: 80%;
+            padding: 0 0 0 20px;
+        }
+        p {
+            margin-bottom: 0;
+            font-size: 16px;
+            font-weight: 600;
+            span {
+                margin-top: 5px;
+                margin-bottom: 0 !important;
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+        .star-ratings,
+        .star-container {
+            padding: 0;
+        }
+    }
+}
