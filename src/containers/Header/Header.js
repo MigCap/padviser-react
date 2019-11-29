@@ -79,47 +79,49 @@ class Header extends Component {
   render() {
     const { username, isAuth } = this.props.auth;
     return (
-      <nav className="navbar navbar-dark navbar-expand-lg">
-        <div className="container">
-          <Link to="/" className="navbar-brand">
-            <img
-              src={process.env.PUBLIC_URL + '/img/PAlogo.png'}
-              width="20"
-              alt="logo"
-            />
-            Production Adviser
-          </Link>
-
-          <button
-            className="navbar-toggler collapsed"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span className="icon-bar top-bar" />
-            <span className="icon-bar middle-bar" />
-            <span className="icon-bar bottom-bar" />
-          </button>
-          {this.props.location.pathname === '/' ? (
-            <Fragment />
-          ) : (
-            <RentalSearchInput rentals={this.props.rentals} />
-          )}
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav ml-auto">
-              {isAuth && (
-                <Link to="/rentals" className="nav-item nav-link link-hover">
-                  Inventory <span className="sr-only">(current)</span>
-                </Link>
-              )}
-              {this.renderUserSection(isAuth, username)}
-              {this.renderAuthButtons(isAuth)}
+      <Fragment>
+        <nav className="navbar navbar-dark navbar-expand-lg">
+  
+          <div className="container">
+            <Link to="/" className="navbar-brand">
+              <img
+                src={process.env.PUBLIC_URL + '/img/PAlogo.png'}
+                width="20"
+                alt="logo"
+              />
+              Production Adviser
+            </Link>
+            <button
+              className="navbar-toggler collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span className="icon-bar top-bar" />
+              <span className="icon-bar middle-bar" />
+              <span className="icon-bar bottom-bar" />
+            </button>
+            <div id="navbarNavAltMarkup" className="collapse navbar-collapse bwm-navbarCollapse-wrapper">
+              <div className="navbar-nav mx-auto">
+                {isAuth && (
+                  <Link to="/rentals" className="nav-item nav-link link-hover">
+                    Inventory <span className="sr-only">(current)</span>
+                  </Link>
+                )}
+                {this.renderUserSection(isAuth, username)}
+                {this.renderAuthButtons(isAuth)}
+              </div>
             </div>
+            {this.props.location.pathname === '/' ? (
+              <Fragment />
+            ) : (
+              <RentalSearchInput rentals={this.props.rentals} />
+            )}
           </div>
-        </div>
-      </nav>
+        </nav>
+      </Fragment>
     );
   }
 }

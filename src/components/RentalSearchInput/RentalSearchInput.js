@@ -30,7 +30,6 @@ class RentalSearchInput extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    //console.log(nextProps);
     this.setState({
       filteredRentals: nextProps.rentals
     });
@@ -41,48 +40,52 @@ class RentalSearchInput extends Component {
       search: e.target.value.toLowerCase()
     });
 
-    const { search, rentals } = this.state;
+    // const { search, rentals } = this.state;
 
-    const filterCategoryRentals = rentals.filter(
-      rental => rental.category.toLowerCase() === search
-    );
+    // const filterCategoryRentals = rentals.filter(
+    //   rental => rental.category.toLowerCase() === search
+    // );
 
-    console.log(filterCategoryRentals);
+    // console.log(filterCategoryRentals);
   };
 
   handleSearch(e) {
-    e.preventDefault();
-    const { search, rentals } = this.state;
+    const { history } = this.props;
+    const city = this.searchInput.current.value;
 
-    const filterCategoryRentals = rentals.filter(
-      rental => rental.category === search
-    );
+    city ? history.push(`/rentals/${city}/products`) : history.push('/rentals');
 
-    console.log(filterCategoryRentals);
+    // e.preventDefault();
+    // const { search, rentals } = this.state;
 
-    /* const { history, rentals } = this.props;
-    const city = this.searchInput.current.value; */
+    // const filterCategoryRentals = rentals && rentals.filter(
+    //   rental => rental.category === search
+    // );
+
+    // console.log(filterCategoryRentals);
+
+    // const { history, rentals } = this.props;
+    // const city = this.searchInput.current.value;
     // const search = this.searchInput.current.value;
     // console.log(search);
     // city ? history.push(`/rentals/${city}/products`) : history.push('/rentals');
-    /* const filteredArray = rentals.filter(rental => {
-      let value = Object.values(rental);
-      console.log(value);
-      const categoryToLc = rental.category.toLowerCase();
-      const searchToLc = search.toLowerCase();
-    }); */
+    // const filteredArray = rentals.filter(rental => {
+    //   let value = Object.values(rental);
+    //   console.log(value);
+    //   const categoryToLc = rental.category.toLowerCase();
+    //   const searchToLc = search.toLowerCase();
+    // });
   }
 
   render() {
     return (
-      <form className="form-inline">
+      <form className="form-inline bwm-form-wrapper">
         <input
           className="form-control mr-sm-2 bwm-search"
           ref={this.searchInput}
           type="search"
           placeholder='Try "New York"'
           aria-label="Search"
-          onChange={this.handleInputChange}
         />
         <button
           onClick={() => this.handleSearch()}
