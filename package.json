@@ -48,8 +48,6 @@
     },
     "scripts": {
         "heroku-postbuild": "npm run build",
-        "build-css": "node-sass-chokidar ./src/app/layout -o ./src/app/layout",
-        "watch-css": "npm run build-css && node-sass-chokidar ./src/app/layout -o ./src/app/layout --watch --recursive",
         "start": "npm start --prefix server",
         "start-dev": "npm-run-all -p start start-js",
         "build": "npm-run-all build-js",

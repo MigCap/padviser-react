@@ -19,32 +19,39 @@
             font-size: 18px;
         }
     }
-    .bwm-search {
-        max-height: 40px;
-        width: 300px !important;
-        font-size: 16px;
+    .bwm-form-wrapper {
+        display: flex;
+        flex-direction: row;
         @include mediaSm {
-            margin: 5px 0 0 10px;
-            width: 200px !important;
+            // background-color: white;
         }
-    }
-    .btn-bwm-search {
-        border-color: $main-color;
-        color: $main-color;
-        font-size: 16px;
-        padding: 5px 15px;
-        margin: 10px 0;
-        &:hover,
-        &:focus,
-        &:active {
-            background-color: $main-color !important;
-            border-color: $main-color !important;
-            color: white !important;
-            box-shadow: none;
+        .bwm-search {
+            max-height: 40px;
+            // width: 300px !important;
+            font-size: 16px;
+            @include mediaSm {
+                margin: 5px 0 0 10px;
+                width: 200px !important;
+            }
         }
-        @include mediaSm {
-            margin: 20px 0 15px 20px;
+        .btn-bwm-search {
+            border-color: $main-color;
+            color: $main-color;
+            font-size: 16px;
             padding: 5px 15px;
+            margin: 10px 0;
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $main-color !important;
+                border-color: $main-color !important;
+                color: white !important;
+                box-shadow: none;
+            }
+            @include mediaSm {
+                margin: 20px 0 15px 20px;
+                padding: 5px 15px;
+            }
         }
     }
     .nav-item {
