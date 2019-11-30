@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
+
 import Modal from 'react-responsive-modal';
-import { pretifyDate } from '../../../app/helpers';
+
+import { pretifyDate } from 'app/helpers';
+
+import './RentalManageModal.scss';
 
 class RentalManageModal extends Component {
   constructor() {

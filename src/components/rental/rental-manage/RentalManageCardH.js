@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { toUpperCase, pretifyDate } from '../../../app/helpers';
+
+import { toUpperCase, pretifyDate } from 'app/helpers';
+
+import './RentalManageCardH.scss';
 
 class RentalManageCardH extends Component {
   constructor() {

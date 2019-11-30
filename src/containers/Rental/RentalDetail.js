@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RentalDetailInfo from './RentalDetailInfo';
-import RentalDetailUpdate from './RentalDetailUpdate';
-import RentalMap from './RentalMap';
-import Booking from '../../booking/Booking';
-import UserGuard from '../../shared/auth/UserGuard';
+import RentalDetailInfo from 'components/rental/rental-detail/RentalDetailInfo';
+import RentalDetailUpdate from 'components/rental/rental-detail/RentalDetailUpdate';
+import RentalMap from 'components/rental/rental-detail/RentalMap';
+import Booking from 'components/booking/Booking';
+import UserGuard from 'components/shared/auth/UserGuard';
 
-import * as actions from '../../../app/actions';
-import * as rentalsActions from '../../../app/actions/rentals-action';
+import * as actions from 'app/actions';
+import * as rentalsActions from 'app/actions/rentals-action';
+
+import './RentalDetail.scss';
 
 class RentalDetail extends Component {
   constructor() {

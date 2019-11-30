@@ -45,7 +45,7 @@ class Header extends Component {
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
-            {username}
+            {username.toUpperCase()}
           </button>
           <div
             className="dropdown-menu"
@@ -107,7 +107,7 @@ class Header extends Component {
               <div className="navbar-nav ml-auto">
                 {isAuth && (
                   <Link to="/rentals" className="nav-item nav-link link-hover">
-                    Inventory <span className="sr-only">(current)</span>
+                    INVENTORY <span className="sr-only">(current)</span>
                   </Link>
                 )}
                 {this.renderUserSection(isAuth, username)}
