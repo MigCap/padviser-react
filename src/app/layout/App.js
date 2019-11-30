@@ -6,13 +6,13 @@ import { ToastContainer, Slide } from 'react-toastify';
 
 import Header from 'containers/Header/Header';
 import HomePage from 'containers/Landing/HomeLanding';
-import UserDetail from 'containers/UserProfile/UserProfile';
 import RentalListing from 'containers/Rental/RentalListing';
-import RentalSearchListing from 'components/rental/rental-listing/RentalSearchListing';
+import RentalSearchListing from 'containers/Rental/RentalSearchListing';
 import RentalDetail from 'containers/Rental/RentalDetail';
-import RentalCreate from 'components/rental/rental-create/RentalCreate';
+import RentalCreate from 'containers/Rental/RentalCreate';
 import RentalManage from 'components/rental/rental-manage/RentalManage';
-import BookingManage from 'components/booking/booking-manage/BookingManage';
+import BookingManage from 'containers/Booking/BookingManage';
+import UserProfile from 'containers/UserProfile/UserProfile';
 import Login from 'components/login/Login';
 import Register from 'components/register/Register';
 
@@ -57,7 +57,7 @@ class App extends Component {
                 <ProtectedRoute
                   exact
                   path="/users/profile"
-                  component={UserDetail}
+                  component={UserProfile}
                 />
                 <ProtectedRoute
                   exact

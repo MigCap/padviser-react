@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import RentalCreateForm from './RentalCreateForm';
 
-import * as rentalsActions from '../../../app/actions/rentals-action';
+import * as rentalsActions from 'app/actions/rentals-action';
+
+import RentalCreateForm from 'components/rental/rental-create/RentalCreateForm';
 
 class RentalCreate extends Component {
   constructor() {

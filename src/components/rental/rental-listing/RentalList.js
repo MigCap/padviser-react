@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+
 import RentalCard from './RentalCard';
 class RentalList extends Component {
   constructor(props) {

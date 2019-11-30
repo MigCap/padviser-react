@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import './RentalCard.scss';
+
+
 const RentalCard = props => {
   const rental = props.rental;
   return (

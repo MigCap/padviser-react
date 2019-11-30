@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RentalList from './RentalList';
-import { toUpperCase } from '../../../app/helpers';
 
-import * as actions from '../../../app/actions/rentals-action';
+import { toUpperCase } from 'app/helpers';
+
+import RentalList from 'components/rental/rental-listing/RentalList';
+
+import * as actions from 'app/actions/rentals-action';
 
 const mapStateToProps = state => {
   return {
