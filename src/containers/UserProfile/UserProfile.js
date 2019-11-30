@@ -159,7 +159,7 @@ class UserProfile extends Component {
             </div>*/}
           </div>
 
-          <div className="col-sm-8 ml-auto">
+          <div className="col-sm-8 ml-auto mt-4">
             <h4 className="mb-4 text-muted">
               Complete your profile. Get the most out of this site.
             </h4>

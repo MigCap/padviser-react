@@ -3,6 +3,7 @@
 .rental-card-manage-container {
     margin: 10px 0 0 0;
     padding: 15px;
+    min-height: 125px;
     border: 1px solid #dee2e6;
     border-radius: 5px;
     color: $main-text-grey-color;
@@ -34,7 +35,7 @@
         width: 80%;
         flex: 60%;
         @include mediaSm {
-            flex: 0 1 60%;
+            // flex: 0 1 60%;
         }
         .rental-card-manage-title {
             display: block;
@@ -54,15 +55,12 @@
             margin: 0;
             font-size: 12px;
             font-weight: 200;
-            max-height: 25px;
             overflow: hidden;
             text-overflow: ellipsis;
         }
     }
     .rental-units {
         flex: 6%;
-        //margin-right: 10px !important;
-        //margin: 0 auto;
         @include mediaSm {
             flex: 0 1 30%;
         }
@@ -82,7 +80,7 @@
     .buttons-container-two {
         flex: 15%;
         @include mediaSm {
-            flex: 0 1 auto;
+            // flex: 0 1 auto;
         }
         .delete-menu {
             padding: 0;
@@ -105,10 +103,10 @@
 }
 
 .btn-pa-rental {
-    background-color: $main-color;
-    color: white;
+    background-color: transparent;
+    color: $main-color;
     font-size: 14px !important;
-    border: none;
+    border: solid 1px $main-color;
     padding: 5px 10px !important;
     margin: 0;
     @include mediaSm {
@@ -120,9 +118,9 @@
     &:active {
         cursor: pointer;
         &:not([disabled]) {
-            color: $main-color;
+            color: white;
             border: solid 1px $main-color;
-            background-color: transparent;
+            background-color: $main-color;
         }
     }
     &:disabled {
@@ -144,16 +142,18 @@
     }
 }
 
-.edit-btn-manage {
-    font-size: 14px !important;
-    margin-left: 10px;
-    padding: 5px 7px 5px 10px !important;
-}
-
-.btn-manage {
-    font-size: 14px !important;
-    margin-left: 15px;
-    padding: 0px 10px !important;
+.select-menu {
+    display: flex;
+    flex-direction: column;
+    .delete-btn-manage {
+        width: 100%;
+    }
+    .edit-btn-manage {
+        width: 100%;
+        font-size: 14px !important;
+        margin: 0;
+        padding: 5px 8px 5px 12px !important;
+    }
 }
 
 .delete-menu {
@@ -169,5 +169,11 @@
         margin-left: 10px;
         padding: 3px 10px;
         min-width: 50px;
+    }
+    .btn-manage {
+        width: 100%;
+        font-size: 14px !important;
+        margin-left: 15px;
+        padding: 0px 10px !important;
     }
 }

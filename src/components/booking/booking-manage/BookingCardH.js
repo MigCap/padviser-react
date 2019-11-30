@@ -7,8 +7,16 @@ import { toUpperCase, pretifyDate } from 'app/helpers';
 
 import './BookingCardH.scss';
 
-export default function BookingCardH (props) {
-  function renderReviewButton(booking, modal) {
+const renderBookingImage = (props) => {
+  const image = props.booking.rental && props.booking.rental.image;
+  if (image) {
+    return <img src={image} alt="bookingImage" />;
+  }
+  return <i className="fa fa-ban fa-3x text-danger" />;
+}
+
+const BookingCardH = (props) => {
+  const renderReviewButton = (booking, modal) => {
     let bookingFinished = moment().isAfter(booking.endAt);
 
     if (!booking.review && bookingFinished) {
@@ -18,13 +26,6 @@ export default function BookingCardH (props) {
     return <Fragment />;
   }
 
-  function renderBookingImage() {
-    const image = props.booking.rental && props.booking.rental.image;
-    if (image) {
-      return <img src={image} alt="bookingImage" />;
-    }
-    return <i className="fa fa-ban fa-3x text-danger" />;
-  }
 
   const { booking, modal } = props;
 
@@ -32,7 +33,7 @@ export default function BookingCardH (props) {
     return (
       <div className="col-12">
         <div className="booking-card-manage-container">
-          <div className="avatar-container">{renderBookingImage()}</div>
+          <div className="avatar-container">{renderBookingImage(props)}</div>
   
           <div className="description-container">
             <Link
@@ -82,17 +83,20 @@ export default function BookingCardH (props) {
       </div>
     );
   } else {
-    return null
+    return <Fragment />;
   }
 }
 
-export function PaymentCardH(props) {
+export default BookingCardH;
+
+export const PaymentCardH = (props) => {
   const { booking, payment, paymentBtns } = props;
 
   if (booking && booking.rental) {
     return (
       <div className="col-12">
         <div className="booking-card-manage-container">
+        <div className="avatar-container">{renderBookingImage(props)}</div>
           <div className="description-container">
             {booking.rental && (
               <Link
@@ -107,9 +111,9 @@ export function PaymentCardH(props) {
                   <span className={`booking-category ${booking.rental.category}`}>
                     {booking.rental ? booking.rental.category : 'Booking Deleted'}
                   </span>
-                  <span className="booking-made-by">
-                    Booking Made By: {payment.fromUser.username}
-                  </span>
+                </p>
+                <p className="booking-made-by mb-1">
+                  Booking Made By: <span>{payment.fromUser.username}</span>
                 </p>
   
                 <p className="booking-card-manage-description">
@@ -143,13 +147,15 @@ export function PaymentCardH(props) {
             </div>
           )}
   
-          <div className="buttons-container-two">
-            {paymentBtns && payment.status === 'pending' && paymentBtns(payment)}
-          </div>
+          {paymentBtns && payment.status === 'pending' && (
+            <div className="buttons-container-two">
+              {paymentBtns(payment)}
+            </div>
+          )}
         </div>
       </div>
     );
   } else {
-    return null
+    return <Fragment />;
   }
 }

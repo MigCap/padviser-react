@@ -68,8 +68,8 @@ class RentalManageCardH extends Component {
           </div>
           <div className="buttons-container-two">
             {!wantDelete && (
-              <Fragment>
-                <button
+              <div className="select-menu">
+                {/* <button
                   onClick={() => {
                     this.showDeleteMenu();
                   }}
@@ -83,29 +83,42 @@ class RentalManageCardH extends Component {
                     state: { isUpdate: true }
                   }}>
                   <i className="fa fa-edit" />
+                </Link> */}
+                <button
+                  onClick={() => {
+                    this.showDeleteMenu();
+                  }}
+                  className="btn btn-danger delete-btn-manage mb-2">
+                  <i className="fa fa-trash" />
+                </button>
+                <Link
+                  className="btn btn-info edit-btn-manage"
+                  to={{
+                    pathname: `/rentals/${rental._id}`,
+                    state: { isUpdate: true }
+                  }}>
+                  <i className="fa fa-edit" />
                 </Link>
-              </Fragment>
+              </div>
             )}
             {wantDelete && (
-              <Fragment>
-                <div className="delete-menu">
-                  <p>Do you confirm delete?</p>
-                  <button
-                    onClick={() => {
-                      this.deleteRental(rental._id, rentalIndex);
-                    }}
-                    className="btn btn-danger btn-manage">
-                    Yes
-                  </button>
-                  <button
-                    onClick={() => {
-                      this.closeDeleteMenu();
-                    }}
-                    className="btn btn-success btn-manage">
-                    No
-                  </button>
-                </div>
-              </Fragment>
+              <div className="delete-menu">
+                <p>Do you confirm delete?</p>
+                <button
+                  onClick={() => {
+                    this.deleteRental(rental._id, rentalIndex);
+                  }}
+                  className="btn btn-danger btn-manage">
+                  Yes
+                </button>
+                <button
+                  onClick={() => {
+                    this.closeDeleteMenu();
+                  }}
+                  className="btn btn-success btn-manage">
+                  No
+                </button>
+              </div>
             )}
           </div>
         </div>

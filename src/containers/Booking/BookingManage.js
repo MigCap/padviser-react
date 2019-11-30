@@ -34,7 +34,9 @@ class BookingManage extends Component {
         </div>
       </div>
     );
-    actions.createReview(reviewData).then(
+
+    actions.createReview(reviewData)
+    .then(
       reviewed => {
         toast(<ToastIcon />, {
           hideProgressBar: true,
@@ -46,6 +48,23 @@ class BookingManage extends Component {
       errors => {
         this.setState({ errors });
       }
+    );
+  };
+
+  renderPaymentButtons = payment => {
+    return (
+      <div>
+        <button
+          className="btn badge badge-success m-1"
+          onClick={() => this.acceptPayment(payment)}>
+          Accept
+        </button>
+        <button
+          className="btn badge badge-danger m-1"
+          onClick={() => this.declinePayment(payment)}>
+          Decline
+        </button>
+      </div>
     );
   };
 
@@ -82,22 +101,6 @@ class BookingManage extends Component {
     ));
   }
 
-  renderPaymentButtons = payment => {
-    return (
-      <div>
-        <button
-          className="btn badge badge-success m-1"
-          onClick={() => this.acceptPayment(payment)}>
-          Accept
-        </button>
-        <button
-          className="btn badge badge-danger m-1"
-          onClick={() => this.declinePayment(payment)}>
-          Decline
-        </button>
-      </div>
-    );
-  };
 
   getPendingPayments() {
     actions
@@ -131,7 +134,66 @@ class BookingManage extends Component {
     if (!isFetching && pendingPayments && !isFetching && bookings) {
       return (
         <Fragment>
-          <div className="container pt-4 pt-md-5">
+          <div className="row container mx-auto mt-3">
+            <ul className="nav nav-tabs">
+              <li className="nav-item">
+                <a
+                  className="nav-link custom-tab-link active"
+                  data-toggle="tab"
+                  href="#myRentals">
+                  My Rentals
+                </a>
+              </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link custom-tab-link"
+                  data-toggle="tab"
+                  href="#pendingRentals">
+                  Pending Rentals Received
+                </a>
+              </li>
+            </ul>
+            <div className="tab-content">
+
+              <div className="tab-pane active" id="myRentals">
+                <section id="userBookings" className="my-4">
+                  <h1 className="page-title">My Bookings</h1>
+                  <p className="text-muted font-weight-light small">Check booked products status. Leave reviews</p>
+                  <div className="row mb-5">
+                    {this.renderBookingsCards(bookings)}
+                  </div>
+                  {!isFetching && bookings.length === 0 && (
+                    <div className="alert alert-warning">
+                      You have no bookings created yet. Go to rentals section and
+                      book your equipment today.
+                      <Link className="btn btn-pa ml-3" to="/rentals">
+                        Available Rentals
+                      </Link>
+                    </div>
+                  )}
+                </section>
+              </div>
+
+              <div className="tab-pane" id="pendingRentals">
+                <section id="pendingBookings" className="my-4">
+                  <h1 className="page-title">Pending Bookings</h1>
+                  <p className="text-muted font-weight-light small">Check received bookings status. Accept or decline bookings</p>
+                  {pendingPayments && pendingPayments.length > 0 && (
+                    <div className="row">
+                      {this.renderPaymentsCards(pendingPayments)}
+                    </div>
+                  )}
+                  {!isFetching && pendingPayments.length === 0 && (
+                    <div className="alert alert-warning">
+                      You have no pending bookings.
+                    </div>
+                  )}
+                </section>
+              </div>
+            </div>
+
+          </div>
+          {/* <div className="container pt-4 pt-md-5">
             <section id="userBookings">
               <h1 className="page-title">My Bookings</h1>
               <p className="text-muted font-weight-light small">Check booked products status. Leave reviews</p>
@@ -167,7 +229,7 @@ class BookingManage extends Component {
                 </div>
               )}
             </section>
-          </div>
+          </div> */}
         </Fragment>
       );
     } else {

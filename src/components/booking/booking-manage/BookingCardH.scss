@@ -63,8 +63,9 @@
         }
         .booking-made-by {
             font-size: 12px;
-            text-transform: uppercase;
-            margin-left: 30px;
+            span {
+                text-transform: uppercase;
+            }
         }
         .booking-card-manage-title {
             display: block;

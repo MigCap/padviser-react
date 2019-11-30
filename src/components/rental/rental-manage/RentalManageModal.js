@@ -30,14 +30,14 @@ class RentalManageModal extends Component {
     return bookings.map((booking, index) => (
       <Fragment key={index}>
         <p>
-          <span>Date:</span> {pretifyDate(booking.startAt)} -{' '}
+          <span className="font-weight-bold">Date:</span> {pretifyDate(booking.startAt)} -{' '}
           {pretifyDate(booking.endAt)}
         </p>
         <p>
-          <span>Units:</span> {booking.units}
+          <span className="font-weight-bold">Units:</span> {booking.units}
         </p>
         <p>
-          <span>Total Price:</span> {booking.totalPrice} $
+          <span className="font-weight-bold">Total Price:</span> {booking.totalPrice} $
         </p>
         {index + 1 !== bookings.length && <hr />}
       </Fragment>
