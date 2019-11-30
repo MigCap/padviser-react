@@ -5,14 +5,15 @@
     justify-content: center;
     width: 100%;
     @include mediaLg {
-        flex-direction: column;
-        justify-content: flex-start;
+        flex-direction: row;
+        justify-content: center;
     }
     @include mediaXl {
         flex-direction: column;
         justify-content: flex-end;
     }
     .bwm-search {
+        flex-grow: 1;
         max-height: 38px;
         width: 100% !important;
         font-size: 16px;
