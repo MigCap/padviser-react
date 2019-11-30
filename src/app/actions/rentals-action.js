@@ -37,6 +37,8 @@ const fetchRentalsFail = errors => {
   };
 };
 
+// FETCH RENTALS BY CITY
+
 export const fetchRentals = city => {
   const url = city ? `/rentals?city=${city}` : '/rentals';
   return dispatch => {
