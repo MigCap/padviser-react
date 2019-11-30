@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import RentalManageCard from './RentalManageCard';
-import RentalManageCardH from './RentalManageCardH';
-import RentalManageModal from './RentalManageModal';
+
 import { toast } from 'react-toastify';
 
 import * as rentalsActions from '../../../app/actions/rentals-action';
+
+import RentalManageCardH from './RentalManageCardH';
+import RentalManageModal from './RentalManageModal';
+
+import './RentalManage.scss';
 
 class RentalManage extends Component {
   constructor() {

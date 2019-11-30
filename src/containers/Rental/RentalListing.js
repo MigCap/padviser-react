@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import RentalList from './RentalList';
+import RentalList from 'components/rental/rental-listing/RentalList';
 
-import * as actions from '../../../app/actions/rentals-action';
+import * as actions from 'app/actions/rentals-action';
 
-const mapStateToProps = state => {
-  return {
-    rentals: state.rentals
-  };
-};
+import './RentalListing.scss';
 
 class RentalListing extends Component {
   componentDidMount() {
@@ -35,5 +31,11 @@ class RentalListing extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    rentals: state.rentals
+  };
+};
 
 export default connect(mapStateToProps)(RentalListing);

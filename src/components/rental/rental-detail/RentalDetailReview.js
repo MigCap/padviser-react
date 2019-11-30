@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+
 import StarRatings from 'react-star-ratings';
+
 import moment from 'moment';
+
+import './RentalDetailReview.scss';
+
 
 class RentalDetailReview extends Component {
   render() {

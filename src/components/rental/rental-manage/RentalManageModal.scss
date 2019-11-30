@@ -1,0 +1,15 @@
+@import 'src/styles/variables';
+// MANAGE RENTAL MODAL
+.rental-booking-modal {
+    border-radius: 5px;
+    color: $main-text-grey-color;
+    .modal-footer {
+        padding: 20px 20px 0 20px;
+    }
+    .bookings-inner-container {
+        p {
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+    }
+}
