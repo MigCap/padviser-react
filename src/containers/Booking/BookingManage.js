@@ -1,13 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-// import BookingCard from './BookingCard';
-import BookingCardH from './BookingCardH';
-import { PaymentCardH } from './BookingCardH';
-import ReviewModal from '../../review/ReviewModal';
 
-import * as actions from '../../../app/actions';
+import { toast } from 'react-toastify';
+
+import BookingCardH from 'components/booking/booking-manage/BookingCardH';
+import { PaymentCardH } from 'components/booking/booking-manage/BookingCardH';
+import ReviewModal from 'components/review/ReviewModal';
+
+import * as actions from 'app/actions';
 
 class BookingManage extends Component {
   constructor() {
@@ -66,10 +67,15 @@ class BookingManage extends Component {
   }
 
   renderPaymentsCards(pendingPayments) {
-    return pendingPayments && pendingPayments.map((payment, index) => (
+    const pendingPaymentsStatusPending = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'pending');
+    const pendingPaymentsStatusPaid = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'paid');
+    const pendingPaymentsStatusDeclined = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'declined');
+    const newSetPendingPayments = [...pendingPaymentsStatusPending, ...pendingPaymentsStatusPaid, ...pendingPaymentsStatusDeclined];
+
+    return newSetPendingPayments && newSetPendingPayments.map((pendingPayment, index) => (
       <PaymentCardH
-        booking={payment.booking}
-        payment={payment}
+        booking={pendingPayment.booking}
+        payment={pendingPayment}
         paymentBtns={this.renderPaymentButtons}
         key={index}
       />
@@ -128,6 +134,8 @@ class BookingManage extends Component {
           <div className="container pt-4 pt-md-5">
             <section id="userBookings">
               <h1 className="page-title">My Bookings</h1>
+              <p className="text-muted font-weight-light small">Check booked products status. Leave reviews</p>
+
               <div className="row mb-5">
                 {this.renderBookingsCards(bookings)}
               </div>
@@ -145,6 +153,7 @@ class BookingManage extends Component {
           <div className="container pb-5">
             <section id="pendingBookings">
               <h1 className="page-title">Pending Bookings</h1>
+              <p className="text-muted font-weight-light small">Check received bookings status. Accept or decline bookings</p>
 
               {pendingPayments && pendingPayments.length > 0 && (
                 <div className="row">

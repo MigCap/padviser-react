@@ -181,7 +181,8 @@ exports.searchCity = function(req, res) {
   const findQuery = city && {
     $or: [
       { city: city.toLowerCase() },
-      { description: { $regex: city.toLowerCase(), $options: 'i' } }
+      { description: { $regex: city.toLowerCase(), $options: 'i' } },
+      { category: city.toLowerCase() },
     ]
   }
   const query = city ? findQuery : {};
@@ -198,7 +199,7 @@ exports.searchCity = function(req, res) {
           errors: [
             {
               title: 'No Items Found',
-              detail: `There are no items for city ${city}`
+              detail: `There are no results for '${city}''`
             }
           ]
         });

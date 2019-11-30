@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-import { toUpperCase, pretifyDate } from '../../../app/helpers';
 import moment from 'moment';
+
+import { toUpperCase, pretifyDate } from 'app/helpers';
+
+import './BookingCardH.scss';
 
 export default function BookingCardH (props) {
   function renderReviewButton(booking, modal) {
@@ -12,7 +15,7 @@ export default function BookingCardH (props) {
       return modal;
     }
 
-    return <div />;
+    return <Fragment />;
   }
 
   function renderBookingImage() {

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import PaFormFileUpload from '../../components/shared/form/PaFormFileUpload';
-import { required } from '../../components/shared/form/validators';
-import { Redirect } from 'react-router-dom';
 
-import authService from '../../app/services/auth-service';
-import * as actions from '../../app/actions';
+import authService from 'app/services/auth-service';
+import * as actions from 'app/actions';
+
+import PaFormFileUpload from 'components/shared/form/PaFormFileUpload';
+import { required } from 'components/shared/form/validators';
 
 import './UserProfile.scss';
 
@@ -161,7 +161,7 @@ class UserProfile extends Component {
 
           <div className="col-sm-8 ml-auto">
             <h4 className="mb-4 text-muted">
-              Complete your profile to get the most out of this site.
+              Complete your profile. Get the most out of this site.
             </h4>
             <ul className="nav nav-tabs">
               <li className="nav-item">

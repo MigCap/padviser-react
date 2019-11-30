@@ -86,7 +86,7 @@ class RentalSearchInput extends Component {
           className="form-control bwm-search"
           ref={this.searchInput}
           type="search"
-          placeholder='Try "New York"'
+          placeholder='Try "New York" or "Audio" or "Projector"'
           aria-label="Search"
         />
         <button
