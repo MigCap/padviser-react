@@ -178,7 +178,13 @@ exports.manageRentals = function(req, res) {
 
 exports.searchCity = function(req, res) {
   const city = req.query.city;
-  const query = city ? { city: city.toLowerCase() } : {};
+  const findQuery = city && {
+    $or: [
+      { city: city.toLowerCase() },
+      { description: { $regex: city.toLowerCase(), $options: 'i' } }
+    ]
+  }
+  const query = city ? findQuery : {};
 
   Rental.find(query)
     .select('-bookings')

@@ -18,7 +18,7 @@ class RentalListing extends Component {
   render() {
     const { fetchingRentals, data: rentals } = this.props.rentals;
     return (
-      <div className="container pt-5 pb-5">
+      <div className="container pt-4 pt-md-5 pb-5">
         <section id="rentalListing">
           <h1>Your Gear All Around the Globe</h1>
           {!fetchingRentals && rentals ? (

@@ -49,7 +49,7 @@ class BookingManage extends Component {
   };
 
   renderBookingsCards(bookings) {
-    return bookings.map((booking, index) => (
+    return bookings && bookings.map((booking, index) => (
       <BookingCardH
         booking={booking}
         key={index}
@@ -66,7 +66,7 @@ class BookingManage extends Component {
   }
 
   renderPaymentsCards(pendingPayments) {
-    return pendingPayments.map((payment, index) => (
+    return pendingPayments && pendingPayments.map((payment, index) => (
       <PaymentCardH
         booking={payment.booking}
         payment={payment}

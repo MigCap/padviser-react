@@ -51,7 +51,7 @@ class RentalSearchListing extends Component {
     }
 
     if (data.length > 0) {
-      title = `Your Gear in '${toUpperCase(searchedCity)}' `;
+      title = `Your search results for '${toUpperCase(searchedCity)}' `;
     }
 
     return <h1 className="page-title main-color">{title}</h1>;
@@ -59,7 +59,7 @@ class RentalSearchListing extends Component {
 
   render() {
     return (
-      <div className="container pt-5">
+      <div className="container pt-4 pt-md-5">
         <section id="rentalListing">
           {this.renderTitle()}
           <RentalList rentals={this.props.rentals.data} />

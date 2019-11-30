@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import './RentalSearchInput.scss'
+
 const mapStateToProps = state => {
   return {
     rentals: state.rentals
@@ -81,7 +83,7 @@ class RentalSearchInput extends Component {
     return (
       <form className="form-inline bwm-form-wrapper">
         <input
-          className="form-control mr-sm-2 bwm-search"
+          className="form-control bwm-search"
           ref={this.searchInput}
           type="search"
           placeholder='Try "New York"'
@@ -91,6 +93,7 @@ class RentalSearchInput extends Component {
           onClick={() => this.handleSearch()}
           className="btn btn-outline-success btn-bwm-search"
           type="submit">
+          Search{' '}
           <i className="fa fa-search" />
         </button>
       </form>

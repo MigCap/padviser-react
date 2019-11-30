@@ -19,41 +19,6 @@
             font-size: 18px;
         }
     }
-    .bwm-form-wrapper {
-        display: flex;
-        flex-direction: row;
-        @include mediaSm {
-            // background-color: white;
-        }
-        .bwm-search {
-            max-height: 40px;
-            // width: 300px !important;
-            font-size: 16px;
-            @include mediaSm {
-                margin: 5px 0 0 10px;
-                width: 200px !important;
-            }
-        }
-        .btn-bwm-search {
-            border-color: $main-color;
-            color: $main-color;
-            font-size: 16px;
-            padding: 5px 15px;
-            margin: 10px 0;
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: $main-color !important;
-                border-color: $main-color !important;
-                color: white !important;
-                box-shadow: none;
-            }
-            @include mediaSm {
-                margin: 20px 0 15px 20px;
-                padding: 5px 15px;
-            }
-        }
-    }
     .nav-item {
         font-size: 14px;
         color: $main-white-color;
@@ -129,4 +94,9 @@
 
 .navbar-toggler.collapsed .bottom-bar {
     transform: rotate(0);
+}
+
+.search-wrapper-section {
+    background-color: $main-black-color;
+    padding: 0 0 20px 0;
 }

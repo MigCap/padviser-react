@@ -83,7 +83,7 @@ class Header extends Component {
         <nav className="navbar navbar-dark navbar-expand-lg">
   
           <div className="container">
-            <Link to="/" className="navbar-brand">
+            <Link to="/rentals" className="navbar-brand">
               <img
                 src={process.env.PUBLIC_URL + '/img/PAlogo.png'}
                 width="20"
@@ -104,7 +104,7 @@ class Header extends Component {
               <span className="icon-bar bottom-bar" />
             </button>
             <div id="navbarNavAltMarkup" className="collapse navbar-collapse bwm-navbarCollapse-wrapper">
-              <div className="navbar-nav mx-auto">
+              <div className="navbar-nav ml-auto">
                 {isAuth && (
                   <Link to="/rentals" className="nav-item nav-link link-hover">
                     Inventory <span className="sr-only">(current)</span>
@@ -114,13 +114,18 @@ class Header extends Component {
                 {this.renderAuthButtons(isAuth)}
               </div>
             </div>
+            
+          </div>
+        </nav>
+        <div className="search-wrapper-section">
+          <div className="container">
             {this.props.location.pathname === '/' ? (
               <Fragment />
             ) : (
               <RentalSearchInput rentals={this.props.rentals} />
             )}
           </div>
-        </nav>
+        </div>
       </Fragment>
     );
   }

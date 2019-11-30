@@ -41,7 +41,7 @@
     .description-container {
         flex: 63%;
         padding: 0 10px;
-        width: 80%;
+        max-width: 50%;
         @include mediaSm {
             flex: 0 1 60%;
             width: 100%;
