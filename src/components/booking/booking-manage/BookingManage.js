@@ -125,7 +125,7 @@ class BookingManage extends Component {
     if (!isFetching && pendingPayments && !isFetching && bookings) {
       return (
         <Fragment>
-          <div className="container pt-5">
+          <div className="container pt-4 pt-md-5">
             <section id="userBookings">
               <h1 className="page-title">My Bookings</h1>
               <div className="row mb-5">
