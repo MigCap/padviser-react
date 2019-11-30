@@ -41,10 +41,19 @@
     .description-container {
         flex: 63%;
         padding: 0 10px;
-        max-width: 50%;
+        max-width: 60%;
         @include mediaSm {
             flex: 0 1 60%;
-            width: 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+        .booking-card-link {
+            color: $main-text-grey-color !important;
+            cursor: pointer;
+            &:hover {
+                text-decoration: none !important;
+                color: $main-color !important;
+            }
         }
         .booking-category {
             font-size: 12px;
@@ -69,6 +78,11 @@
             max-height: 25px;
             overflow: hidden;
             text-overflow: ellipsis;
+            overflow: hidden;
+            span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         }
         .booking-card-manage-date {
             margin: 0;
@@ -77,19 +91,23 @@
             max-height: 25px;
             overflow: hidden;
             text-overflow: ellipsis;
-            span {
-                margin-left: 20px;
-                font-weight: 500;
-            }
-            @include mediaSm {
-                max-height: 35px;
-            }
+        }
+        .booking-card-manage-date-booking {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 200;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 500;
         }
     }
     .booking-units {
         flex: 6%;
+        margin-right: 15px;
         @include mediaSm {
             flex: 0 1 30%;
+            width: 100%;
+            margin-right: 0;
         }
         span {
             display: block !important;
@@ -101,15 +119,16 @@
     }
     .buttons-container-one {
         flex: 10%;
-        margin-left: 20px;
+        margin-left: 0;
+        text-align: center;
         @include mediaSm {
+            width: 100%;
             flex: 0 1 30%;
-            margin-left: 0;
         }
     }
     .buttons-container-two {
         flex: 5%;
-        margin-left: 20px;
+        text-align: center;
         @include mediaSm {
             flex: 0 1 auto;
             margin-left: 0;
@@ -125,23 +144,16 @@
     }
 }
 
-.booking-card-link {
-    color: $main-text-grey-color !important;
-    cursor: pointer;
-    &:hover {
-        text-decoration: none !important;
-        color: $main-color !important;
-    }
-}
-
 .btn-pa-booking {
     background-color: $main-color;
     color: white;
     font-size: 14px !important;
     border: solid 1px $main-color;
     padding: 3px 10px !important;
-    margin: 5px 0 !important;
+    margin: 5px 5px 5px 0 !important;
+    width: 100%;
     @include mediaSm {
+        width: 100%;
         margin: 10px 0 0 0 !important;
     }
     cursor: pointer;
@@ -159,6 +171,11 @@
     &:disabled {
         cursor: not-allowed;
     }
+}
+
+.btn.badge {
+    // display: inline-block !important;
+    width: 100px !important;
 }
 
 .delete-btn-manage,

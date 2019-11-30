@@ -49,7 +49,8 @@
     "scripts": {
         "heroku-postbuild": "npm run build",
         "start": "npm start --prefix server",
-        "start-dev": "npm-run-all -p start start-js",
+        "start-server": "npm start --prefix server",
+        "start-dev": "npm-run-all -p start-server start-js",
         "build": "npm-run-all build-js",
         "start-js": "react-scripts start",
         "build-js": "react-scripts build",
