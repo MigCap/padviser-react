@@ -50,10 +50,10 @@ export default function BookingCardH (props) {
               </p>
               <p className="text-muted booking-card-manage-date">
                 Created on {pretifyDate(booking.createdAt)}
-                <span>
-                  Booking from {pretifyDate(booking.startAt)} -{' '}
-                  {pretifyDate(booking.endAt)} | {booking.days} day/s
-                </span>
+              </p>
+              <p className="text-muted booking-card-manage-date-booking">
+                Booking from {pretifyDate(booking.startAt)} -{' '}
+                {pretifyDate(booking.endAt)} | {booking.days} day/s
               </p>
             </Link>
           </div>
@@ -114,10 +114,10 @@ export function PaymentCardH(props) {
                 </p>
                 <p className="text-muted booking-card-manage-date">
                   Created on {pretifyDate(booking.createdAt)}
-                  <span>
-                    Booking from {pretifyDate(booking.startAt)} -{' '}
-                    {pretifyDate(booking.endAt)} | {booking.days} day/s
-                  </span>
+                </p>
+                <p className="text-muted booking-card-manage-date-booking">
+                  Booking from {pretifyDate(booking.startAt)} -{' '}
+                  {pretifyDate(booking.endAt)} | {booking.days} day/s
                 </p>
               </Link>
             )}

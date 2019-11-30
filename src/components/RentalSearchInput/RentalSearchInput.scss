@@ -9,7 +9,7 @@
         justify-content: center;
     }
     @include mediaXl {
-        flex-direction: column;
+        flex-direction: row;
         justify-content: flex-end;
     }
     .bwm-search {
