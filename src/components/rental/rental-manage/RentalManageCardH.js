@@ -84,21 +84,21 @@ class RentalManageCardH extends Component {
                   }}>
                   <i className="fa fa-edit" />
                 </Link> */}
-                <button
-                  onClick={() => {
-                    this.showDeleteMenu();
-                  }}
-                  className="btn btn-danger delete-btn-manage mb-2">
-                  <i className="fa fa-trash" />
-                </button>
                 <Link
-                  className="btn btn-info edit-btn-manage"
+                  className="btn btn-info edit-btn-manage mb-2"
                   to={{
                     pathname: `/rentals/${rental._id}`,
                     state: { isUpdate: true }
                   }}>
                   <i className="fa fa-edit" />
                 </Link>
+                <button
+                  onClick={() => {
+                    this.showDeleteMenu();
+                  }}
+                  className="btn btn-danger delete-btn-manage">
+                  <i className="fa fa-trash" />
+                </button>
               </div>
             )}
             {wantDelete && (

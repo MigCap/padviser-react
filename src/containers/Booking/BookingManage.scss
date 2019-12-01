@@ -1,0 +1,13 @@
+@import 'src/styles/variables';
+.nav-tabs-booking-manage {
+    flex-wrap: nowrap !important;
+    @include mediaSm {
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    .nav-link {
+        @include mediaSm {
+            padding: 0.5rem 0.5rem;
+        }
+    }
+}

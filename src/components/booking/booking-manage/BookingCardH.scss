@@ -107,7 +107,7 @@
         flex: 6%;
         margin-right: 15px;
         @include mediaSm {
-            flex: 0 1 30%;
+            flex: 0 1 10%;
             width: 100%;
             margin-right: 0;
         }
@@ -120,12 +120,13 @@
         }
     }
     .buttons-container-one {
-        flex: 10%;
-        margin-left: 0;
+        flex: 0;
+        margin: 0 20px 0 auto;
         text-align: center;
-        @include mediaSm {
+        @include mediaMd {
+            flex: 20%;
             width: 100%;
-            flex: 0 1 30%;
+            margin: 0;
         }
     }
     .buttons-container-two {
