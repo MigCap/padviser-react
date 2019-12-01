@@ -26,7 +26,6 @@ const BookingCardH = (props) => {
     return <Fragment />;
   }
 
-
   const { booking, modal } = props;
 
   if (booking && booking.rental) {

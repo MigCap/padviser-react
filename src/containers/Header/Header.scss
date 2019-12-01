@@ -45,12 +45,12 @@
 }
 
 
-/* NAVBAR TOGGLE */
+/* STARTS NAVBAR TOGGLE STYLES */
 
 .navbar-toggler {
     color: rgba(255, 255, 255, .5);
     border-color: transparent !important;
-    margin: 0 auto;
+    // margin: 0 auto;
     &:focus {
         outline: none;
     }
@@ -96,7 +96,13 @@
     transform: rotate(0);
 }
 
+
+/* ENDS NAVBAR TOGGLE STYLES */
+
+
+/* STARTS SEARCH FIELD WRAPPER STYLES */
+
 .search-wrapper-section {
     background-color: $main-black-color;
-    padding: 0 0 20px 0;
+    margin-top: 10px;
 }

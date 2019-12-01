@@ -10,6 +10,7 @@ import ReviewModal from 'components/review/ReviewModal';
 
 import * as actions from 'app/actions';
 
+import './BookingManage.scss';
 class BookingManage extends Component {
   constructor() {
     super();
@@ -101,7 +102,6 @@ class BookingManage extends Component {
     ));
   }
 
-
   getPendingPayments() {
     actions
       .getPendingPayments()
@@ -135,13 +135,13 @@ class BookingManage extends Component {
       return (
         <Fragment>
           <div className="row container mx-auto mt-3">
-            <ul className="nav nav-tabs">
+            <ul className="nav nav-tabs nav-tabs-booking-manage">
               <li className="nav-item">
                 <a
                   className="nav-link custom-tab-link active"
                   data-toggle="tab"
                   href="#myRentals">
-                  My Rentals
+                  MY BOOKINGS
                 </a>
               </li>
               <li className="nav-item">
@@ -149,12 +149,11 @@ class BookingManage extends Component {
                   className="nav-link custom-tab-link"
                   data-toggle="tab"
                   href="#pendingRentals">
-                  Pending Rentals Received
+                  PENDING BOOKINGS
                 </a>
               </li>
             </ul>
             <div className="tab-content">
-
               <div className="tab-pane active" id="myRentals">
                 <section id="userBookings" className="my-4">
                   <h1 className="page-title">My Bookings</h1>
@@ -173,7 +172,6 @@ class BookingManage extends Component {
                   )}
                 </section>
               </div>
-
               <div className="tab-pane" id="pendingRentals">
                 <section id="pendingBookings" className="my-4">
                   <h1 className="page-title">Pending Bookings</h1>
@@ -191,7 +189,6 @@ class BookingManage extends Component {
                 </section>
               </div>
             </div>
-
           </div>
           {/* <div className="container pt-4 pt-md-5">
             <section id="userBookings">
