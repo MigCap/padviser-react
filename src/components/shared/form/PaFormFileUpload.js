@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import * as actions from '../../../app/actions';
 
+import './PaFormFileUpload.scss'
 export default class PaFormFileUpload extends Component {
   constructor() {
     super();
