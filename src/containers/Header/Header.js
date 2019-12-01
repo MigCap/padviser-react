@@ -102,7 +102,7 @@ class Header extends Component {
             <span className="icon-bar bottom-bar" />
           </button>
           <div id="navbarNavAltMarkup" className="collapse navbar-collapse bwm-navbarCollapse-wrapper">
-            <div className="search-wrapper-section">
+            <div className="search-wrapper-section d-xs-block d-sm-block d-md-block d-lg-none d-xl-none">
               {this.props.location.pathname === '/' ? (
                 <Fragment />
               ) : (
@@ -117,6 +117,13 @@ class Header extends Component {
               )}
               {this.renderUserSection(isAuth, username)}
               {this.renderAuthButtons(isAuth)}
+            </div>
+            <div className="search-wrapper-section d-none d-lg-block ml-3">
+              {this.props.location.pathname === '/' ? (
+                <Fragment />
+              ) : (
+                <RentalSearchInput rentals={this.props.rentals} />
+              )}
             </div>
           </div>
         </div>

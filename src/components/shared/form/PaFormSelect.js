@@ -4,6 +4,7 @@ export const PaFormSelect = ({
   input,
   label,
   symbol,
+  prependText,
   placeholder,
   options,
   className,
@@ -22,13 +23,18 @@ export const PaFormSelect = ({
     <div className="form-group">
       {label && <label>{label}</label>}
       <div className="input-group input-group-sm">
-        {symbol && (
+        {prependText && (
+          <div className="input-group-prepend">
+            <div id="inputGroup-sizing-sm" className="input-group-text">{prependText}</div>
+          </div>
+        )}
+        {/* {symbol && (
           <div className="input-group-prepend">
             <div id="inputGroup-sizing-sm" className="input-group-text">
               {symbol}
             </div>
           </div>
-        )}
+        )} */}
         <select {...input} className={className} placeholder={placeholder}>
           {renderOptions()}
         </select>

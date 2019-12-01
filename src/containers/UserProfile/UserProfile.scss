@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import 'src/styles/variables';
 .user-profile-container {
     .img-circle {
         object-fit: cover;
@@ -6,8 +6,8 @@
         border-radius: 50%;
         width: 150px;
         height: 150px;
-        max-width: 150px;
-        max-height: 150px;
+        max-width: 130px;
+        max-height: 130px;
         min-width: 70px;
         min-height: 70px;
     }

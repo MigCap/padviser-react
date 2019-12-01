@@ -1,14 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import { PaFormInput } from '../../shared/form/PaFormInput';
-import { PaFormTextArea } from '../../shared/form/PaFormTextArea';
-import { PaFormSelect } from '../../shared/form/PaFormSelect';
-import PaFormFileUpload from '../../shared/form/PaFormFileUpload';
+import { PaFormInput } from 'components/shared/form/PaFormInput';
+import { PaFormTextArea } from 'components/shared/form/PaFormTextArea';
+import { PaFormSelect } from 'components/shared/form/PaFormSelect';
+import PaFormFileUpload from 'components/shared/form/PaFormFileUpload';
 
-import PaRespError from '../../shared/form/PaRespError';
+import PaRespError from 'components/shared/form/PaRespError';
 
-import { required } from '../../shared/form/validators';
+import { required } from 'components/shared/form/validators';
 
 const RentalCreateForm = props => {
   const {
@@ -27,7 +27,8 @@ const RentalCreateForm = props => {
         name="brand"
         type="text"
         label="Item"
-        placeholder="Brand"
+        prependText="Brand"
+        placeholder="Item Brand"
         className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
@@ -35,7 +36,8 @@ const RentalCreateForm = props => {
       <Field
         name="model"
         type="text"
-        placeholder="Model"
+        prependText="Model"
+        placeholder="Item Model"
         className="form-control form-control-sm"
         component={PaFormInput}
         validate={[required]}
@@ -59,7 +61,7 @@ const RentalCreateForm = props => {
       <Field
         name="category"
         placeholder="Category"
-        symbol="Category"
+        prependText="Category"
         options={categoryOptions}
         className="custom-select form-control form-control-sm"
         component={PaFormSelect}
@@ -68,7 +70,7 @@ const RentalCreateForm = props => {
       <Field
         options={conditionOptions}
         name="condition"
-        symbol="Condition"
+        prependText="Condition"
         className="custom-select form-control form-control-sm"
         component={PaFormSelect}
         validate={[required]}
@@ -76,7 +78,7 @@ const RentalCreateForm = props => {
       <Field
         name="units"
         type="number"
-        symbol="Number"
+        prependText="Number"
         placeholder="Units available"
         className="form-control form-control-sm"
         component={PaFormInput}
@@ -87,7 +89,7 @@ const RentalCreateForm = props => {
         type="number"
         placeholder="Daily Rate"
         className="form-control form-control-sm"
-        symbol="$"
+        prependText="$"
         component={PaFormInput}
         validate={[required]}
       />
