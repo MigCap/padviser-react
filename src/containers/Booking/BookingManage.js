@@ -11,6 +11,8 @@ import ReviewModal from "components/review/ReviewModal";
 import * as actions from "app/actions";
 
 import "./BookingManage.scss";
+
+// Test comment pre deploy
 class BookingManage extends Component {
   constructor() {
     super();
