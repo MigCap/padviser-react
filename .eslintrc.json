@@ -18,5 +18,6 @@
     //     "unix"
     // ],
     // "quotes": ["error", "single"]
+    "no-lone-blocks": 0
   }
 }

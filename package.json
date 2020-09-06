@@ -32,6 +32,7 @@
         "react-bootstrap-daterangepicker": "4.1.0",
         "react-dom": "^16.6.3",
         "react-google-maps": "^9.4.5",
+        "react-google-recaptcha": "^2.1.0",
         "react-redux": "^5.0.7",
         "react-responsive-modal": "3.0.3",
         "react-router-dom": "^4.3.1",
