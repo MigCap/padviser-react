@@ -17,6 +17,6 @@
     //     "error",
     //     "unix"
     // ],
-    "quotes": ["error", "single"]
+    // "quotes": ["error", "single"]
   }
 }
