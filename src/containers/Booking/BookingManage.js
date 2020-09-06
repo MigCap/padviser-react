@@ -1,23 +1,23 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-import BookingCardH from 'components/booking/booking-manage/BookingCardH';
-import { PaymentCardH } from 'components/booking/booking-manage/BookingCardH';
-import ReviewModal from 'components/review/ReviewModal';
+import BookingCardH from "components/booking/booking-manage/BookingCardH";
+import { PaymentCardH } from "components/booking/booking-manage/BookingCardH";
+import ReviewModal from "components/review/ReviewModal";
 
-import * as actions from 'app/actions';
+import * as actions from "app/actions";
 
-import './BookingManage.scss';
+import "./BookingManage.scss";
 class BookingManage extends Component {
   constructor() {
     super();
 
     this.state = {
       errors: [],
-      pendingPayments: []
+      pendingPayments: [],
     };
   }
 
@@ -26,7 +26,7 @@ class BookingManage extends Component {
     this.getPendingPayments();
   }
 
-  reviewCreateCb = reviewData => {
+  reviewCreateCb = (reviewData) => {
     const ToastIcon = () => (
       <div>
         <div className="">
@@ -36,33 +36,34 @@ class BookingManage extends Component {
       </div>
     );
 
-    actions.createReview(reviewData)
-    .then(
-      reviewed => {
+    actions.createReview(reviewData).then(
+      (reviewed) => {
         toast(<ToastIcon />, {
           hideProgressBar: true,
-          className: 'toast-success-background',
-          bodyClassName: 'toast-success-body'
+          className: "toast-success-background",
+          bodyClassName: "toast-success-body",
         });
         this.props.dispatch(actions.fetchUserBookings());
       },
-      errors => {
+      (errors) => {
         this.setState({ errors });
       }
     );
   };
 
-  renderPaymentButtons = payment => {
+  renderPaymentButtons = (payment) => {
     return (
       <div>
         <button
           className="btn badge badge-success m-1"
-          onClick={() => this.acceptPayment(payment)}>
+          onClick={() => this.acceptPayment(payment)}
+        >
           Accept
         </button>
         <button
           className="btn badge badge-danger m-1"
-          onClick={() => this.declinePayment(payment)}>
+          onClick={() => this.declinePayment(payment)}
+        >
           Decline
         </button>
       </div>
@@ -70,61 +71,83 @@ class BookingManage extends Component {
   };
 
   renderBookingsCards(bookings) {
-    return bookings && bookings.map((booking, index) => (
-      <BookingCardH
-        booking={booking}
-        key={index}
-        modal={
-          <ReviewModal
-            key={index}
-            reviewCreateCb={this.reviewCreateCb}
-            booking={booking}
-            errors={this.state.errors}
-          />
-        }
-      />
-    ));
+    return (
+      bookings &&
+      bookings.map((booking, index) => (
+        <BookingCardH
+          booking={booking}
+          key={index}
+          modal={
+            <ReviewModal
+              key={index}
+              reviewCreateCb={this.reviewCreateCb}
+              booking={booking}
+              errors={this.state.errors}
+            />
+          }
+        />
+      ))
+    );
   }
 
   renderPaymentsCards(pendingPayments) {
-    const pendingPaymentsStatusPending = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'pending');
-    const pendingPaymentsStatusPaid = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'paid');
-    const pendingPaymentsStatusDeclined = pendingPayments && pendingPayments.filter(pendingPayment => pendingPayment.status === 'declined');
-    const newSetPendingPayments = [...pendingPaymentsStatusPending, ...pendingPaymentsStatusPaid, ...pendingPaymentsStatusDeclined];
+    const pendingPaymentsStatusPending =
+      pendingPayments &&
+      pendingPayments.filter(
+        (pendingPayment) => pendingPayment.status === "pending"
+      );
+    const pendingPaymentsStatusPaid =
+      pendingPayments &&
+      pendingPayments.filter(
+        (pendingPayment) => pendingPayment.status === "paid"
+      );
+    const pendingPaymentsStatusDeclined =
+      pendingPayments &&
+      pendingPayments.filter(
+        (pendingPayment) => pendingPayment.status === "declined"
+      );
+    const newSetPendingPayments = [
+      ...pendingPaymentsStatusPending,
+      ...pendingPaymentsStatusPaid,
+      ...pendingPaymentsStatusDeclined,
+    ];
 
-    return newSetPendingPayments && newSetPendingPayments.map((pendingPayment, index) => (
-      <PaymentCardH
-        booking={pendingPayment.booking}
-        payment={pendingPayment}
-        paymentBtns={this.renderPaymentButtons}
-        key={index}
-      />
-    ));
+    return (
+      newSetPendingPayments &&
+      newSetPendingPayments.map((pendingPayment, index) => (
+        <PaymentCardH
+          booking={pendingPayment.booking}
+          payment={pendingPayment}
+          paymentBtns={this.renderPaymentButtons}
+          key={index}
+        />
+      ))
+    );
   }
 
   getPendingPayments() {
     actions
       .getPendingPayments()
-      .then(pendingPayments => this.setState({ pendingPayments }))
-      .catch(err => console.error(err));
+      .then((pendingPayments) => this.setState({ pendingPayments }))
+      .catch((err) => console.error(err));
   }
 
   acceptPayment(payment) {
     actions
       .acceptPayment(payment)
-      .then(status => {
+      .then((status) => {
         this.getPendingPayments();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   declinePayment(payment) {
     actions
       .declinePayment(payment)
-      .then(status => {
+      .then((status) => {
         this.getPendingPayments();
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err));
   }
 
   render() {
@@ -140,7 +163,8 @@ class BookingManage extends Component {
                 <a
                   className="nav-link custom-tab-link active"
                   data-toggle="tab"
-                  href="#myRentals">
+                  href="#myRentals"
+                >
                   MY BOOKINGS
                 </a>
               </li>
@@ -148,7 +172,8 @@ class BookingManage extends Component {
                 <a
                   className="nav-link custom-tab-link"
                   data-toggle="tab"
-                  href="#pendingRentals">
+                  href="#pendingRentals"
+                >
                   PENDING BOOKINGS
                 </a>
               </li>
@@ -157,14 +182,16 @@ class BookingManage extends Component {
               <div className="tab-pane active" id="myRentals">
                 <section id="userBookings" className="my-4">
                   <h1 className="page-title">My Bookings</h1>
-                  <p className="text-muted font-weight-light small">Check booked products status. Leave reviews</p>
+                  <p className="text-muted font-weight-light small">
+                    Check booked products status. Leave reviews
+                  </p>
                   <div className="row mb-5">
                     {this.renderBookingsCards(bookings)}
                   </div>
                   {!isFetching && bookings.length === 0 && (
                     <div className="alert alert-warning">
-                      You have no bookings created yet. Go to rentals section and
-                      book your equipment today.
+                      You have no bookings created yet. Go to rentals section
+                      and book your equipment today.
                       <Link className="btn btn-pa ml-3" to="/rentals">
                         Available Rentals
                       </Link>
@@ -175,7 +202,9 @@ class BookingManage extends Component {
               <div className="tab-pane" id="pendingRentals">
                 <section id="pendingBookings" className="my-4">
                   <h1 className="page-title">Pending Bookings</h1>
-                  <p className="text-muted font-weight-light small">Check received bookings status. Accept or decline bookings</p>
+                  <p className="text-muted font-weight-light small">
+                    Check received bookings status. Accept or decline bookings
+                  </p>
                   {pendingPayments && pendingPayments.length > 0 && (
                     <div className="row">
                       {this.renderPaymentsCards(pendingPayments)}
@@ -243,7 +272,7 @@ class BookingManage extends Component {
 
 function mapStateToProps(state) {
   return {
-    userBookings: state.userBookings
+    userBookings: state.userBookings,
   };
 }
 

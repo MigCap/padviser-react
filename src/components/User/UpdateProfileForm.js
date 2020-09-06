@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React, { Component } from "react";
+// import { Field, reduxForm } from 'redux-form'
 
-import { PaFormInput } from 'components/shared/form/PaFormInput'
-import PaRespError from 'components/shared/form/PaRespError'
-import { required } from 'components/shared/form/validators'
+// import { PaFormInput } from 'components/shared/form/PaFormInput'
+// import PaRespError from 'components/shared/form/PaRespError'
+// import { required } from 'components/shared/form/validators'
 
 class UpdateProfileForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       errors: [],
-      redirect: false
-    }
+      redirect: false,
+    };
   }
 
   componentDidMount() {}
@@ -199,8 +199,8 @@ class UpdateProfileForm extends Component {
           </div>
         </div>
       </form>
-    )
+    );
   }
 }
 
-export default UpdateProfileForm
+export default UpdateProfileForm;

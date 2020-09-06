@@ -1,108 +1,106 @@
-@import 'src/styles/variables';
+@import "src/styles/variables";
 .navbar {
-    padding: 20px;
-    //margin-bottom: 40px;
-    background-color: $main-black-color;
-    .navbar-brand {
-        // margin-right: 100px;
-        font-size: 27px;
-        letter-spacing: 1px;
-        color: $main-color !important;
-        font-weight: 500;
-        img {
-            margin-right: 20px;
-        }
-        @include mediaSm {
-            margin: 0;
-            padding: 10px 5px;
-            width: 70%;
-            font-size: 18px;
-        }
+  padding: 20px;
+  //margin-bottom: 40px;
+  background-color: $main-black-color;
+  height: 70px;
+  .navbar-brand {
+    // margin-right: 100px;
+    font-size: 27px;
+    letter-spacing: 1px;
+    color: $main-color !important;
+    font-weight: 500;
+    img {
+      margin-right: 20px;
     }
-    .nav-item {
-        font-size: 14px;
-        color: $main-white-color;
+    @include mediaSm {
+      margin: 0;
+      padding: 10px 5px;
+      width: 70%;
+      font-size: 18px;
     }
-    p.clickable {
-        margin-bottom: 0;
+  }
+  .nav-item {
+    font-size: 14px;
+    color: $main-white-color;
+  }
+  p.clickable {
+    margin-bottom: 0;
+  }
+  .dropdown-menu {
+    .dropdown-item {
+      font-size: 14px;
+      &:active {
+        background-color: $main-color;
+      }
     }
-    .dropdown-menu {
-        .dropdown-item {
-            font-size: 14px;
-            &:active {
-                background-color: $main-color;
-            }
-        }
-    }
+  }
 }
 
 .custom-nav-link {
-    color: $main-color !important;
-    font-weight: 500;
-    &:hover {
-        color: lighten($main-color, 15%) !important;
-    }
+  color: $main-color !important;
+  font-weight: 500;
+  &:hover {
+    color: lighten($main-color, 15%) !important;
+  }
 }
-
 
 /* STARTS NAVBAR TOGGLE STYLES */
 
 .navbar-toggler {
-    color: rgba(255, 255, 255, .5);
-    border-color: transparent !important;
-    // margin: 0 auto;
-    &:focus {
-        outline: none;
-    }
-    @include mediaSm {
-        margin: 0;
-        padding: 0 0 10px 10px !important;
-    }
+  color: rgba(255, 255, 255, 0.5);
+  border-color: transparent !important;
+  // margin: 0 auto;
+  &:focus {
+    outline: none;
+  }
+  @include mediaSm {
+    margin: 0;
+    padding: 0 0 10px 10px !important;
+  }
 }
 
 // NAVBAR ANIMATION
 .icon-bar {
-    width: 30px;
-    height: 2px;
-    background-color: $main-color;
-    display: block;
-    transition: all 0.2s;
-    margin-top: 6px
+  width: 30px;
+  height: 2px;
+  background-color: $main-color;
+  display: block;
+  transition: all 0.2s;
+  margin-top: 6px;
 }
 
 .navbar-toggler .top-bar {
-    transform: rotate(45deg);
-    transform-origin: 10% 10%;
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
 }
 
 .navbar-toggler .middle-bar {
-    opacity: 0;
+  opacity: 0;
 }
 
 .navbar-toggler .bottom-bar {
-    transform: rotate(-45deg);
-    transform-origin: 10% 90%;
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
 }
 
 .navbar-toggler.collapsed .top-bar {
-    transform: rotate(0);
+  transform: rotate(0);
 }
 
 .navbar-toggler.collapsed .middle-bar {
-    opacity: 1;
+  opacity: 1;
 }
 
 .navbar-toggler.collapsed .bottom-bar {
-    transform: rotate(0);
+  transform: rotate(0);
 }
 
-
 /* ENDS NAVBAR TOGGLE STYLES */
-
 
 /* STARTS SEARCH FIELD WRAPPER STYLES */
 
 .search-wrapper-section {
-    background-color: $main-black-color;
-    margin-top: 10px;
+  background-color: $main-black-color;
+  margin-top: 10px;
 }
