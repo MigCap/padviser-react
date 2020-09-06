@@ -29,6 +29,7 @@ testtem.log/typings
 .settings/
 
 #IDE - VSCode
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -43,7 +44,6 @@ testtem.log/typings
 .env.test.local
 .env.production.local
 /.sass-cache
-
 
 npm-debug.log*
 yarn-debug.log*
