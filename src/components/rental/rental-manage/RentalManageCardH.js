@@ -1,28 +1,28 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import { toUpperCase, pretifyDate } from 'app/helpers';
+import { toUpperCase, pretifyDate } from "app/helpers";
 
-import './RentalManageCardH.scss';
+import "./RentalManageCardH.scss";
 
 class RentalManageCardH extends Component {
   constructor() {
     super();
 
     this.state = {
-      wantDelete: false
+      wantDelete: false,
     };
   }
 
   showDeleteMenu() {
     this.setState({
-      wantDelete: true
+      wantDelete: true,
     });
   }
 
   closeDeleteMenu() {
     this.setState({
-      wantDelete: false
+      wantDelete: false,
     });
   }
 
@@ -36,7 +36,7 @@ class RentalManageCardH extends Component {
     const { rental, modal, rentalIndex } = this.props;
     const { wantDelete } = this.state;
 
-    const deleteClass = wantDelete ? 'toBeDeleted' : '';
+    const deleteClass = wantDelete ? "toBeDeleted" : "";
 
     return (
       <div className="col-12">
@@ -88,15 +88,17 @@ class RentalManageCardH extends Component {
                   className="btn btn-info edit-btn-manage mb-2"
                   to={{
                     pathname: `/rentals/${rental._id}`,
-                    state: { isUpdate: true }
-                  }}>
+                    state: { isUpdate: true },
+                  }}
+                >
                   <i className="fa fa-edit" />
                 </Link>
                 <button
                   onClick={() => {
                     this.showDeleteMenu();
                   }}
-                  className="btn btn-danger delete-btn-manage">
+                  className="btn btn-danger delete-btn-manage"
+                >
                   <i className="fa fa-trash" />
                 </button>
               </div>
@@ -108,14 +110,16 @@ class RentalManageCardH extends Component {
                   onClick={() => {
                     this.deleteRental(rental._id, rentalIndex);
                   }}
-                  className="btn btn-danger btn-manage">
+                  className="btn btn-danger btn-manage"
+                >
                   Yes
                 </button>
                 <button
                   onClick={() => {
                     this.closeDeleteMenu();
                   }}
-                  className="btn btn-success btn-manage">
+                  className="btn btn-success btn-manage"
+                >
                   No
                 </button>
               </div>

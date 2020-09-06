@@ -45,9 +45,6 @@ testtem.log/typings
 .env.production.local
 /.sass-cache
 
-# linting
-.eslintrc.json
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -1,29 +1,29 @@
-@import 'src/styles/variables';
+@import "src/styles/variables";
 .masthead {
-    background-color: $main-black-color;
-    min-height: 500px;
-    height: 100% !important;
-    margin: 0;
-    padding: 0;
+  background-color: $main-black-color;
+  min-height: calc(100vh - 70px);
+  height: 100% !important;
+  margin: 0;
+  padding: 0;
 }
 
 .ui-container {
-    color: $main-color;
-    img {
-        display: block;
-        margin: 0 auto;
-        padding: 3em 0 0.5em 0;
-        width: 50%;
-        @include mediaSm {
-            width: 80%;
-        }
+  color: $main-color;
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 3em 0 0.5em 0;
+    width: 50%;
+    @include mediaSm {
+      width: 80%;
     }
-    h2 {
-        font-size: 1.5em;
-        font-weight: normal;
-        text-align: center;
-        @include mediaSm {
-            font-size: 1em;
-        }
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    text-align: center;
+    @include mediaSm {
+      font-size: 1em;
     }
+  }
 }
