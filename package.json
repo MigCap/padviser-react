@@ -9,7 +9,7 @@
     "private": true,
     "dependencies": {
         "aws-sdk": "^2.378.0",
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "bcrypt": "^3.0.2",
         "body-parser": "^1.18.3",
         "bootstrap": "^4.0.0",
