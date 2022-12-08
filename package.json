@@ -15,7 +15,7 @@
         "bootstrap": "^4.0.0",
         "bootstrap-daterangepicker": "2.1.30",
         "camel-case": "^3.0.0",
-        "express": "4.16.3",
+        "express": "4.17.3",
         "font-awesome": "^4.7.0",
         "glamor": "^2.20.40",
         "http-proxy-middleware": "^0.19.1",
